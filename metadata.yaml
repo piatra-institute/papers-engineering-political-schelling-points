@@ -1,0 +1,37 @@
+slug: engineering-political-schelling-points
+web_slug: engineering-political-schelling-points
+title: 'Engineering Political Schelling Points: Disclosing a Common Source Removes Evidence but Leaves
+  Coordination Unless the Disclosure Is Common Knowledge'
+header: ENGINEERING POLITICAL SCHELLING POINTS
+created: 2026-11
+date: November 2026
+paper_dir: paper
+has_simulation: true
+genre: formal model with exact equilibrium computation, an identification result and a decisive-experiment
+  design
+coined_terms:
+- evidential channel
+- coordination channel
+- publicity paradox
+- publicity-credibility ratio
+claims_target: claims.yaml
+repo: git@github.com:piatra-institute/papers-engineering-political-schelling-points.git
+github: https://github.com/piatra-institute/papers-engineering-political-schelling-points
+status: built
+abstract: 'When many accounts amplify a call to collective action, the message matters as evidence that
+  the action can succeed and as a shared reference that lets people predict one another. A regime-change
+  global game separates the two: a message''s perceived precision depends on how independent its sources
+  are believed to be, and a reach parameter measures whether its receipt is common knowledge. The equilibrium
+  cutoff decomposes exactly into a closed-form evidential channel and a coordination channel equal to
+  an explicit, reach-dependent multiplier on it; at baseline coordination is 80% of the effect when receipt
+  is common knowledge. A message every receiver believes uninformative has no effect however visible,
+  but a receiver who alone learns that the source is common keeps following it because others do. Disclosing
+  a common source in isolation removes 11% of the effect of a campaign of 3 accounts at full reach; as
+  common knowledge it removes 71%; when it also makes receipt common knowledge it raises participation
+  in a mobilizing message, to first order, exactly when a publicity-credibility ratio exceeds one. If
+  participation erodes the status quo, a temporary message persists only above a closed-form feedback
+  threshold and only if it pushes participation past an unstable state. Exposure data cannot separate
+  persuasion, coordination and the majority illusion; a laboratory design crossing visibility with incentives
+  can, with 7 to 74 groups of 20 per cell depending on how fully participants act on coordination. All
+  results are exact computations in a stylised model with illustrative parameters.'
+checks: 2026-11

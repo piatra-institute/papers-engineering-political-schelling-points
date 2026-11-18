@@ -1,0 +1,6 @@
+[project]
+name = "engineering-political-schelling-points"
+version = "1.0.0"
+description = "Exact equilibria of a regime-change global game with an amplified message: evidential and coordination channels, provenance disclosure, persistence, and an experimental design with power analysis."
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy==2.0.2", "scipy==1.14.1", "matplotlib==3.9.2"]

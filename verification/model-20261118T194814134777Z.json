@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "model",
+  "started": "2026-11-18T19:30:46.900052+00:00",
+  "finished": "2026-11-18T19:36:54.278381+00:00",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "run_all.py"
+  ],
+  "cwd": "simulation",
+  "runtime": {
+    "scope": "recorder",
+    "python": "3.14.3 (main, Mar 25 2026, 03:28:18) [Clang 22.1.1 ]",
+    "platform": "macOS-15.1-arm64-arm-64bit-Mach-O"
+  },
+  "execution_result": null,
+  "execution": {
+    "status": "PASS",
+    "exit_code": 0,
+    "detail": "command completed"
+  },
+  "input_scope": "execution-v1",
+  "additional_inputs": [],
+  "inputs": {
+    "simulation/aware.py": "553c1fee2e1f4beae37f4eb18f80a358d717ca42af6318a454826d668e31fadc",
+    "simulation/dynamics.py": "8ce1e4fafc620aff9ea158e94e2cdd558d4681721fa01ef9a8ffa84d598ab0f8",
+    "simulation/experiment.py": "20145c67afef1289bc137b1992de5e25d3d1beec32cfd1656c65c6e733b454b4",
+    "simulation/finite_group.py": "92256b79bc0c129a7f9229590a91b8444bccf32397b7525775248a3ea7e69a36",
+    "simulation/model.py": "e2ae328a25be7b4a627b292fa38df56f0f538c18b450d89f66dea603a33d3c74",
+    "simulation/pyproject.toml": "5431e1153e421c9eede088b36f7664110f8ad8710b329ba42c27cc1724d0a5cf",
+    "simulation/run_all.py": "60551413cd840fb3dac8a589dc304d91333293744dec37e1dd438d3e0465e138",
+    "simulation/test_model.py": "4d9e26496b4647095eff2162d75c5458c14eed543f20ec384fb4f451167acef6",
+    "simulation/uv.lock": "7ed43ea07aa7757dd165e35ee0ed02a57a2706f7cd92885576647a97da683f86"
+  },
+  "artifacts": {
+    "simulation/output/results.json": "10a8803ffaf07773178acb0917165b9d17800bbbb4c7465555c78a9e021f3e77",
+    "paper/figures/channels.pdf": "b8402b8d43c0d1ba90108a3b0e2e5e9b8cdc33f24edc8d67051be2fafd8ce3cc",
+    "paper/figures/dynamics.pdf": "125f0f8f50520f1f1a50bb4699aa2845bd38d07f0ffecc7c7d51c070cce904a8",
+    "paper/figures/design.pdf": "69614bd48f1d59b5eb8d7a3e6ecab8d0b03bd22de3449b0f452df491f227902c"
+  }
+}

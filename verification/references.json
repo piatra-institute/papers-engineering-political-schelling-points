@@ -1,0 +1,1974 @@
+{
+  "schema": 1,
+  "references_sha256": "f677d6b16d4fa1cf55c73257bbdd2dcacf45e75863243c7443399a20b8ee1aa9",
+  "bibliography_inputs": {
+    "references.yaml": "f677d6b16d4fa1cf55c73257bbdd2dcacf45e75863243c7443399a20b8ee1aa9"
+  },
+  "entries": [
+    {
+      "id": "schelling1960",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-18T19:41:57.899826+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.1126/science.132.3418.28",
+          "title": [
+            "<i>The Strategy of Conflict</i>\n            . Thomas C. Schelling. Harvard University Press, Cambridge, Mass., 1960. x + 309 pp. $6.25."
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1017/s1373971900075387",
+          "title": [
+            "T.C. Schelling, The Strategy of Conflict. Cambridge, Mass., Harvard University Press, 1960, IX p. 309 p., $ 6.25."
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.2307/1910005",
+          "title": [
+            "The Strategy of Conflict"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "carlsson1993",
+      "doi": "10.2307/2951491",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Global Games and Equilibrium Selection",
+          "registry": [
+            "Global Games and Equilibrium Selection"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "carlsson",
+          "registry": "carlsson",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1993
+          ],
+          "registry": [
+            1993,
+            1993,
+            1993
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Econometrica",
+          "registry": [
+            "Econometrica"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 61,
+          "registry": "61",
+          "match": true
+        },
+        "issue": {
+          "reference": 5,
+          "registry": "5",
+          "match": true
+        },
+        "page": {
+          "reference": "989-1018",
+          "registry": "989",
+          "match": false
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:41:58.524566+00:00",
+      "record_sha256": "6ea5a6858efe8c6bb1ace8f348ad249c263dcb181b88e0675e88f46fa471335a",
+      "suggestions": [],
+      "message": "different fields: page"
+    },
+    {
+      "id": "morris1998",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-18T19:41:59.025694+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.1093/oso/9780199243211.003.0009",
+          "title": [
+            "Unique Equilibrium in a Model of Self-Fulfilling Currency Attacks"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1093/oso/9780199242948.003.0013",
+          "title": [
+            "Unique Equilibrium in a Model of Self-Fulfilling Currency Attacks"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1257/aer.90.1.316",
+          "title": [
+            "Unique Equilibrium in a Model of Self-Fulfilling Currency Attacks: Comment"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "morris2002",
+      "doi": "10.1257/000282802762024610",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Social Value of Public Information",
+          "registry": [
+            "Social Value of Public Information"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "morris",
+          "registry": "morris",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2002
+          ],
+          "registry": [
+            2002,
+            2002,
+            2002
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Economic Review",
+          "registry": [
+            "American Economic Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 92,
+          "registry": "92",
+          "match": true
+        },
+        "issue": {
+          "reference": 5,
+          "registry": "5",
+          "match": true
+        },
+        "page": {
+          "reference": "1521-1534",
+          "registry": "1521-1534",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:41:59.646836+00:00",
+      "record_sha256": "aa57433d05259019b1f200739eb6674fbb2dab756caacf59cfa2b348364f7bd6",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "morris2003",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-18T19:42:00.818374+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "ISBN": "8493424560",
+          "title": "The Human Planet",
+          "registry": "OpenLibrary"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "hellwig2002",
+      "doi": "10.1006/jeth.2002.2947",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Public Information, Private Information, and the Multiplicity of Equilibria in Coordination Games",
+          "registry": [
+            "Public Information, Private Information, and the Multiplicity of Equilibria in Coordination Games"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "hellwig",
+          "registry": "hellwig",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2002
+          ],
+          "registry": [
+            2002,
+            2002,
+            2002
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of Economic Theory",
+          "registry": [
+            "Journal of Economic Theory"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 107,
+          "registry": "107",
+          "match": true
+        },
+        "issue": {
+          "reference": 2,
+          "registry": "2",
+          "match": true
+        },
+        "page": {
+          "reference": "191-222",
+          "registry": "191-222",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:01.384818+00:00",
+      "record_sha256": "95d4032d05da40a02d26f45f02fd10d0baf0bf6d14bbf1939b8e02a0da2ad943",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "angeletos2006",
+      "doi": "10.1086/504901",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Signaling in a Global Game: Coordination and Policy Traps",
+          "registry": [
+            "Signaling in a Global Game: Coordination and Policy Traps"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "angeletos",
+          "registry": "angeletos",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2006
+          ],
+          "registry": [
+            2006,
+            2006,
+            2006
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of Political Economy",
+          "registry": [
+            "Journal of Political Economy"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 114,
+          "registry": "114",
+          "match": true
+        },
+        "issue": {
+          "reference": 3,
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "452-484",
+          "registry": "452-484",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:02.070891+00:00",
+      "record_sha256": "5b7fb1983a1f4327f6fb8626d65abba39a1ccca683ac108726d374e27e1cb0c2",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "angeletos2007",
+      "doi": "10.1111/j.1468-0262.2007.00766.x",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Dynamic Global Games of Regime Change: Learning, Multiplicity, and the Timing of Attacks",
+          "registry": [
+            "Dynamic Global Games of Regime Change: Learning, Multiplicity, and the Timing of Attacks"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "angeletos",
+          "registry": "angeletos",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2007
+          ],
+          "registry": [
+            2007,
+            2007,
+            2007
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Econometrica",
+          "registry": [
+            "Econometrica"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 75,
+          "registry": "75",
+          "match": true
+        },
+        "issue": {
+          "reference": 3,
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "711-756",
+          "registry": "711-756",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:02.713108+00:00",
+      "record_sha256": "b292d69f03a44bc7c6a4efd05290278f92982cc5ec3dc47f1a0887b1fe42bda5",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "edmond2013",
+      "doi": "10.1093/restud/rdt020",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Information Manipulation, Coordination, and Regime Change",
+          "registry": [
+            "Information Manipulation, Coordination, and Regime Change*"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "edmond",
+          "registry": "edmond",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2013
+          ],
+          "registry": [
+            2013,
+            2013,
+            2013,
+            2013
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Review of Economic Studies",
+          "registry": [
+            "The Review of Economic Studies"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 80,
+          "registry": "80",
+          "match": true
+        },
+        "issue": {
+          "reference": 4,
+          "registry": "4",
+          "match": true
+        },
+        "page": {
+          "reference": "1422-1458",
+          "registry": "1422-1458",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:03.326124+00:00",
+      "record_sha256": "7ecee022e506d362bb4c5e9f2976844a69c2a8c5ef65ebec95f23fe2072c15bb",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "little2016",
+      "doi": "10.1086/683187",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Communication Technology and Protest",
+          "registry": [
+            "Communication Technology and Protest"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "little",
+          "registry": "little",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2016
+          ],
+          "registry": [
+            2016,
+            2016,
+            2016
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of Politics",
+          "registry": [
+            "The Journal of Politics"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 78,
+          "registry": "78",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "152-166",
+          "registry": "152-166",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:04.209921+00:00",
+      "record_sha256": "4e5fa4c9aa1a4256460cfa56ad236705fdaf94eeffc7578fde6269c7ae788b8e",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "little2017",
+      "doi": "10.1016/j.geb.2016.12.006",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Propaganda and Credulity",
+          "registry": [
+            "Propaganda and credulity"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "little",
+          "registry": "little",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2017
+          ],
+          "registry": [
+            2017,
+            2017,
+            2017
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Games and Economic Behavior",
+          "registry": [
+            "Games and Economic Behavior"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 102,
+          "registry": "102",
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": "224-232",
+          "registry": "224-232",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:04.778959+00:00",
+      "record_sha256": "bc3d591d5b989715039863f284184f2afe5b8227b3d871f14215e5e2da5edd1b",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "barbera2020",
+      "doi": "10.1561/100.00019002",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "A Model of Protests, Revolution, and Information",
+          "registry": [
+            "A Model of Protests, Revolution, and Information"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "barbera",
+          "registry": "barbera",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2020
+          ],
+          "registry": [
+            2020,
+            2020,
+            2020,
+            2020
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Quarterly Journal of Political Science",
+          "registry": [
+            "Quarterly Journal of Political Science"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 15,
+          "registry": "15",
+          "match": true
+        },
+        "issue": {
+          "reference": 3,
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "297-335",
+          "registry": "297-335",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:05.632118+00:00",
+      "record_sha256": "899e8896c86ea4ea4e0281f0d3b1be468c2e158118dc1070c2926ef68485ae2e",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "chen2016",
+      "doi": "10.1111/iere.12149",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "The Power of Whispers: A Theory of Rumor, Communication, and Revolution",
+          "registry": [
+            "THE POWER OF WHISPERS: A THEORY OF RUMOR, COMMUNICATION, AND REVOLUTION*"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "chen",
+          "registry": "chen",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2016
+          ],
+          "registry": [
+            2016,
+            2016,
+            2016,
+            2016
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "International Economic Review",
+          "registry": [
+            "International Economic Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 57,
+          "registry": "57",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "89-116",
+          "registry": "89-116",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:06.292949+00:00",
+      "record_sha256": "08afe5ecce77ce1546287fd606771caf8de4f3c2c54c036e4f95c21be36ae826",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "buenodemesquita2010",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-18T19:42:06.927458+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.2139/ssrn.4219725",
+          "title": [
+            "Citizens’ Protests: causes and consequences. A Research on Regime Change and Revolutionary Entrepreneurs by Bueno De Mesquita"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1017/s0003055410000274",
+          "title": [
+            "Regime Change and Revolutionary Entrepreneurs"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1163/9789004263222_006",
+          "title": [
+            "4. Theo van Doesburg and Russia: Utopia Thwarted"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "chwe2000",
+      "doi": "10.1111/1467-937X.00118",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Communication and Coordination in Social Networks",
+          "registry": [
+            "Communication and Coordination in Social Networks"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "chwe",
+          "registry": "chwe",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2000
+          ],
+          "registry": [
+            2000,
+            2000,
+            2000
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Review of Economic Studies",
+          "registry": [
+            "Review of Economic Studies"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 67,
+          "registry": "67",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "1-16",
+          "registry": "1-16",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:07.576863+00:00",
+      "record_sha256": "37524afeb537b6ce5ed8f8d29eb3eca88edea8ff2b06d4c28638c70d011c3582",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "chwe2001",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-18T19:42:08.112063+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.23943/princeton/9780691158280.001.0001",
+          "title": [
+            "Rational Ritual"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1515/9781400846436",
+          "title": [
+            "Rational Ritual"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1515/9781400846436-fm",
+          "title": [
+            "Frontmatter"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "kuran1991",
+      "doi": "10.2307/2010422",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Now out of Never: The Element of Surprise in the East European Revolution of 1989",
+          "registry": [
+            "Now out of Never: The Element of Surprise in the East European Revolution of 1989"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "kuran",
+          "registry": "kuran",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1991
+          ],
+          "registry": [
+            1991,
+            1991,
+            1991,
+            2011
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "World Politics",
+          "registry": [
+            "World Politics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 44,
+          "registry": "44",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "7-48",
+          "registry": "7-48",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:08.681398+00:00",
+      "record_sha256": "46a31a91a2205c7b102c6b5f61ebb6b67e126fd84941b6ea967f6b1e1b238771",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "kuran1995",
+      "doi": null,
+      "outcome": "unverified",
+      "compared_fields": {},
+      "registry": null,
+      "fetched_at": "2026-11-18T19:42:09.182348+00:00",
+      "record_sha256": null,
+      "suggestions": [
+        {
+          "DOI": "10.2307/2076660",
+          "title": [
+            "Private Truths, Public Lies: The Social Consequences of Preference Falsification."
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.2307/2235544",
+          "title": [
+            "Private Truths, Public Lies: The Social Consequences of Preference Falsification."
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.2307/1061327",
+          "title": [
+            "Private Truths, Public Lies: The Social Consequences of Preference Falsification"
+          ],
+          "registry": "Crossref"
+        }
+      ],
+      "message": "no DOI; identity reviewed by the referee",
+      "unverified_reason": "no_doi"
+    },
+    {
+      "id": "granovetter1978",
+      "doi": "10.1086/226707",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Threshold Models of Collective Behavior",
+          "registry": [
+            "Threshold Models of Collective Behavior"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "granovetter",
+          "registry": "granovetter",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            1978
+          ],
+          "registry": [
+            1978,
+            1978,
+            1978
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Journal of Sociology",
+          "registry": [
+            "American Journal of Sociology"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 83,
+          "registry": "83",
+          "match": true
+        },
+        "issue": {
+          "reference": 6,
+          "registry": "6",
+          "match": true
+        },
+        "page": {
+          "reference": "1420-1443",
+          "registry": "1420-1443",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:09.729930+00:00",
+      "record_sha256": "fe0e38093192fb87779926f1e56b6cff15e19dc5aeed6e3ea5bfdd3de82d87d4",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "brock2001",
+      "doi": "10.1111/1467-937X.00168",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Discrete Choice with Social Interactions",
+          "registry": [
+            "Discrete Choice with Social Interactions"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "brock",
+          "registry": "brock",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2001
+          ],
+          "registry": [
+            2001,
+            2001,
+            2001
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Review of Economic Studies",
+          "registry": [
+            "The Review of Economic Studies"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 68,
+          "registry": "68",
+          "match": true
+        },
+        "issue": {
+          "reference": 2,
+          "registry": "2",
+          "match": true
+        },
+        "page": {
+          "reference": "235-260",
+          "registry": "235-260",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:10.281173+00:00",
+      "record_sha256": "8901e78b7142d6bc99256ef9031db02de656c1bea6c35c957e50752d4572d904",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "kamenica2011",
+      "doi": "10.1257/aer.101.6.2590",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Bayesian Persuasion",
+          "registry": [
+            "Bayesian Persuasion"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "kamenica",
+          "registry": "kamenica",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2011
+          ],
+          "registry": [
+            2011,
+            2011,
+            2011
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Economic Review",
+          "registry": [
+            "American Economic Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 101,
+          "registry": "101",
+          "match": true
+        },
+        "issue": {
+          "reference": 6,
+          "registry": "6",
+          "match": true
+        },
+        "page": {
+          "reference": "2590-2615",
+          "registry": "2590-2615",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:10.847288+00:00",
+      "record_sha256": "2bc79ea5c969ce210b886b6144e79c95b76123bb34921caadb49ff7410aa9594",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "bergemann2019",
+      "doi": "10.1257/jel.20181489",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Information Design: A Unified Perspective",
+          "registry": [
+            "Information Design: A Unified Perspective"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "bergemann",
+          "registry": "bergemann",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2019
+          ],
+          "registry": [
+            2019,
+            2019,
+            2019
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of Economic Literature",
+          "registry": [
+            "Journal of Economic Literature"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 57,
+          "registry": "57",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "44-95",
+          "registry": "44-95",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:11.401760+00:00",
+      "record_sha256": "59555829461299ad4cba82f04d3b4037f7d1d0c8d051773fe458e765d7a077a7",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "morris2024",
+      "doi": "10.3982/ECTA19149",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Implementation via Information Design in Binary-Action Supermodular Games",
+          "registry": [
+            "Implementation via Information Design in Binary‐Action Supermodular Games"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "morris",
+          "registry": "morris",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2024
+          ],
+          "registry": [
+            2024,
+            2024,
+            2024
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Econometrica",
+          "registry": [
+            "Econometrica"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 92,
+          "registry": "92",
+          "match": true
+        },
+        "issue": {
+          "reference": 3,
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "775-813",
+          "registry": "775-813",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:12.028677+00:00",
+      "record_sha256": "f7f098d7a631f3f8840a485dd7179760eee9908fe6b3a342e12d182fdc807ca2",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "inostroza2025",
+      "doi": "10.3982/TE5768",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Adversarial Coordination and Public Information Design",
+          "registry": [
+            "Adversarial coordination and public information design"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "inostroza",
+          "registry": "inostroza",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2025
+          ],
+          "registry": [
+            2025,
+            2025,
+            2025
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Theoretical Economics",
+          "registry": [
+            "Theoretical Economics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 20,
+          "registry": "20",
+          "match": true
+        },
+        "issue": {
+          "reference": 2,
+          "registry": "2",
+          "match": true
+        },
+        "page": {
+          "reference": "763-813",
+          "registry": "763-813",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:12.877772+00:00",
+      "record_sha256": "51bc97a6407bc1780f43a29c72a11e0ccbf50d77b29808ae5ef7aa10e04f5a62",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "cornand2008",
+      "doi": "10.1111/j.1468-0297.2008.02139.x",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Optimal Degree of Public Information Dissemination",
+          "registry": [
+            "Optimal Degree of Public Information Dissemination"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "cornand",
+          "registry": "cornand",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2008
+          ],
+          "registry": [
+            2008,
+            2008,
+            2008,
+            2008
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Economic Journal",
+          "registry": [
+            "The Economic Journal"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 118,
+          "registry": "118",
+          "match": true
+        },
+        "issue": {
+          "reference": 528,
+          "registry": "528",
+          "match": true
+        },
+        "page": {
+          "reference": "718-742",
+          "registry": "718-742",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:13.433869+00:00",
+      "record_sha256": "8cda9d1210d64554acacca420860d2dbc4dbeefdfe6068cb3c63db867977970d",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "demarzo2003",
+      "doi": "10.1162/00335530360698469",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Persuasion Bias, Social Influence, and Unidimensional Opinions",
+          "registry": [
+            "Persuasion Bias, Social Influence, and Unidimensional Opinions"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "demarzo",
+          "registry": "demarzo",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2003
+          ],
+          "registry": [
+            2003,
+            2003,
+            2003
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Quarterly Journal of Economics",
+          "registry": [
+            "The Quarterly Journal of Economics"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 118,
+          "registry": "118",
+          "match": true
+        },
+        "issue": {
+          "reference": 3,
+          "registry": "3",
+          "match": true
+        },
+        "page": {
+          "reference": "909-968",
+          "registry": "909-968",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:13.990062+00:00",
+      "record_sha256": "6bc9f34d8bf5172c0d1d7edc34b2ec723243b789b6ab3ff07afe3b0fe0895350",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "enke2019",
+      "doi": "10.1093/restud/rdx081",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Correlation Neglect in Belief Formation",
+          "registry": [
+            "Correlation Neglect in Belief Formation"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "enke",
+          "registry": "enke",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2019,
+            2017
+          ],
+          "registry": [
+            2017,
+            2017,
+            2017
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Review of Economic Studies",
+          "registry": [
+            "The Review of Economic Studies"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 86,
+          "registry": null,
+          "match": false
+        },
+        "issue": {
+          "reference": 1,
+          "registry": null,
+          "match": false
+        },
+        "page": {
+          "reference": "313-332",
+          "registry": null,
+          "match": false
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:14.661451+00:00",
+      "record_sha256": "e93284b44bd7243d0644d8ae079a896cc5449e527fb7d330db09797aeac43cc7",
+      "suggestions": [],
+      "message": "different fields: container-title, volume, issue, page"
+    },
+    {
+      "id": "eyster2005",
+      "doi": "10.1111/j.1468-0262.2005.00631.x",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Cursed Equilibrium",
+          "registry": [
+            "Cursed Equilibrium"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "eyster",
+          "registry": "eyster",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2005
+          ],
+          "registry": [
+            2005,
+            2005,
+            2005
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Econometrica",
+          "registry": [
+            "Econometrica"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 73,
+          "registry": "73",
+          "match": true
+        },
+        "issue": {
+          "reference": 5,
+          "registry": "5",
+          "match": true
+        },
+        "page": {
+          "reference": "1623-1672",
+          "registry": "1623-1672",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:15.203283+00:00",
+      "record_sha256": "ec7c9a4992fa4f73af4fbdcc767e81745feb4cbd3f3a03a715c8bde32e2c8973",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "eyster2010",
+      "doi": "10.1257/mic.2.4.221",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Naïve Herding in Rich-Information Settings",
+          "registry": [
+            "Naïve Herding in Rich-Information Settings"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "eyster",
+          "registry": "eyster",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2010
+          ],
+          "registry": [
+            2010,
+            2010,
+            2010
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Economic Journal: Microeconomics",
+          "registry": [
+            "American Economic Journal: Microeconomics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 2,
+          "registry": "2",
+          "match": true
+        },
+        "issue": {
+          "reference": 4,
+          "registry": "4",
+          "match": true
+        },
+        "page": {
+          "reference": "221-243",
+          "registry": "221-243",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:15.758851+00:00",
+      "record_sha256": "0d1af185602487473d65581c979de344cbb0e1368f00c4069f6d7e4529d74a37",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "lerman2016",
+      "doi": "10.1371/journal.pone.0147617",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "The \"Majority Illusion\" in Social Networks",
+          "registry": [
+            "The \"Majority Illusion\" in Social Networks"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "lerman",
+          "registry": "lerman",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2016
+          ],
+          "registry": [
+            2016,
+            2016,
+            2016
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "PLOS ONE",
+          "registry": [
+            "PLOS ONE"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 11,
+          "registry": "11",
+          "match": true
+        },
+        "issue": {
+          "reference": 2,
+          "registry": "2",
+          "match": true
+        },
+        "page": {
+          "reference": "e0147617",
+          "registry": "e0147617",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:16.452303+00:00",
+      "record_sha256": "7545625665c9ed62d1e289e67ffe5a4c01ad244510aa5b90066824bac1dfa0f3",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "eady2023",
+      "doi": "10.1038/s41467-022-35576-9",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Exposure to the Russian Internet Research Agency Foreign Influence Campaign on Twitter in the 2016 US Election and Its Relationship to Attitudes and Voting Behavior",
+          "registry": [
+            "Exposure to the Russian Internet Research Agency foreign influence campaign on Twitter in the 2016 US election and its relationship to attitudes and voting behavior"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "eady",
+          "registry": "eady",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2023
+          ],
+          "registry": [
+            2023,
+            2023,
+            2023
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Nature Communications",
+          "registry": [
+            "Nature Communications"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 14,
+          "registry": "14",
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": "1",
+          "match": false
+        },
+        "page": {
+          "reference": "62",
+          "registry": null,
+          "match": false
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:17.125948+00:00",
+      "record_sha256": "072f170e0e7b78443dcf68268bdffd6aeb9e16c17b0ffef90538e57cd080d442",
+      "suggestions": [],
+      "message": "different fields: issue, page"
+    },
+    {
+      "id": "crawford2008",
+      "doi": "10.1257/aer.98.4.1443",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "The Power of Focal Points Is Limited: Even Minute Payoff Asymmetry May Yield Large Coordination Failures",
+          "registry": [
+            "The Power of Focal Points Is Limited: Even Minute Payoff Asymmetry May Yield Large Coordination Failures"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "crawford",
+          "registry": "crawford",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2008
+          ],
+          "registry": [
+            2008,
+            2008,
+            2008
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Economic Review",
+          "registry": [
+            "American Economic Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 98,
+          "registry": "98",
+          "match": true
+        },
+        "issue": {
+          "reference": 4,
+          "registry": "4",
+          "match": true
+        },
+        "page": {
+          "reference": "1443-1458",
+          "registry": "1443-1458",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:17.691760+00:00",
+      "record_sha256": "2f21ad67e90bc779f8a6a0c2b773f9fbebe097788b8b158dfd4f00ce2d4864aa",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "bursztyn2020",
+      "doi": "10.1257/aer.20180975",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Misperceived Social Norms: Women Working Outside the Home in Saudi Arabia",
+          "registry": [
+            "Misperceived Social Norms: Women Working Outside the Home in Saudi Arabia"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "bursztyn",
+          "registry": "bursztyn",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2020
+          ],
+          "registry": [
+            2020,
+            2020,
+            2020
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Economic Review",
+          "registry": [
+            "American Economic Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 110,
+          "registry": "110",
+          "match": true
+        },
+        "issue": {
+          "reference": 10,
+          "registry": "10",
+          "match": true
+        },
+        "page": {
+          "reference": "2997-3029",
+          "registry": "2997-3029",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:18.374026+00:00",
+      "record_sha256": "59e98a97fb21afe047a55ed9b19aa18c99d68d214642e934c018e8cb67f959bf",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "heinemann2004",
+      "doi": "10.1111/j.1468-0262.2004.00544.x",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "The Theory of Global Games on Test: Experimental Analysis of Coordination Games with Public and Private Information",
+          "registry": [
+            "The Theory of Global Games on Test: Experimental Analysis of Coordination Games with Public and Private Information"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "heinemann",
+          "registry": "heinemann",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2004
+          ],
+          "registry": [
+            2004,
+            2004,
+            2004
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Econometrica",
+          "registry": [
+            "Econometrica"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 72,
+          "registry": "72",
+          "match": true
+        },
+        "issue": {
+          "reference": 5,
+          "registry": "5",
+          "match": true
+        },
+        "page": {
+          "reference": "1583-1599",
+          "registry": "1583-1599",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:19.012964+00:00",
+      "record_sha256": "64230c0b5bf150aa662885544b97ab87c5b45ed602b5df162ba3f04fad968826",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "cornand2014",
+      "doi": "10.1007/s10683-013-9357-9",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Measuring Agents' Reaction to Private and Public Information in Games with Strategic Complementarities",
+          "registry": [
+            "Measuring agents’ reaction to private and public information in games with strategic complementarities"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "cornand",
+          "registry": "cornand",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2014
+          ],
+          "registry": [
+            2014,
+            2014,
+            2014,
+            2025
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Experimental Economics",
+          "registry": [
+            "Experimental Economics"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 17,
+          "registry": "17",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "61-77",
+          "registry": "61-77",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:19.583246+00:00",
+      "record_sha256": "fcf975b511e8ad6a9b0816cef7a0f1abac606752e284b516ba09cc1a60b7ab4e",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "pacheco2021",
+      "doi": "10.1609/icwsm.v15i1.18075",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Uncovering Coordinated Networks on Social Media: Methods and Case Studies",
+          "registry": [
+            "Uncovering Coordinated Networks on Social Media: Methods and Case Studies"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "pacheco",
+          "registry": "pacheco",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2021
+          ],
+          "registry": [
+            2021,
+            2021,
+            2021
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Proceedings of the International AAAI Conference on Web and Social Media",
+          "registry": [
+            "Proceedings of the International AAAI Conference on Web and Social Media"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 15,
+          "registry": "15",
+          "match": true
+        },
+        "issue": {
+          "reference": null,
+          "registry": null,
+          "match": true
+        },
+        "page": {
+          "reference": "455-466",
+          "registry": "455-466",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T19:42:20.232426+00:00",
+      "record_sha256": "58f1652d7a51801a3442398b71242f0c1d2b4b0d130727d4e51c7474d0ece5ba",
+      "suggestions": [],
+      "message": "identity matches"
+    }
+  ]
+}

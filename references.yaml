@@ -1,0 +1,630 @@
+# CSL references with stable IDs; cite using Pandoc [@id] syntax.
+# Each entry was checked against its registry on 2026-11-18 (Crossref, RePEc/IDEAS, OpenAlex or OpenLibrary); see sources.md.
+references:
+  # ---------------- focal points, global games and public information ----------------
+  - id: schelling1960
+    type: book
+    author:
+      - family: Schelling
+        given: Thomas C.
+    title: "The Strategy of Conflict"
+    publisher: Harvard University Press
+    publisher-place: Cambridge, MA
+    issued:
+      date-parts:
+        - [1960]
+
+  - id: carlsson1993
+    type: article-journal
+    author:
+      - family: Carlsson
+        given: Hans
+      - family: van Damme
+        given: Eric
+    title: "Global Games and Equilibrium Selection"
+    container-title: Econometrica
+    volume: 61
+    issue: 5
+    page: "989-1018"
+    issued:
+      date-parts:
+        - [1993, 9]
+    DOI: "10.2307/2951491"
+
+  - id: morris1998
+    type: article-journal
+    author:
+      - family: Morris
+        given: Stephen
+      - family: Shin
+        given: Hyun Song
+    title: "Unique Equilibrium in a Model of Self-Fulfilling Currency Attacks"
+    container-title: American Economic Review
+    volume: 88
+    issue: 3
+    page: "587-597"
+    issued:
+      date-parts:
+        - [1998]
+    URL: "https://ideas.repec.org/a/aea/aecrev/v88y1998i3p587-97.html"
+
+  - id: morris2002
+    type: article-journal
+    author:
+      - family: Morris
+        given: Stephen
+      - family: Shin
+        given: Hyun Song
+    title: "Social Value of Public Information"
+    container-title: American Economic Review
+    volume: 92
+    issue: 5
+    page: "1521-1534"
+    issued:
+      date-parts:
+        - [2002, 11]
+    DOI: "10.1257/000282802762024610"
+
+  - id: morris2003
+    type: chapter
+    author:
+      - family: Morris
+        given: Stephen
+      - family: Shin
+        given: Hyun Song
+    title: "Global Games: Theory and Applications"
+    container-title: "Advances in Economics and Econometrics: Theory and Applications, Eighth World Congress, Volume 1"
+    editor:
+      - family: Dewatripont
+        given: Mathias
+      - family: Hansen
+        given: Lars Peter
+      - family: Turnovsky
+        given: Stephen J.
+    publisher: Cambridge University Press
+    publisher-place: Cambridge
+    page: "56-114"
+    issued:
+      date-parts:
+        - [2003]
+    ISBN: "9780511610240"
+
+  - id: hellwig2002
+    type: article-journal
+    author:
+      - family: Hellwig
+        given: Christian
+    title: "Public Information, Private Information, and the Multiplicity of Equilibria in Coordination Games"
+    container-title: Journal of Economic Theory
+    volume: 107
+    issue: 2
+    page: "191-222"
+    issued:
+      date-parts:
+        - [2002, 12]
+    DOI: "10.1006/jeth.2002.2947"
+
+  - id: angeletos2006
+    type: article-journal
+    author:
+      - family: Angeletos
+        given: George-Marios
+      - family: Hellwig
+        given: Christian
+      - family: Pavan
+        given: Alessandro
+    title: "Signaling in a Global Game: Coordination and Policy Traps"
+    container-title: Journal of Political Economy
+    volume: 114
+    issue: 3
+    page: "452-484"
+    issued:
+      date-parts:
+        - [2006, 6]
+    DOI: "10.1086/504901"
+
+  - id: angeletos2007
+    type: article-journal
+    author:
+      - family: Angeletos
+        given: George-Marios
+      - family: Hellwig
+        given: Christian
+      - family: Pavan
+        given: Alessandro
+    title: "Dynamic Global Games of Regime Change: Learning, Multiplicity, and the Timing of Attacks"
+    container-title: Econometrica
+    volume: 75
+    issue: 3
+    page: "711-756"
+    issued:
+      date-parts:
+        - [2007, 5]
+    DOI: "10.1111/j.1468-0262.2007.00766.x"
+
+  # ---------------- regime change, protest and manipulation ----------------
+  - id: edmond2013
+    type: article-journal
+    author:
+      - family: Edmond
+        given: Chris
+    title: "Information Manipulation, Coordination, and Regime Change"
+    container-title: Review of Economic Studies
+    volume: 80
+    issue: 4
+    page: "1422-1458"
+    issued:
+      date-parts:
+        - [2013]
+    DOI: "10.1093/restud/rdt020"
+
+  - id: little2016
+    type: article-journal
+    author:
+      - family: Little
+        given: Andrew T.
+    title: "Communication Technology and Protest"
+    container-title: Journal of Politics
+    volume: 78
+    issue: 1
+    page: "152-166"
+    issued:
+      date-parts:
+        - [2016, 1]
+    DOI: "10.1086/683187"
+
+  - id: little2017
+    type: article-journal
+    author:
+      - family: Little
+        given: Andrew T.
+    title: "Propaganda and Credulity"
+    container-title: Games and Economic Behavior
+    volume: 102
+    page: "224-232"
+    issued:
+      date-parts:
+        - [2017, 3]
+    DOI: "10.1016/j.geb.2016.12.006"
+
+  - id: barbera2020
+    type: article-journal
+    author:
+      - family: Barberà
+        given: Salvador
+      - family: Jackson
+        given: Matthew O.
+    title: "A Model of Protests, Revolution, and Information"
+    container-title: Quarterly Journal of Political Science
+    volume: 15
+    issue: 3
+    page: "297-335"
+    issued:
+      date-parts:
+        - [2020]
+    DOI: "10.1561/100.00019002"
+
+  - id: chen2016
+    type: article-journal
+    author:
+      - family: Chen
+        given: Heng
+      - family: Lu
+        given: Yang K.
+      - family: Suen
+        given: Wing
+    title: "The Power of Whispers: A Theory of Rumor, Communication, and Revolution"
+    container-title: International Economic Review
+    volume: 57
+    issue: 1
+    page: "89-116"
+    issued:
+      date-parts:
+        - [2016, 2]
+    DOI: "10.1111/iere.12149"
+
+  - id: buenodemesquita2010
+    type: article-journal
+    author:
+      - family: Bueno de Mesquita
+        given: Ethan
+    title: "Regime Change and Revolutionary Entrepreneurs"
+    container-title: American Political Science Review
+    volume: 104
+    issue: 3
+    page: "446-466"
+    issued:
+      date-parts:
+        - [2010, 8]
+    URL: "https://doi.org/10.1017/S0003055410000274"
+
+  # ---------------- common knowledge, thresholds and preference falsification ----------------
+  - id: chwe2000
+    type: article-journal
+    author:
+      - family: Chwe
+        given: Michael Suk-Young
+    title: "Communication and Coordination in Social Networks"
+    container-title: Review of Economic Studies
+    volume: 67
+    issue: 1
+    page: "1-16"
+    issued:
+      date-parts:
+        - [2000, 1]
+    DOI: "10.1111/1467-937X.00118"
+
+  - id: chwe2001
+    type: book
+    author:
+      - family: Chwe
+        given: Michael Suk-Young
+    title: "Rational Ritual: Culture, Coordination, and Common Knowledge"
+    publisher: Princeton University Press
+    publisher-place: Princeton
+    issued:
+      date-parts:
+        - [2001]
+
+  - id: kuran1991
+    type: article-journal
+    author:
+      - family: Kuran
+        given: Timur
+    title: "Now out of Never: The Element of Surprise in the East European Revolution of 1989"
+    container-title: World Politics
+    volume: 44
+    issue: 1
+    page: "7-48"
+    issued:
+      date-parts:
+        - [1991, 10]
+    DOI: "10.2307/2010422"
+
+  - id: kuran1995
+    type: book
+    author:
+      - family: Kuran
+        given: Timur
+    title: "Private Truths, Public Lies: The Social Consequences of Preference Falsification"
+    publisher: Harvard University Press
+    publisher-place: Cambridge, MA
+    issued:
+      date-parts:
+        - [1995]
+
+  - id: granovetter1978
+    type: article-journal
+    author:
+      - family: Granovetter
+        given: Mark
+    title: "Threshold Models of Collective Behavior"
+    container-title: American Journal of Sociology
+    volume: 83
+    issue: 6
+    page: "1420-1443"
+    issued:
+      date-parts:
+        - [1978, 5]
+    DOI: "10.1086/226707"
+
+  - id: brock2001
+    type: article-journal
+    author:
+      - family: Brock
+        given: William A.
+      - family: Durlauf
+        given: Steven N.
+    title: "Discrete Choice with Social Interactions"
+    container-title: Review of Economic Studies
+    volume: 68
+    issue: 2
+    page: "235-260"
+    issued:
+      date-parts:
+        - [2001, 4]
+    DOI: "10.1111/1467-937X.00168"
+
+  # ---------------- information design ----------------
+  - id: kamenica2011
+    type: article-journal
+    author:
+      - family: Kamenica
+        given: Emir
+      - family: Gentzkow
+        given: Matthew
+    title: "Bayesian Persuasion"
+    container-title: American Economic Review
+    volume: 101
+    issue: 6
+    page: "2590-2615"
+    issued:
+      date-parts:
+        - [2011, 10]
+    DOI: "10.1257/aer.101.6.2590"
+
+  - id: bergemann2019
+    type: article-journal
+    author:
+      - family: Bergemann
+        given: Dirk
+      - family: Morris
+        given: Stephen
+    title: "Information Design: A Unified Perspective"
+    container-title: Journal of Economic Literature
+    volume: 57
+    issue: 1
+    page: "44-95"
+    issued:
+      date-parts:
+        - [2019, 3]
+    DOI: "10.1257/jel.20181489"
+
+  - id: morris2024
+    type: article-journal
+    author:
+      - family: Morris
+        given: Stephen
+      - family: Oyama
+        given: Daisuke
+      - family: Takahashi
+        given: Satoru
+    title: "Implementation via Information Design in Binary-Action Supermodular Games"
+    container-title: Econometrica
+    volume: 92
+    issue: 3
+    page: "775-813"
+    issued:
+      date-parts:
+        - [2024]
+    DOI: "10.3982/ECTA19149"
+
+  - id: inostroza2025
+    type: article-journal
+    author:
+      - family: Inostroza
+        given: Nicolas
+      - family: Pavan
+        given: Alessandro
+    title: "Adversarial Coordination and Public Information Design"
+    container-title: Theoretical Economics
+    volume: 20
+    issue: 2
+    page: "763-813"
+    issued:
+      date-parts:
+        - [2025]
+    DOI: "10.3982/TE5768"
+
+  - id: cornand2008
+    type: article-journal
+    author:
+      - family: Cornand
+        given: Camille
+      - family: Heinemann
+        given: Frank
+    title: "Optimal Degree of Public Information Dissemination"
+    container-title: Economic Journal
+    volume: 118
+    issue: 528
+    page: "718-742"
+    issued:
+      date-parts:
+        - [2008]
+    DOI: "10.1111/j.1468-0297.2008.02139.x"
+
+  # ---------------- correlation neglect and the majority illusion ----------------
+  - id: demarzo2003
+    type: article-journal
+    author:
+      - family: DeMarzo
+        given: Peter M.
+      - family: Vayanos
+        given: Dimitri
+      - family: Zwiebel
+        given: Jeffrey
+    title: "Persuasion Bias, Social Influence, and Unidimensional Opinions"
+    container-title: Quarterly Journal of Economics
+    volume: 118
+    issue: 3
+    page: "909-968"
+    issued:
+      date-parts:
+        - [2003, 8]
+    DOI: "10.1162/00335530360698469"
+
+  - id: enke2019
+    type: article-journal
+    author:
+      - family: Enke
+        given: Benjamin
+      - family: Zimmermann
+        given: Florian
+    title: "Correlation Neglect in Belief Formation"
+    container-title: Review of Economic Studies
+    volume: 86
+    issue: 1
+    page: "313-332"
+    issued:
+      date-parts:
+        - [2019]
+    original-date:
+      date-parts:
+        - [2017, 12, 22]
+    DOI: "10.1093/restud/rdx081"
+
+  - id: eyster2005
+    type: article-journal
+    author:
+      - family: Eyster
+        given: Erik
+      - family: Rabin
+        given: Matthew
+    title: "Cursed Equilibrium"
+    container-title: Econometrica
+    volume: 73
+    issue: 5
+    page: "1623-1672"
+    issued:
+      date-parts:
+        - [2005, 9]
+    DOI: "10.1111/j.1468-0262.2005.00631.x"
+
+  - id: eyster2010
+    type: article-journal
+    author:
+      - family: Eyster
+        given: Erik
+      - family: Rabin
+        given: Matthew
+    title: "Naïve Herding in Rich-Information Settings"
+    container-title: "American Economic Journal: Microeconomics"
+    volume: 2
+    issue: 4
+    page: "221-243"
+    issued:
+      date-parts:
+        - [2010, 11]
+    DOI: "10.1257/mic.2.4.221"
+
+  - id: lerman2016
+    type: article-journal
+    author:
+      - family: Lerman
+        given: Kristina
+      - family: Yan
+        given: Xiaoran
+      - family: Wu
+        given: Xin-Zeng
+    title: "The \"Majority Illusion\" in Social Networks"
+    container-title: PLOS ONE
+    volume: 11
+    issue: 2
+    page: "e0147617"
+    issued:
+      date-parts:
+        - [2016, 2]
+    DOI: "10.1371/journal.pone.0147617"
+
+  # ---------------- evidence on exposure, focal points, norms and lab coordination ----------------
+  - id: eady2023
+    type: article-journal
+    author:
+      - family: Eady
+        given: Gregory
+      - family: Paskhalis
+        given: Tom
+      - family: Zilinsky
+        given: Jan
+      - family: Bonneau
+        given: Richard
+      - family: Nagler
+        given: Jonathan
+      - family: Tucker
+        given: Joshua A.
+    title: "Exposure to the Russian Internet Research Agency Foreign Influence Campaign on Twitter in the 2016 US Election and Its Relationship to Attitudes and Voting Behavior"
+    container-title: Nature Communications
+    volume: 14
+    page: "62"
+    issued:
+      date-parts:
+        - [2023, 1]
+    DOI: "10.1038/s41467-022-35576-9"
+
+  - id: crawford2008
+    type: article-journal
+    author:
+      - family: Crawford
+        given: Vincent P.
+      - family: Gneezy
+        given: Uri
+      - family: Rottenstreich
+        given: Yuval
+    title: "The Power of Focal Points Is Limited: Even Minute Payoff Asymmetry May Yield Large Coordination Failures"
+    container-title: American Economic Review
+    volume: 98
+    issue: 4
+    page: "1443-1458"
+    issued:
+      date-parts:
+        - [2008, 8]
+    DOI: "10.1257/aer.98.4.1443"
+
+  - id: bursztyn2020
+    type: article-journal
+    author:
+      - family: Bursztyn
+        given: Leonardo
+      - family: González
+        given: Alessandra L.
+      - family: Yanagizawa-Drott
+        given: David
+    title: "Misperceived Social Norms: Women Working Outside the Home in Saudi Arabia"
+    container-title: American Economic Review
+    volume: 110
+    issue: 10
+    page: "2997-3029"
+    issued:
+      date-parts:
+        - [2020, 10]
+    DOI: "10.1257/aer.20180975"
+
+  - id: heinemann2004
+    type: article-journal
+    author:
+      - family: Heinemann
+        given: Frank
+      - family: Nagel
+        given: Rosemarie
+      - family: Ockenfels
+        given: Peter
+    title: "The Theory of Global Games on Test: Experimental Analysis of Coordination Games with Public and Private Information"
+    container-title: Econometrica
+    volume: 72
+    issue: 5
+    page: "1583-1599"
+    issued:
+      date-parts:
+        - [2004, 9]
+    DOI: "10.1111/j.1468-0262.2004.00544.x"
+
+  - id: cornand2014
+    type: article-journal
+    author:
+      - family: Cornand
+        given: Camille
+      - family: Heinemann
+        given: Frank
+    title: "Measuring Agents' Reaction to Private and Public Information in Games with Strategic Complementarities"
+    container-title: Experimental Economics
+    volume: 17
+    issue: 1
+    page: "61-77"
+    issued:
+      date-parts:
+        - [2014, 3]
+    DOI: "10.1007/s10683-013-9357-9"
+
+  - id: pacheco2021
+    type: paper-conference
+    author:
+      - family: Pacheco
+        given: Diogo
+      - family: Hui
+        given: Pik-Mai
+      - family: Torres-Lugo
+        given: Christopher
+      - family: Truong
+        given: Bao Tran
+      - family: Flammini
+        given: Alessandro
+      - family: Menczer
+        given: Filippo
+    title: "Uncovering Coordinated Networks on Social Media: Methods and Case Studies"
+    container-title: "Proceedings of the International AAAI Conference on Web and Social Media"
+    volume: 15
+    page: "455-466"
+    issued:
+      date-parts:
+        - [2021, 5]
+    DOI: "10.1609/icwsm.v15i1.18075"
