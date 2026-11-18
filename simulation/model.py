@@ -285,3 +285,33 @@ def certify(env: Env, groups, z: float, iters: int = 400, tol: float = 1e-10) ->
         max(abs(a - b) for a, b in zip(paths["low"][0], eq.k)),
         max(abs(a - b) for a, b in zip(paths["high"][0], eq.k))))
     return out
+
+
+def kappa(env: Env, tau: float) -> float:
+    """M0(tau, v) = 1/(1 - kappa v): kappa = phi0(alpha+tau+beta)/(sqrt(beta) + beta phi0)."""
+    t0, _ = no_message(env)
+    p0 = float(phi(Phiinv(t0)))
+    return p0 * (env.alpha + tau + env.beta) / (math.sqrt(env.beta) + env.beta * p0)
+
+
+# ---------------------------------------------------------------- receipt versus common belief
+def realized(env: Env, tau: float, v_belief: float, v_actual: float, z: float) -> dict:
+    """Receivers act on a commonly believed reach v_belief; a share v_actual actually receives.
+
+    Receivers' cutoff is the equilibrium cutoff at reach v_belief (their beliefs about who else
+    responds); realized participation and success use the actual share v_actual. When the two
+    coincide this is the equilibrium of Lemma 1.
+    """
+    t0, k0 = no_message(env)
+    k = cutoff(env, tau, v_belief, z)
+    rb = math.sqrt(env.beta)
+    A = lambda t: (1 - v_actual) * float(Phi(rb * (k0 - t))) + v_actual * float(Phi(rb * (k - t))) - t
+    theta_a = brentq(A, -1.0, 2.0, xtol=XTOL)
+    return {"k": k, "k0": k0, "theta_actual": theta_a,
+            "receiver_pp": 100 * (float(Phi(rb * (k - t0))) - t0),
+            "aggregate_pp": 100 * v_actual * (float(Phi(rb * (k - t0))) - t0)}
+
+
+def multiplicity_share(env: Env, tau: float, v: float, zs) -> float:
+    """Share of message contents zs at which the reach-v game has more than one equilibrium."""
+    return float(np.mean([len(solve(env, [Group(v, tau)], float(z)).thetas) > 1 for z in zs]))

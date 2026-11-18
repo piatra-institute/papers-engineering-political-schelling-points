@@ -6,8 +6,8 @@ import numpy as np
 
 from aware import nonreceiver_cutoff, receiver_cutoff
 from dynamics import bistable_interval, gamma_critical_closed_form, gamma_critical_numeric, steady_states
-from model import (Env, Group, Phiinv, certify, cutoff, evidential, multiplier, multiplier_at_neutral,
-                   neutral_message, no_message, perceived_precision, slopes, solve)
+from model import (Env, Group, Phiinv, certify, cutoff, evidential, kappa, multiplier, multiplier_at_neutral,
+                   neutral_message, no_message, perceived_precision, realized, slopes, solve)
 
 ENV = Env(alpha=4.0, mu=0.6, beta=25.0, c=0.5)
 
@@ -64,6 +64,18 @@ class StaticModel(unittest.TestCase):
     def test_isolated_disclosure_keeps_response(self):
         sl = slopes(ENV, [Group(0.5, 3.0), Group(1e-9, 0.0)], 0.2)
         self.assertLess(sl["dk_dz"][1], 0.0)  # responds to content despite zero own precision
+
+    def test_kappa_identity(self):
+        for tau in (0.5, 1.0, 3.0):
+            for v in (0.2, 0.6, 1.0):
+                self.assertAlmostEqual(multiplier_at_neutral(ENV, tau, v), 1 / (1 - kappa(ENV, tau) * v), places=12)
+
+    def test_receipt_versus_belief(self):
+        t0, _ = no_message(ENV)
+        a = realized(ENV, 1.0, 0.3, 1.0, t0 - 0.3)
+        b = realized(ENV, 1.0, 0.3, 0.3, t0 - 0.3)
+        self.assertAlmostEqual(a["k"], b["k"], places=12)  # cutoff depends on belief only
+        self.assertAlmostEqual(a["aggregate_pp"], b["aggregate_pp"] / 0.3, places=9)
 
     def test_perceived_precision(self):
         self.assertAlmostEqual(perceived_precision(5, 1.0, 0.0), 5.0)

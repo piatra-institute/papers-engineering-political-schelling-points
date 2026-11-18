@@ -57,3 +57,16 @@ Frozen bibliography for the paper. Identity of every entry was checked on 2026-1
 ## Seed material
 
 The seed draft's source register was used as a list of leads only. Its citations of Riker, Kuran and Sunstein, Noelle-Neumann, McCombs and Shaw, Muchnik et al., Centola et al., Shao et al., King, Pan and Roberts, Huang, Hassan, Pacheco et al., Monderer and Samet, De Freitas et al. and two 2026 items were not carried over except Pacheco et al., because the present argument does not engage them. Its stronger readings of Enke and Zimmermann and of Bueno de Mesquita were corrected as noted above.
+
+## Added in revision round 1 (2026-11-18)
+
+All six were checked against Crossref (title, authors, venue, volume, issue, pages, year) and their abstracts read through OpenAlex. None was read in full; every source claim on them is at abstract depth.
+
+- **morris2007**. Morris, S. and Shin, H. S. (2007). Optimal communication. *Journal of the European Economic Association* 5(2-3), 594-602. DOI 10.1162/jeea.2007.5.2-3.594. Supports: communication to a group trades precision against common understanding (abstract). Used to place Theorem 1(c) as the regime-change form of that trade-off.
+- **myatt2012**. Myatt, D. P. and Wallace, C. (2012). Endogenous information acquisition in coordination games. *Review of Economic Studies* 79(1), 340-374. DOI 10.1093/restud/rdr018 (Crossref dates the advance-access version 7 October 2011; the issue year 2012 is within the identity check's tolerance). Supports: signals have an accuracy and a clarity; with more complementarity, acquired information is more public (abstract).
+- **thomas2014**. Thomas, K. A., DeScioli, P., Haque, O. S. and Pinker, S. (2014). The psychology of coordination and common knowledge. *Journal of Personality and Social Psychology* 107(4), 657-676. DOI 10.1037/a0037037. Supports: more risky coordination under common knowledge (loudspeaker) than shared (messenger) or private knowledge (abstract). Basis of the acknowledgment cell.
+- **defreitas2019**. De Freitas, J., Thomas, K., DeScioli, P. and Pinker, S. (2019). Common knowledge, coordination, and strategic mentalizing in human social life. *PNAS* 116(28), 13751-13758. DOI 10.1073/pnas.1905518116. Supports: people are highly sensitive to the distinction between common knowledge and private or shared knowledge (abstract).
+- **shadmehr2011**. Shadmehr, M. and Bernhardt, D. (2011). Collective action with uncertain payoffs. *APSR* 105(4), 829-851. DOI 10.1017/S0003055411000359. Supports: public signals from other citizens can reduce the likelihood of revolt (abstract, item c).
+- **levy2015**. Levy, G. and Razin, R. (2015). Correlation neglect, voting behavior, and information aggregation. *AER* 105(4), 1634-1645. DOI 10.1257/aer.20140134. Supports: correlation neglect can improve political outcomes because extreme beliefs make some voters vote on information (abstract).
+
+The earlier decision to drop De Freitas et al. from the seed register was reversed after the referee's finding F9: the paper's experiment manipulates common knowledge of receipt, which is what that programme studies.

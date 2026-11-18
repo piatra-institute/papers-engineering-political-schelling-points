@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "id": "model",
-  "started": "2026-11-18T19:44:03.271756+00:00",
-  "finished": "2026-11-18T19:48:14.120677+00:00",
+  "started": "2026-11-18T20:53:28.368012+00:00",
+  "finished": "2026-11-18T21:00:26.060331+00:00",
   "command": [
     "uv",
     "run",
@@ -26,19 +26,19 @@
   "additional_inputs": [],
   "inputs": {
     "simulation/aware.py": "553c1fee2e1f4beae37f4eb18f80a358d717ca42af6318a454826d668e31fadc",
-    "simulation/dynamics.py": "8ce1e4fafc620aff9ea158e94e2cdd558d4681721fa01ef9a8ffa84d598ab0f8",
-    "simulation/experiment.py": "20145c67afef1289bc137b1992de5e25d3d1beec32cfd1656c65c6e733b454b4",
-    "simulation/finite_group.py": "92256b79bc0c129a7f9229590a91b8444bccf32397b7525775248a3ea7e69a36",
-    "simulation/model.py": "e2ae328a25be7b4a627b292fa38df56f0f538c18b450d89f66dea603a33d3c74",
+    "simulation/dynamics.py": "7c656a26eda06ac6235d45e4f1701f1272471e5e856d1a9e823d503a1d2e4840",
+    "simulation/experiment.py": "4b746e64bd28a36d2d81b703f6255e800f8cc21ea551b0e02f2d972df00f4eb3",
+    "simulation/finite_group.py": "0c7348e493aaaba6136513d220ad06260bb8e3ec21ad1c434deb3d0dd856411a",
+    "simulation/model.py": "3f828400e2411ec2ab5355fac64cac221723b88ea1da6c2b87a9d26dd77b7d5f",
     "simulation/pyproject.toml": "5431e1153e421c9eede088b36f7664110f8ad8710b329ba42c27cc1724d0a5cf",
-    "simulation/run_all.py": "81a1eea0b0c8756b9e42189d162f5611f23c3045202922926ff58b961f8424c1",
-    "simulation/test_model.py": "4d9e26496b4647095eff2162d75c5458c14eed543f20ec384fb4f451167acef6",
+    "simulation/run_all.py": "1440270b7bb703650a9dcb1535af884a5a7c2514b6504e0ec6f54d8b74c68861",
+    "simulation/test_model.py": "7cd285ada6df1fba936c3ca2d3cd8c16aa87d3241caba8c1fac0df8f97587306",
     "simulation/uv.lock": "7ed43ea07aa7757dd165e35ee0ed02a57a2706f7cd92885576647a97da683f86"
   },
   "artifacts": {
-    "simulation/output/results.json": "0386dddef2d26f069ecde7119d05dc97c3125d11516f62c697d09e6a1f9ba21e",
-    "paper/figures/channels.pdf": "a7c0ca4c25082af1726c874b97ffc47099c5a5b4bc0f36aac7ab52323f57554c",
-    "paper/figures/dynamics.pdf": "f8d1a7e7a8018f5cb63d75a8d4a4eea4dfba7c5df7a2828a39f13d7b69309e4a",
-    "paper/figures/design.pdf": "f033baa76107446fe05e4633402a364bce1cfdf5d14847def9535cfcdf013e10"
+    "simulation/output/results.json": "ab5a973d880700b8c40b426267605f2c7f21e0a230f01a6eca538333bc385b44",
+    "paper/figures/channels.pdf": "962179330cd13735ad96be70e2833e974a402b9a92ecc301030401c52ae70ff4",
+    "paper/figures/dynamics.pdf": "f37957e0d49a606644b6f5da233e8e0d907835751d0f3af18ea77b30d01f4667",
+    "paper/figures/design.pdf": "2f0e6b9c59d32ce9dc0a482ae60ee30fc443dec63f35a91e556f20d4b41d0f19"
   }
 }

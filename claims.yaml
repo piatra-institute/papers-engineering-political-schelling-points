@@ -2,21 +2,31 @@ schema: 1
 coverage: pending
 reviewed_manuscript_sha256: null
 claims:
-- id: abs-coord-share
+- id: abs-kappa
   kind: computation
-  passage: The equilibrium cutoff decomposes exactly into a closed-form evidential channel and a coordination channel equal to an explicit, reach-dependent multiplier on it; at baseline coordination is 80% of the effect when receipt is common knowledge.
+  passage: The equilibrium cutoff decomposes exactly into a closed-form evidential channel and a coordination channel whose marginal size is the evidential response times $1/(1-\kappa v)$; at baseline coordination is 80% of the response when receipt is common knowledge.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /decomposition/by_reach/1.00/coordination_share
+    pointer: /decomposition/kappa
     reported: 80%
     scale: 100
     decimals: 0
-    units: percent of the cutoff shift
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1; reach 1; baseline mobilizing message z = theta0 - 0.3
-- id: abs-isolated-share
+    units: percent of the marginal response (kappa v at v = 1)
+    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1; neutral message
+- id: abs-n
   kind: computation
-  passage: Disclosing a common source in isolation removes 11% of the effect of a campaign of 3 accounts at full reach; as common knowledge it removes 71%; when it also makes receipt common knowledge it raises participation in a mobilizing message, to first order, exactly when a publicity-credibility ratio exceeds one.
+  passage: Disclosing that 3 accounts share one source removes 11% of their effect on receivers' participation at full reach for an isolated receiver, 71% when the disclosure is common knowledge, and intermediate amounts for labels; a public disclosure that also makes receipt common knowledge amplifies the message, to first order, exactly when a publicity-credibility ratio exceeds one.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/n_small
+    reported: '3'
+    units: accounts
+    conditions: configured
+- id: abs-iso
+  kind: computation
+  passage: Disclosing that 3 accounts share one source removes 11% of their effect on receivers' participation at full reach for an isolated receiver, 71% when the disclosure is common knowledge, and intermediate amounts for labels; a public disclosure that also makes receipt common knowledge amplifies the message, to first order, exactly when a publicity-credibility ratio exceeds one.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -25,20 +35,10 @@ claims:
     scale: 100
     decimals: 0
     units: percent of the participation effect removed
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; 3 accounts, tau_h = 3, tau_l = 1, reach 1; baseline mobilizing message z = theta0 - 0.3
-- id: abs-accounts
+    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau 3 to 1, isolated, reach 1; baseline mobilizing message z = theta0 - 0.3
+- id: abs-common
   kind: computation
-  passage: Disclosing a common source in isolation removes 11% of the effect of a campaign of 3 accounts at full reach; as common knowledge it removes 71%; when it also makes receipt common knowledge it raises participation in a mobilizing message, to first order, exactly when a publicity-credibility ratio exceeds one.
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /config/n_small
-    reported: '3'
-    units: accounts
-    conditions: configured campaign size
-- id: abs-common-share
-  kind: computation
-  passage: Disclosing a common source in isolation removes 11% of the effect of a campaign of 3 accounts at full reach; as common knowledge it removes 71%; when it also makes receipt common knowledge it raises participation in a mobilizing message, to first order, exactly when a publicity-credibility ratio exceeds one.
+  passage: Disclosing that 3 accounts share one source removes 11% of their effect on receivers' participation at full reach for an isolated receiver, 71% when the disclosure is common knowledge, and intermediate amounts for labels; a public disclosure that also makes receipt common knowledge amplifies the message, to first order, exactly when a publicity-credibility ratio exceeds one.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -47,37 +47,47 @@ claims:
     scale: 100
     decimals: 0
     units: percent of the participation effect removed
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau 3 to 1 as common knowledge, reach 1; baseline mobilizing message z = theta0 - 0.3
-- id: abs-g80-1
+    conditions: common-knowledge disclosure, tau 3 to 1, reach 1
+- id: abs-g1
   kind: computation
-  passage: Exposure data cannot separate persuasion, coordination and the majority illusion; a laboratory design crossing visibility with incentives can, with 7 to 74 groups of 20 per cell depending on how fully participants act on coordination.
+  passage: A laboratory design, including a cell that varies only public acknowledgment of receipt, needs 7 to 81 groups of 20 per cell.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/1/required/0.8/groups_per_cell
+    pointer: /design/by_omega/1/required/groups_per_cell
     reported: '7'
     units: groups per cell
-    conditions: 80% power, omega = 1, two-sided 5% test
-- id: abs-g80-025
+    conditions: simulated 80% power, omega = 1
+- id: abs-g025
   kind: computation
-  passage: Exposure data cannot separate persuasion, coordination and the majority illusion; a laboratory design crossing visibility with incentives can, with 7 to 74 groups of 20 per cell depending on how fully participants act on coordination.
+  passage: A laboratory design, including a cell that varies only public acknowledgment of receipt, needs 7 to 81 groups of 20 per cell.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.25/required/0.8/groups_per_cell
-    reported: '74'
+    pointer: /design/by_omega/0.25/required/groups_per_cell
+    reported: '81'
     units: groups per cell
-    conditions: 80% power, omega = 0.25, two-sided 5% test
+    conditions: simulated 80% power, omega = 0.25
 - id: abs-N
   kind: computation
-  passage: Exposure data cannot separate persuasion, coordination and the majority illusion; a laboratory design crossing visibility with incentives can, with 7 to 74 groups of 20 per cell depending on how fully participants act on coordination.
+  passage: A laboratory design, including a cell that varies only public acknowledgment of receipt, needs 7 to 81 groups of 20 per cell.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/design/N
     reported: '20'
     units: participants per group
-    conditions: configured design
+    conditions: configured
+- id: abs-8
+  kind: computation
+  passage: The analysis covers campaigns perceived as at most 8 independent reports at baseline.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/max_independent_reports
+    reported: '8'
+    units: reports of precision 1
+    conditions: uniqueness bound at full reach
 - id: src-ahp2007-static
   kind: source
   passage: In the static regime-change game with a normal prior of precision $\alpha$ and normal private signals of precision $\beta$, the equilibrium is unique if and only if $\beta \ge \alpha^2/(2\pi)$, and the success threshold converges to $1-c$ as private noise vanishes [@angeletos2007, p. 719].
@@ -400,7 +410,7 @@ claims:
     verification_note: Same abstract as src-ch2014.
 - id: src-pacheco
   kind: source
-  passage: 'An audit of a suspected campaign needs two estimates: the dependence among its sources, which methods that build coordination networks from behavioural traces shared among accounts are designed to supply [@pacheco2021], and the extent to which recipients could know that others received the same content, for instance because it appeared in a shared trending list or was rebroadcast.'
+  passage: 'An audit of a suspected campaign needs three estimates: the dependence among its sources, which methods that build coordination networks from behavioural traces shared among accounts are designed to supply [@pacheco2021]; the share who saw it; and the extent to which recipients could know that others saw the same content, for instance because it appeared in a shared trending list or was rebroadcast.'
   evidence:
     citation_id: pacheco2021
     locator: abstract
@@ -420,7 +430,7 @@ claims:
     verification_note: 'Read the author-hosted version of record. The comparison is an interpretation: in Little''s model credulity is a type; here the ''credulous'' are receivers who have not seen the provenance information.'
 - id: src-ms2002-mult
   kind: source
-  passage: It is the regime-change counterpart of the overweighting of public signals in Morris and Shin's beauty contest [@morris2002] and of the publicity multiplier in their survey [@morris2003], written as a function of reach.
+  passage: $M_0$ is the regime-change counterpart of the overweighting of public signals in Morris and Shin's beauty contest [@morris2002] and of the publicity multiplier in their survey [@morris2003], written as a function of reach.
   evidence:
     citation_id: morris2002
     locator: CFDP 1312 working paper, p. 15
@@ -428,6 +438,94 @@ claims:
     quote: This feature reflects the coordination motive of the agents, and reflects the disproportionate influence of the public signal in influencing the agents' actions.
     verified: false
     verification_note: Working paper read from page images; see src-ms2002.
+- id: src-ms2007
+  kind: source
+  passage: Morris and Shin argued that communicating to a group often trades the precision of the information conveyed against how commonly it is understood [@morris2007].
+  evidence:
+    citation_id: morris2007
+    locator: published abstract
+    depth: abstract
+    quote: Optimal communication to a group often entails a trade-off between precision of information conveyed and common understanding (or approximate common knowledge) of the information within the group.
+    verified: false
+    verification_note: Crossref record checked; abstract read via OpenAlex. Full text not obtained.
+- id: src-ms2007-thm
+  kind: source
+  passage: Part (c) is the regime-change form of the trade-off between precision and common understanding that Morris and Shin describe for communication to a group [@morris2007]; $\Pi$ is the ratio of the marginal responses after and before disclosure, so the criterion is a first-order statement, exact for small surprises.
+  evidence:
+    citation_id: morris2007
+    locator: published abstract
+    depth: abstract
+    quote: Optimal communication to a group often entails a trade-off between precision of information conveyed and common understanding
+    verified: false
+    verification_note: Same abstract as src-ms2007; the correspondence with Theorem 1(c) is this paper's interpretation.
+- id: src-mw2012
+  kind: source
+  passage: Myatt and Wallace gave each signal in a coordination game an accuracy, how precisely it identifies the state, and a clarity, how easy it is to understand, and showed that when actions are more complementary the information acquired in equilibrium is more public [@myatt2012].
+  evidence:
+    citation_id: myatt2012
+    locator: published abstract
+    depth: abstract
+    quote: Each signal has an underlying accuracy (how precisely it identifies the state) and a clarity (how easy it is to understand).
+    verified: false
+    verification_note: Crossref record checked (advance access 2011, issue 79(1) 2012); abstract read via OpenAlex. Full text not obtained.
+- id: src-sb2011
+  kind: source
+  passage: Shadmehr and Bernhardt showed that when citizens are uncertain about the payoffs of revolution, public signals from other citizens can reduce the likelihood of revolt [@shadmehr2011].
+  evidence:
+    citation_id: shadmehr2011
+    locator: published abstract
+    depth: abstract
+    quote: public signals from other citizens can reduce the likelihood of revolt
+    verified: false
+    verification_note: Crossref record checked; abstract read via OpenAlex (item c of the abstract's list).
+- id: src-lr2015
+  kind: source
+  passage: Levy and Razin showed that voters who underestimate the correlation between their information sources can produce better electoral outcomes, because the resulting extreme beliefs make some of them vote on information [@levy2015].
+  evidence:
+    citation_id: levy2015
+    locator: published abstract
+    depth: abstract
+    quote: We show that the extreme beliefs which result from correlation neglect induce some voters to base their vote on information rather than on political preferences.
+    verified: false
+    verification_note: Crossref record checked; abstract read via OpenAlex.
+- id: src-thomas
+  kind: source
+  passage: Thomas, DeScioli, Haque and Pinker found that more participants attempted risky coordination when the payoffs were broadcast over a loudspeaker, and so were common knowledge, than when a messenger conveyed them to both partners or each learned them privately [@thomas2014]; De Freitas and colleagues review evidence that people are highly sensitive to the difference between common knowledge and merely private or shared knowledge [@defreitas2019].
+  evidence:
+    citation_id: thomas2014
+    locator: published abstract
+    depth: abstract
+    quote: more participants attempted risky coordination when they and their prospective partner had common knowledge of the payoffs (broadcast over a loudspeaker) than when they had only shared knowledge (conveyed to both by a messenger) or private knowledge
+    verified: false
+    verification_note: Crossref record checked; abstract read via OpenAlex. Full text not obtained.
+- id: src-thomas-design
+  kind: source
+  passage: This follows Thomas and colleagues' contrast between common knowledge by loudspeaker and shared knowledge by messenger [@thomas2014].
+  evidence:
+    citation_id: thomas2014
+    locator: published abstract
+    depth: abstract
+    quote: common knowledge of the payoffs (broadcast over a loudspeaker) than when they had only shared knowledge (conveyed to both by a messenger)
+    verified: false
+    verification_note: Same abstract as src-thomas.
+- id: src-defreitas
+  kind: source
+  passage: Thomas, DeScioli, Haque and Pinker found that more participants attempted risky coordination when the payoffs were broadcast over a loudspeaker, and so were common knowledge, than when a messenger conveyed them to both partners or each learned them privately [@thomas2014]; De Freitas and colleagues review evidence that people are highly sensitive to the difference between common knowledge and merely private or shared knowledge [@defreitas2019].
+  evidence:
+    citation_id: defreitas2019
+    locator: published abstract
+    depth: abstract
+    quote: We show that people are highly sensitive to the distinction between common knowledge and mere private or shared knowledge
+    verified: false
+    verification_note: Crossref record checked; abstract read via OpenAlex (the article is open in PubMed Central but was not read in full).
+- id: def-example
+  kind: definition
+  passage: A call to stop work at noon on Friday circulates in a city's feeds, posted by five accounts that look unrelated.
+  rationale: 'Illustrative scenario: five accounts and one source are invented for exposition, chosen inside the uniqueness bound (at most 8 reports believed independent), and carry no empirical claim.'
+- id: int-focal
+  kind: interpretation
+  passage: Schelling's focal points coordinate because they are shared, whatever they say about the world.
+  rationale: Follows from Proposition 2(i) (no effect of a commonly known uninformative message under uniqueness) and the multiplicity computation of the model section; relates the coordination channel to the Morris-Shin publicity effect.
 - id: base-alpha
   kind: computation
   passage: 'The baseline sets $\alpha = 4$, $\mu = 0.6$, $\beta = 25$ and $c = 0.5$: the public expects the action to need 60% participation, with a prior standard deviation of 0.5, and each citizen''s private signal is more precise than the prior.'
@@ -533,9 +631,165 @@ claims:
     reported: '0.3'
     units: distance of z below theta0
     conditions: configured
+- id: as-unaware
+  kind: assumption
+  passage: Non-receivers do not condition on the message and play the equilibrium of the game without it; the experimental section checks this simplification against a common-prior version in which non-receivers know that a message was shown to some share but not what it said.
+  rationale: Simplifies the equilibrium to one equation. Checked against the common-prior version with informed non-receivers (aware.py), which changes receivers' predicted participation by at most 1.8% of the largest effect.
+- id: as-provenance
+  kind: assumption
+  passage: Provenance enters the model only through perceived precision.
+  rationale: Disclosure is modelled as a change in perceived precision; any effect of provenance on valuations (for example resentment at manipulation) would act like valuation persuasion.
+- id: def-reach
+  kind: definition
+  passage: I call $v$ the commonly believed reach, or reach for short.
+  rationale: Reach is the common belief of receipt among receivers (common p-belief with p = v); actual receipt v_a is a separate quantity.
+- id: def-neglect
+  kind: definition
+  passage: Two things can make a receiver's perceived precision differ from the true one, and the model keeps them apart.
+  rationale: Separates ignorance of the source structure (believed correlation r_b) from neglect of a known correlation (chi), following the referee's finding F3; before disclosure tau_h = n rho, after tau_l = n rho/(1 + (n - 1)(1 - chi')).
+- id: lg-bound
+  kind: computation
+  passage: With full reach, uniqueness requires $\tau \le \sqrt{2\pi\beta} - \alpha = 8.53$ at baseline, so a campaign believed to consist of independent reports of precision 1 is covered only up to 8 accounts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/precision_bound
+    reported: '8.53'
+    decimals: 2
+    units: perceived precision
+    conditions: sqrt(2 pi beta) - alpha at baseline
+- id: lg-max
+  kind: computation
+  passage: With full reach, uniqueness requires $\tau \le \sqrt{2\pi\beta} - \alpha = 8.53$ at baseline, so a campaign believed to consist of independent reports of precision 1 is covered only up to 8 accounts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/max_independent_reports
+    reported: '8'
+    units: reports of precision 1
+    conditions: floor of the bound
+- id: lg-share9
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/shares/9
+    reported: 0.5%
+    scale: 100
+    decimals: 1
+    units: percent of contents within theta0 +/- 1 with several equilibria
+    conditions: perceived precision 9, full reach, 201 contents
+- id: lg-share20
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/shares/20
+    reported: 16%
+    scale: 100
+    decimals: 0
+    units: percent of contents within theta0 +/- 1 with several equilibria
+    conditions: perceived precision 20, full reach, 201 contents
+- id: lg-share40
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/shares/40
+    reported: 29%
+    scale: 100
+    decimals: 0
+    units: percent of contents within theta0 +/- 1 with several equilibria
+    conditions: perceived precision 40, full reach, 201 contents
+- id: lg-share80
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/shares/80
+    reported: 37%
+    scale: 100
+    decimals: 0
+    units: percent of contents within theta0 +/- 1 with several equilibria
+    conditions: perceived precision 80, full reach, 201 contents
+- id: lg-tau9
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/large_campaign_precisions/0
+    reported: '9'
+    units: perceived precision
+    conditions: configured
+- id: lg-tau20
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/large_campaign_precisions/1
+    reported: '20'
+    units: perceived precision
+    conditions: configured
+- id: lg-tau40
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/large_campaign_precisions/2
+    reported: '40'
+    units: perceived precision
+    conditions: configured
+- id: lg-tau80
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/large_campaign_precisions/3
+    reported: '80'
+    units: perceived precision
+    conditions: configured
+- id: lg-roots
+  kind: computation
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/roots_80_at_baseline_message
+    reported: '3'
+    units: equilibria
+    conditions: perceived precision 80, baseline message
+- id: lg-80
+  kind: computation
+  passage: A campaign of 80 accounts repeating one report stays inside the bound only if receivers know the accounts are dependent and neglect that dependence to a degree $\chi \le 0.894$; a disclosure that brings perceived precision below the bound restores uniqueness.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/large_campaign_precisions/3
+    reported: '80'
+    units: accounts of precision 1
+    conditions: configured
+- id: lg-chi
+  kind: computation
+  passage: A campaign of 80 accounts repeating one report stays inside the bound only if receivers know the accounts are dependent and neglect that dependence to a degree $\chi \le 0.894$; a disclosure that brings perceived precision below the bound restores uniqueness.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/neglect_bound_80
+    reported: '0.894'
+    decimals: 3
+    units: correlation neglect
+    conditions: n = 80, rho = 1
 - id: ch-tau
   kind: computation
-  passage: At baseline, with $\tau = 1$, the evidential channel raises receivers' participation by 2.38 percentage points.
+  passage: 'At baseline, with $\tau = 1$, $\kappa = 0.797$, so at the neutral message the coordination share of the marginal response is $\kappa v$: 20% at reach 0.25, 40% at reach 0.5 and 80% at full reach.'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -543,9 +797,60 @@ claims:
     reported: '1'
     units: perceived precision
     conditions: baseline message precision
+- id: ch-kappa
+  kind: computation
+  passage: 'At baseline, with $\tau = 1$, $\kappa = 0.797$, so at the neutral message the coordination share of the marginal response is $\kappa v$: 20% at reach 0.25, 40% at reach 0.5 and 80% at full reach.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/kappa
+    reported: '0.797'
+    decimals: 3
+    units: kappa
+    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1
+- id: ch-kv0.25
+  kind: computation
+  passage: 'At baseline, with $\tau = 1$, $\kappa = 0.797$, so at the neutral message the coordination share of the marginal response is $\kappa v$: 20% at reach 0.25, 40% at reach 0.5 and 80% at full reach.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/by_reach/0.25/kappa_v
+    reported: 20%
+    scale: 100
+    decimals: 0
+    units: percent of the marginal response
+    conditions: neutral message, reach 0.25
+- id: ch-kv0.50
+  kind: computation
+  passage: 'At baseline, with $\tau = 1$, $\kappa = 0.797$, so at the neutral message the coordination share of the marginal response is $\kappa v$: 20% at reach 0.25, 40% at reach 0.5 and 80% at full reach.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/by_reach/0.50/kappa_v
+    reported: 40%
+    scale: 100
+    decimals: 0
+    units: percent of the marginal response
+    conditions: neutral message, reach 0.50
+- id: ch-kv1.00
+  kind: computation
+  passage: 'At baseline, with $\tau = 1$, $\kappa = 0.797$, so at the neutral message the coordination share of the marginal response is $\kappa v$: 20% at reach 0.25, 40% at reach 0.5 and 80% at full reach.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/by_reach/1.00/kappa_v
+    reported: 80%
+    scale: 100
+    decimals: 0
+    units: percent of the marginal response
+    conditions: neutral message, reach 1.00
+- id: ch-reach-def
+  kind: definition
+  passage: 'At baseline, with $\tau = 1$, $\kappa = 0.797$, so at the neutral message the coordination share of the marginal response is $\kappa v$: 20% at reach 0.25, 40% at reach 0.5 and 80% at full reach.'
+  rationale: Reaches 0, 0.25, 0.5 and 1 are the values hard-coded in run_all.decomposition; results are stored under keys 0.00, 0.25, 0.50, 1.00.
 - id: ch-E
   kind: computation
-  passage: At baseline, with $\tau = 1$, the evidential channel raises receivers' participation by 2.38 percentage points.
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -554,9 +859,9 @@ claims:
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
     conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1; reach 0; baseline mobilizing message z = theta0 - 0.3
-- id: ch-v025-total
+- id: ch-v025
   kind: computation
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -564,10 +869,32 @@ claims:
     reported: '2.98'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1; reach 0.25; baseline mobilizing message z = theta0 - 0.3
-- id: ch-v025-share
+    conditions: reach 0.25
+- id: ch-v05
   kind: computation
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/by_reach/0.50/participation_pp
+    reported: '3.98'
+    decimals: 2
+    units: percentage points of receivers' participation at theta = theta0, relative to no message
+    conditions: reach 0.5
+- id: ch-v1
+  kind: computation
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/by_reach/1.00/participation_pp
+    reported: '11.83'
+    decimals: 2
+    units: percentage points of receivers' participation at theta = theta0, relative to no message
+    conditions: reach 1
+- id: ch-s025
+  kind: computation
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -577,20 +904,9 @@ claims:
     decimals: 0
     units: percent of the cutoff shift
     conditions: reach 0.25
-- id: ch-v05-total
+- id: ch-s05
   kind: computation
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /decomposition/by_reach/0.50/participation_pp
-    reported: '3.98'
-    decimals: 2
-    units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1; reach 0.5; baseline mobilizing message z = theta0 - 0.3
-- id: ch-v05-share
-  kind: computation
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -600,20 +916,9 @@ claims:
     decimals: 0
     units: percent of the cutoff shift
     conditions: reach 0.5
-- id: ch-v1-total
+- id: ch-s1
   kind: computation
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /decomposition/by_reach/1.00/participation_pp
-    reported: '11.83'
-    decimals: 2
-    units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau = 1; reach 1; baseline mobilizing message z = theta0 - 0.3
-- id: ch-v1-share
-  kind: computation
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
+  passage: For the baseline message the evidential channel raises receivers' participation by 2.38 percentage points; the total effect is 2.98 points at reach 0.25, 3.98 at reach 0.5 and 11.83 at full reach (Figure 1a), and the coordination shares of the cutoff shift are 20%, 40% and 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -677,6 +982,21 @@ claims:
     significant_digits: 2
     units: relative error
     conditions: analytic multiplier versus central finite difference, whole grid
+- id: ch-grid-def
+  kind: definition
+  passage: Across 2592 parameter combinations (two prior precisions, three private precisions, three costs, two prior means, three message precisions, six message contents and four reaches) the sign result, the closed form for $E$, the sign and monotonicity of $C$ and the multiplier formula held without exception; the largest error of the closed-form evidential channel was $3.9 \times 10^{-16}$ and the largest relative error of the multiplier against finite differences was $3.4 \times 10^{-8}$.
+  rationale: 'Grid as coded in run_all.verify_propositions: two prior precisions (1, 4), three private precisions (9, 25, 100), three costs (0.3, 0.5, 0.7), two prior means (0.4, 0.6), three message precisions (0.5, 1, 3), six content offsets from z0 and four reaches (0.1, 0.3, 0.6, 1).'
+- id: ch-kid
+  kind: computation
+  passage: The identity $M_0 = 1/(1-\kappa v)$ held to $1.8 \times 10^{-15}$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /decomposition/kappa_identity_max_error
+    reported: 1.8 \times 10^{-15}
+    significant_digits: 2
+    units: absolute error
+    conditions: tau in {0.5, 1, 3}, five reaches
 - id: ch-cert-n
   kind: computation
   passage: In addition, 20 equilibria were checked by computing best responses from a numerical integral of the posterior and iterating them from "nobody participates" and "everybody participates"; in this supermodular game the two sequences bound every equilibrium, and both converged to the analytic cutoffs within $5.3 \times 10^{-10}$.
@@ -698,18 +1018,34 @@ claims:
     significant_digits: 2
     units: cutoff units
     conditions: iterated quadrature best responses from both extremes versus analytic cutoffs
-- id: ch-grid-def
+- id: ch-cert-def
   kind: definition
-  passage: Across 2592 parameter combinations (two prior precisions, three private precisions, three costs, two prior means, three message precisions, six message contents and four reaches) the sign result, the closed form for $E$, the sign and monotonicity of $C$ and the multiplier formula held without exception; the largest error of the closed-form evidential channel was $3.9 \times 10^{-16}$ and the largest relative error of the multiplier against finite differences was $3.4 \times 10^{-8}$.
-  rationale: 'Grid as coded in run_all.verify_propositions: two prior precisions (1, 4), three private precisions (9, 25, 100), three costs (0.3, 0.5, 0.7), two prior means (0.4, 0.6), three message precisions (0.5, 1, 3), six content offsets from z0 and four reaches (0.1, 0.3, 0.6, 1); the two sequences are the iterations from the two extreme profiles.'
-- id: ch-reach-def
-  kind: definition
-  passage: At reach 0.25 the total effect is 2.98 points and the coordination channel is 20% of it; at reach 0.5, 3.98 points and 40%; at full reach, 11.83 points and 80% (Figure 1a).
-  rationale: Reaches 0, 0.25, 0.5 and 1 are the values hard-coded in run_all.decomposition; results are stored under keys 0.00, 0.25, 0.50, 1.00.
+  passage: In addition, 20 equilibria were checked by computing best responses from a numerical integral of the posterior and iterating them from "nobody participates" and "everybody participates"; in this supermodular game the two sequences bound every equilibrium, and both converged to the analytic cutoffs within $5.3 \times 10^{-10}$.
+  rationale: The two sequences are the iterations from the two extreme profiles, nobody and everybody participating.
 - id: fig1-def
   kind: definition
-  passage: '![Channels and disclosure at baseline ($\alpha=4$, $\mu=0.6$, $\beta=25$, $c=0.5$).'
-  rationale: Figure 1 is produced by run_all.fig_channels with alpha = 4, mu = 0.6, beta = 25, c = 0.5; panel a uses message precision 1 and four reaches 0, 0.25, 0.5, 1; panel b three perceived precisions 0.5, 1, 3; panel c raises reach to 1 and draws Pi = 1; panel d uses tau_h = 3 and reaches 0.25 and 1. The figure file is an artifact of run model.
+  passage: (a) Change in receivers' participation at $\theta_0$ against message content, for message precision 1 and four commonly believed reaches; reach 0 is the evidential channel alone.
+  rationale: 'Figure 1 is produced by run_all.fig_channels: panel a message precision 1 and four reaches 0, 0.25, 0.5, 1; panel b three precisions 0.5, 1, 3; panel c raises reach to 1 and draws Pi = 1; panel d uses 3 accounts at full reach, precision 3 before and 1 after disclosure.'
+- id: fig1-rho
+  kind: computation
+  passage: (a) Change in receivers' participation at $\theta_0$ against message content, for message precision 1 and four commonly believed reaches; reach 0 is the evidential channel alone.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/rho
+    reported: '1'
+    units: precision
+    conditions: panel a message precision
+- id: fig1-n
+  kind: computation
+  passage: (d) Share of the message's effect removed by a label that each receiver notices with probability $p$, for a receiver who noticed it and on average over receivers, with 3 accounts at full reach and precision 3 before and 1 after disclosure.](figures/channels.pdf){width=100%}
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/n_small
+    reported: '3'
+    units: accounts
+    conditions: configured
 - id: p2-tau
   kind: computation
   passage: At baseline, with $\tau = 0.0001$, the computed ratio $C/E$ is 3.364 against the limit 3.364.
@@ -731,7 +1067,7 @@ claims:
     reported: '3.364'
     decimals: 3
     units: ratio C/E
-    conditions: tau = 0.0001, reach 1, content 0.3 below z0
+    conditions: tau = 0.0001, reach 1
 - id: p2-limit
   kind: computation
   passage: At baseline, with $\tau = 0.0001$, the computed ratio $C/E$ is 3.364 against the limit 3.364.
@@ -753,7 +1089,75 @@ claims:
     reported: 4.2 \times 10^{-17}
     significant_digits: 2
     units: cutoff units
-    conditions: isolated-disclosure closed form, reaches 0.25 and 1, tau_l in {0, 1}
+    conditions: isolated-disclosure closed form
+- id: int-parasitic
+  kind: interpretation
+  passage: Within the uniqueness region, coordination value therefore multiplies evidential value and cannot exist without it somewhere in the belief hierarchy.
+  rationale: Follows from Proposition 2(i)-(ii) under uniqueness; outside the uniqueness bound a commonly known message can select an equilibrium.
+- id: rv-b
+  kind: computation
+  passage: At baseline, a message that everyone receives but whose receipt is commonly believed only to degree 0.25 raises participation by 2.98 points, while a message received by a share 0.25 of citizens who believe everyone received it raises aggregate participation by 2.96 points, with each receiver moving by 11.83.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /receipt/rows/a1_b0.25/v_belief
+    reported: '0.25'
+    units: commonly believed reach
+    conditions: row a1_b0.25
+- id: rv-1
+  kind: computation
+  passage: At baseline, a message that everyone receives but whose receipt is commonly believed only to degree 0.25 raises participation by 2.98 points, while a message received by a share 0.25 of citizens who believe everyone received it raises aggregate participation by 2.96 points, with each receiver moving by 11.83.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /receipt/rows/a1_b0.25/aggregate_pp
+    reported: '2.98'
+    decimals: 2
+    units: percentage points of aggregate participation at theta0
+    conditions: v_actual 1, v_belief 0.25
+- id: rv-a
+  kind: computation
+  passage: At baseline, a message that everyone receives but whose receipt is commonly believed only to degree 0.25 raises participation by 2.98 points, while a message received by a share 0.25 of citizens who believe everyone received it raises aggregate participation by 2.96 points, with each receiver moving by 11.83.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /receipt/rows/a0.25_b1/v_actual
+    reported: '0.25'
+    units: actual receipt
+    conditions: row a0.25_b1
+- id: rv-2
+  kind: computation
+  passage: At baseline, a message that everyone receives but whose receipt is commonly believed only to degree 0.25 raises participation by 2.98 points, while a message received by a share 0.25 of citizens who believe everyone received it raises aggregate participation by 2.96 points, with each receiver moving by 11.83.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /receipt/rows/a0.25_b1/aggregate_pp
+    reported: '2.96'
+    decimals: 2
+    units: percentage points of aggregate participation
+    conditions: v_actual 0.25, v_belief 1
+- id: rv-3
+  kind: computation
+  passage: At baseline, a message that everyone receives but whose receipt is commonly believed only to degree 0.25 raises participation by 2.98 points, while a message received by a share 0.25 of citizens who believe everyone received it raises aggregate participation by 2.96 points, with each receiver moving by 11.83.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /receipt/rows/a0.25_b1/receiver_pp
+    reported: '11.83'
+    decimals: 2
+    units: percentage points of receivers' participation at theta = theta0, relative to no message
+    conditions: v_actual 0.25, v_belief 1
+- id: rv-4
+  kind: computation
+  passage: When everyone receives it and knows that everyone did, the effect is 11.83 points.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /receipt/rows/a1_b1/aggregate_pp
+    reported: '11.83'
+    decimals: 2
+    units: percentage points
+    conditions: v_actual 1, v_belief 1
 - id: d-n3
   kind: computation
   passage: At baseline with 3 accounts ($\tau_h = 3$) and full reach, the message raises receivers' participation by 40.66 points.
@@ -773,7 +1177,7 @@ claims:
     pointer: /isolated/tau_h
     reported: '3'
     units: perceived precision before disclosure
-    conditions: 3 accounts, full neglect
+    conditions: 3 accounts believed independent
 - id: d-undisc
   kind: computation
   passage: At baseline with 3 accounts ($\tau_h = 3$) and full reach, the message raises receivers' participation by 40.66 points.
@@ -787,17 +1191,17 @@ claims:
     conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau_h = 3; reach 1; baseline mobilizing message z = theta0 - 0.3
 - id: d-iso-tl
   kind: computation
-  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points), and 17% if she regards the message as uninformative (to 33.62 points).
+  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points; 15% on the cutoff scale), and 17% if she regards the message as uninformative (to 33.62 points).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /isolated/1.00/common_source/tau_l
     reported: '1'
-    units: perceived precision after disclosure
-    conditions: isolated disclosure
+    units: precision after disclosure
+    conditions: isolated
 - id: d-iso-share
   kind: computation
-  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points), and 17% if she regards the message as uninformative (to 33.62 points).
+  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points; 15% on the cutoff scale), and 17% if she regards the message as uninformative (to 33.62 points).
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -805,11 +1209,11 @@ claims:
     reported: 11%
     scale: 100
     decimals: 0
-    units: percent of the participation effect removed
-    conditions: isolated disclosure, tau 3 to 1, reach 1
+    units: percent removed (participation scale)
+    conditions: isolated, reach 1
 - id: d-iso-pp
   kind: computation
-  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points), and 17% if she regards the message as uninformative (to 33.62 points).
+  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points; 15% on the cutoff scale), and 17% if she regards the message as uninformative (to 33.62 points).
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -817,10 +1221,22 @@ claims:
     reported: '36.17'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: isolated disclosure, tau_l = 1, reach 1
+    conditions: isolated, tau_l = 1
+- id: d-iso-cut
+  kind: computation
+  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points; 15% on the cutoff scale), and 17% if she regards the message as uninformative (to 33.62 points).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/1.00/common_source/share_of_cutoff_shift_removed
+    reported: 15%
+    scale: 100
+    decimals: 0
+    units: percent removed (cutoff scale)
+    conditions: isolated, reach 1
 - id: d-iso0-share
   kind: computation
-  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points), and 17% if she regards the message as uninformative (to 33.62 points).
+  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points; 15% on the cutoff scale), and 17% if she regards the message as uninformative (to 33.62 points).
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -828,11 +1244,11 @@ claims:
     reported: 17%
     scale: 100
     decimals: 0
-    units: percent of the participation effect removed
-    conditions: isolated disclosure, tau_l = 0, reach 1
+    units: percent removed
+    conditions: isolated, tau_l = 0
 - id: d-iso0-pp
   kind: computation
-  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points), and 17% if she regards the message as uninformative (to 33.62 points).
+  passage: An isolated disclosure that leaves the disclosed receiver with precision 1 removes 11% of this effect on her (to 36.17 points; 15% on the cutoff scale), and 17% if she regards the message as uninformative (to 33.62 points).
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -840,10 +1256,10 @@ claims:
     reported: '33.62'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: isolated disclosure, tau_l = 0, reach 1
-- id: d-common-share
+    conditions: isolated, tau_l = 0
+- id: d-com-share
   kind: computation
-  passage: The same disclosure made common knowledge removes 71% (to 11.83 points).
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -851,11 +1267,11 @@ claims:
     reported: 71%
     scale: 100
     decimals: 0
-    units: percent of the participation effect removed
-    conditions: common-knowledge disclosure, tau 3 to 1, reach 1
-- id: d-common-pp
+    units: percent removed (participation scale)
+    conditions: common, reach 1
+- id: d-com-pp
   kind: computation
-  passage: The same disclosure made common knowledge removes 71% (to 11.83 points).
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -864,6 +1280,64 @@ claims:
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
     conditions: tau = 1, reach 1
+- id: d-com-cut
+  kind: computation
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/1.00/common_disclosure/share_of_cutoff_shift_removed
+    reported: 75%
+    scale: 100
+    decimals: 0
+    units: percent removed (cutoff scale)
+    conditions: common, reach 1
+- id: d-com-E
+  kind: computation
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/1.00/common_disclosure/evidential_fall
+    reported: 67%
+    scale: 100
+    decimals: 0
+    units: percent fall of E
+    conditions: tau 3 to 1
+- id: d-com-C
+  kind: computation
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/1.00/common_disclosure/coordination_fall
+    reported: 77%
+    scale: 100
+    decimals: 0
+    units: percent fall of C
+    conditions: tau 3 to 1
+- id: d-com-r0
+  kind: computation
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/1.00/common_disclosure/C_over_E_before
+    reported: '5.65'
+    decimals: 2
+    units: ratio C/E
+    conditions: tau 3, reach 1
+- id: d-com-r1
+  kind: computation
+  passage: 'The same disclosure made common knowledge removes 71% (to 11.83 points; 75% on the cutoff scale): the evidential channel falls by 67% and the coordination channel by 77%, and the ratio $C/E$ falls from 5.65 to 3.96.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/1.00/common_disclosure/C_over_E_after
+    reported: '3.96'
+    decimals: 2
+    units: ratio C/E
+    conditions: tau 1, reach 1
 - id: d-iso025-v
   kind: computation
   passage: At reach 0.25 an isolated disclosure removes 54% of a smaller effect, because less of it was coordination.
@@ -874,7 +1348,7 @@ claims:
     reported: '0.25'
     units: reach
     conditions: configured
-- id: d-iso025-share
+- id: d-iso025
   kind: computation
   passage: At reach 0.25 an isolated disclosure removes 54% of a smaller effect, because less of it was coordination.
   evidence:
@@ -884,9 +1358,9 @@ claims:
     reported: 54%
     scale: 100
     decimals: 0
-    units: percent of the participation effect removed
-    conditions: isolated disclosure, tau 3 to 1, reach 0.25
-- id: d-lemma-paths
+    units: percent removed
+    conditions: isolated, reach 0.25
+- id: d-lemma
   kind: computation
   passage: The single-peakedness in (b) held on all 358 computed paths of 80 perceived precisions each across the parameter grid of the previous section.
   evidence:
@@ -895,14 +1369,114 @@ claims:
     pointer: /propositions/precision_lemma_paths
     reported: '358'
     units: paths
-    conditions: verification grid; failures = 0 at /propositions/precision_lemma_fail
+    conditions: failures = 0 at /propositions/precision_lemma_fail
 - id: d-lemma-def
   kind: definition
   passage: The single-peakedness in (b) held on all 358 computed paths of 80 perceived precisions each across the parameter grid of the previous section.
-  rationale: Each path evaluates the cutoff at 80 perceived precisions between 0.05 and 4 (run_all.verify_propositions), for reaches 0.3 and 1 and five contents.
+  rationale: Each path evaluates the cutoff at 80 perceived precisions between 0.05 and 4 (run_all.verify_propositions).
+- id: lab-0
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/0/noticer_share_removed
+    reported: 11%
+    scale: 100
+    decimals: 0
+    units: percent of the effect removed for a noticer
+    conditions: label noticed with probability p (row 0), 3 accounts, reach 1
+- id: lab-2
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/2/noticer_share_removed
+    reported: 27%
+    scale: 100
+    decimals: 0
+    units: percent of the effect removed for a noticer
+    conditions: label noticed with probability p (row 2), 3 accounts, reach 1
+- id: lab-3
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/3/noticer_share_removed
+    reported: 42%
+    scale: 100
+    decimals: 0
+    units: percent of the effect removed for a noticer
+    conditions: label noticed with probability p (row 3), 3 accounts, reach 1
+- id: lab-4
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/4/noticer_share_removed
+    reported: 57%
+    scale: 100
+    decimals: 0
+    units: percent of the effect removed for a noticer
+    conditions: label noticed with probability p (row 4), 3 accounts, reach 1
+- id: lab-6
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/6/noticer_share_removed
+    reported: 71%
+    scale: 100
+    decimals: 0
+    units: percent of the effect removed for a noticer
+    conditions: label noticed with probability p (row 6), 3 accounts, reach 1
+- id: lab-p2
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/2/p
+    reported: '0.25'
+    units: probability
+    conditions: configured label grid
+- id: lab-p3
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/3/p
+    reported: '0.5'
+    units: probability
+    conditions: configured label grid
+- id: lab-p4
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/4/p
+    reported: '0.75'
+    units: probability
+    conditions: configured label grid
+- id: lab-p6
+  kind: computation
+  passage: For the noticer, the share of the effect removed rises from 11% at $p$ near zero to 27% at $p = 0.25$, 42% at $p = 0.5$, 57% at $p = 0.75$ and 71% at $p = 1$ (Figure 1d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /label/rows/6/p
+    reported: '1'
+    units: probability
+    conditions: configured label grid
 - id: px-n3
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -912,7 +1486,7 @@ claims:
     conditions: configured
 - id: px-v0
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -920,9 +1494,9 @@ claims:
     reported: '0.25'
     units: reach before disclosure
     conditions: configured
-- id: px-before3
+- id: px-b3
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -930,50 +1504,50 @@ claims:
     reported: '9.11'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; tau_h = 3; reach 0.25; baseline mobilizing message z = theta0 - 0.3
+    conditions: tau_h = 3, reach 0.25
 - id: px-rho
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/rho
+    pointer: /paradox/examples/3/by_post_neglect/0/tau_l
     reported: '1'
     units: precision after disclosure
-    conditions: configured
-- id: px-after3
+    conditions: chi' = 0
+- id: px-a3
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/examples/3/after_public_pp
+    pointer: /paradox/examples/3/by_post_neglect/0/after_public_pp
     reported: '11.83'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: tau = 1, reach 1
+    conditions: tau 1, reach 1
 - id: px-Pi3
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/examples/3/Pi
+    pointer: /paradox/examples/3/by_post_neglect/0/Pi
     reported: '1.30'
     decimals: 2
     units: publicity-credibility ratio
-    conditions: tau_h = 3, v0 = 0.25, tau_l = 1, v1 = 1
-- id: px-private3
+    conditions: 3 accounts, chi' = 0
+- id: px-p3
   kind: computation
-  passage: With 3 accounts, a campaign seen with common knowledge among a share $v_0 = 0.25$ of citizens raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
+  passage: With 3 accounts, a campaign seen with a commonly believed reach $v_0 = 0.25$ raises receivers' participation by 9.11 points; a public disclosure that lowers perceived precision to 1 and makes receipt common knowledge raises it to 11.83 points ($\Pi = 1.30$), while the same disclosure at unchanged reach lowers it to 2.98.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/examples/3/after_private_pp
+    pointer: /paradox/examples/3/by_post_neglect/0/after_private_pp
     reported: '2.98'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: tau = 1, reach 0.25
+    conditions: tau 1, reach 0.25
 - id: px-n5
   kind: computation
   passage: With 5 accounts the campaign raises participation by 15.34 points and public disclosure lowers it to 11.83 ($\Pi = 0.76$).
@@ -984,7 +1558,7 @@ claims:
     reported: '5'
     units: accounts
     conditions: configured
-- id: px-before5
+- id: px-b5
   kind: computation
   passage: With 5 accounts the campaign raises participation by 15.34 points and public disclosure lowers it to 11.83 ($\Pi = 0.76$).
   evidence:
@@ -995,50 +1569,92 @@ claims:
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
     conditions: tau_h = 5, reach 0.25
-- id: px-after5
+- id: px-a5
   kind: computation
   passage: With 5 accounts the campaign raises participation by 15.34 points and public disclosure lowers it to 11.83 ($\Pi = 0.76$).
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/examples/5/after_public_pp
+    pointer: /paradox/examples/5/by_post_neglect/0/after_public_pp
     reported: '11.83'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: tau = 1, reach 1
+    conditions: tau 1, reach 1
 - id: px-Pi5
   kind: computation
   passage: With 5 accounts the campaign raises participation by 15.34 points and public disclosure lowers it to 11.83 ($\Pi = 0.76$).
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/examples/5/Pi
+    pointer: /paradox/examples/5/by_post_neglect/0/Pi
     reported: '0.76'
     decimals: 2
     units: publicity-credibility ratio
-    conditions: tau_h = 5, v0 = 0.25, tau_l = 1, v1 = 1
+    conditions: 5 accounts, chi' = 0
 - id: px-n5b
   kind: computation
-  passage: 'Whether the paradox occurs depends on how much neglect inflated credibility before disclosure: with 5 accounts it occurs whenever neglect $\chi$ is below 0.926.'
+  passage: 'Whether the paradox occurs depends on how much of the disclosed correlation receivers still neglect: with 5 accounts it occurs whenever $\chi''$ exceeds 0.260, and at $\chi'' = 0.5$ the same disclosure raises participation to 21.23 points ($\Pi = 1.40$).'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/neglect_threshold/n
+    pointer: /paradox/post_neglect_threshold/n
     reported: '5'
     units: accounts
-    conditions: neglect threshold computation
-- id: px-chistar
+    conditions: threshold computation
+- id: px-chi
   kind: computation
-  passage: 'Whether the paradox occurs depends on how much neglect inflated credibility before disclosure: with 5 accounts it occurs whenever neglect $\chi$ is below 0.926.'
+  passage: 'Whether the paradox occurs depends on how much of the disclosed correlation receivers still neglect: with 5 accounts it occurs whenever $\chi''$ exceeds 0.260, and at $\chi'' = 0.5$ the same disclosure raises participation to 21.23 points ($\Pi = 1.40$).'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /paradox/neglect_threshold/chi_star
-    reported: '0.926'
+    pointer: /paradox/post_neglect_threshold/chi_star
+    reported: '0.260'
     decimals: 3
-    units: correlation neglect chi
-    conditions: Pi(chi) = 1, n = 5, v0 = 0.25
-- id: px-loc001-n
+    units: post-disclosure neglect
+    conditions: Pi = 1, n = 5, v0 = 0.25
+- id: px-chi05
+  kind: computation
+  passage: 'Whether the paradox occurs depends on how much of the disclosed correlation receivers still neglect: with 5 accounts it occurs whenever $\chi''$ exceeds 0.260, and at $\chi'' = 0.5$ the same disclosure raises participation to 21.23 points ($\Pi = 1.40$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/post_neglect/2
+    reported: '0.5'
+    units: post-disclosure neglect
+    conditions: configured
+- id: px-a505
+  kind: computation
+  passage: 'Whether the paradox occurs depends on how much of the disclosed correlation receivers still neglect: with 5 accounts it occurs whenever $\chi''$ exceeds 0.260, and at $\chi'' = 0.5$ the same disclosure raises participation to 21.23 points ($\Pi = 1.40$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /paradox/examples/5/by_post_neglect/0.5/after_public_pp
+    reported: '21.23'
+    decimals: 2
+    units: percentage points of receivers' participation at theta = theta0, relative to no message
+    conditions: 5 accounts, chi' = 0.5
+- id: px-Pi505
+  kind: computation
+  passage: 'Whether the paradox occurs depends on how much of the disclosed correlation receivers still neglect: with 5 accounts it occurs whenever $\chi''$ exceeds 0.260, and at $\chi'' = 0.5$ the same disclosure raises participation to 21.23 points ($\Pi = 1.40$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /paradox/examples/5/by_post_neglect/0.5/Pi
+    reported: '1.40'
+    decimals: 2
+    units: publicity-credibility ratio
+    conditions: 5 accounts, chi' = 0.5
+- id: px-n3b
+  kind: computation
+  passage: With 3 accounts it occurs at every $\chi'$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/n_small
+    reported: '3'
+    units: accounts
+    conditions: configured; Pi > 1 for chi' in {0, 0.25, 0.5}
+- id: px-l1
   kind: computation
   passage: The first-order criterion predicted the sign of the exact effect at all 1438 parameter points with surprise $|z-\theta_0| = 0.01$, and at 99.7% of 1440 points with surprise 0.3 (two prior precisions, three private precisions, two values of $\tau_l$, six deflation factors, ten values of $v_0$ and both directions of surprise).
   evidence:
@@ -1047,8 +1663,8 @@ claims:
     pointer: /paradox/local_criterion/0.01/points
     reported: '1438'
     units: parameter points
-    conditions: surprise 0.01, c = 1/2 grid
-- id: px-loc001-a
+    conditions: surprise 0.01
+- id: px-l1a
   kind: computation
   passage: The first-order criterion predicted the sign of the exact effect at all 1438 parameter points with surprise $|z-\theta_0| = 0.01$, and at 99.7% of 1440 points with surprise 0.3 (two prior precisions, three private precisions, two values of $\tau_l$, six deflation factors, ten values of $v_0$ and both directions of surprise).
   evidence:
@@ -1056,9 +1672,9 @@ claims:
     run_id: model
     pointer: /paradox/local_criterion/0.01/agree
     reported: '1438'
-    units: parameter points agreeing
+    units: points agreeing
     conditions: surprise 0.01
-- id: px-loc03-s
+- id: px-l3
   kind: computation
   passage: The first-order criterion predicted the sign of the exact effect at all 1438 parameter points with surprise $|z-\theta_0| = 0.01$, and at 99.7% of 1440 points with surprise 0.3 (two prior precisions, three private precisions, two values of $\tau_l$, six deflation factors, ten values of $v_0$ and both directions of surprise).
   evidence:
@@ -1070,7 +1686,7 @@ claims:
     decimals: 1
     units: percent agreement
     conditions: surprise 0.3
-- id: px-loc03-n
+- id: px-l3n
   kind: computation
   passage: The first-order criterion predicted the sign of the exact effect at all 1438 parameter points with surprise $|z-\theta_0| = 0.01$, and at 99.7% of 1440 points with surprise 0.3 (two prior precisions, three private precisions, two values of $\tau_l$, six deflation factors, ten values of $v_0$ and both directions of surprise).
   evidence:
@@ -1083,7 +1699,7 @@ claims:
 - id: px-loc-def
   kind: definition
   passage: The first-order criterion predicted the sign of the exact effect at all 1438 parameter points with surprise $|z-\theta_0| = 0.01$, and at 99.7% of 1440 points with surprise 0.3 (two prior precisions, three private precisions, two values of $\tau_l$, six deflation factors, ten values of $v_0$ and both directions of surprise).
-  rationale: 'Grid as coded in run_all.paradox: two prior precisions (1, 4), three private precisions (9, 25, 100), two values of tau_l (0.5, 1), six deflation factors (1.25 to 8), ten values of v0 (0 to 0.9), surprises 0.01, 0.05, 0.15, 0.3 in both directions, c = 0.5.'
+  rationale: 'Grid as coded in run_all.paradox: two prior precisions (1, 4), three private precisions (9, 25, 100), two values of tau_l (0.5, 1), six deflation factors, ten values of v0, surprises 0.01, 0.05, 0.15, 0.3 in both directions.'
 - id: px-skip
   kind: computation
   passage: The 3 points with multiple equilibria were excluded.
@@ -1105,7 +1721,7 @@ claims:
     decimals: 3
     units: erosion threshold
     conditions: baseline parameters alpha = 4, mu = 0.6, beta = 25, c = 0.5; closed form
-- id: dy-gc-c03
+- id: dy-c03
   kind: computation
   passage: At baseline $\gamma_c = 0.294$, equal to the numerically computed threshold to machine precision; for $c = 0.3$ and $c = 0.7$ the numerical threshold is 0.310.
   evidence:
@@ -1115,8 +1731,8 @@ claims:
     reported: '0.310'
     decimals: 3
     units: erosion threshold
-    conditions: c = 0.3, numerical
-- id: dy-gc-c07
+    conditions: c = 0.3
+- id: dy-c07
   kind: computation
   passage: At baseline $\gamma_c = 0.294$, equal to the numerically computed threshold to machine precision; for $c = 0.3$ and $c = 0.7$ the numerical threshold is 0.310.
   evidence:
@@ -1126,11 +1742,11 @@ claims:
     reported: '0.310'
     decimals: 3
     units: erosion threshold
-    conditions: c = 0.7, numerical
+    conditions: c = 0.7
 - id: dy-costs-def
   kind: definition
   passage: At baseline $\gamma_c = 0.294$, equal to the numerically computed threshold to machine precision; for $c = 0.3$ and $c = 0.7$ the numerical threshold is 0.310.
-  rationale: The costs 0.3 and 0.7 are the values coded in run_all.dynamics_results (gamma_c_other_costs); results keys 0.3 and 0.7.
+  rationale: Costs 0.3 and 0.7 are coded in run_all.dynamics_results.
 - id: dy-grid
   kind: computation
   passage: On a grid of 1640 pairs $(\gamma, \bar\theta)$ the number of steady states matched the characterisation everywhere.
@@ -1140,167 +1756,312 @@ claims:
     pointer: /dynamics/bistability_grid/points
     reported: '1640'
     units: parameter pairs
-    conditions: 40 erosion values by 41 baseline strengths; mismatches = 0 at /dynamics/bistability_grid/mismatches
-- id: dy-gamma
+    conditions: mismatches = 0
+- id: dy-g
   kind: computation
-  passage: With $\gamma = 1$ and $\bar\theta = 0.897$ the low state has participation 0.0004, the unstable state 0.353 and the high state close to one.
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/dynamics/gamma
-    reported: '1'
+    reported: '0.6'
     units: erosion
     conditions: configured
 - id: dy-tb
   kind: computation
-  passage: With $\gamma = 1$ and $\bar\theta = 0.897$ the low state has participation 0.0004, the unstable state 0.353 and the high state close to one.
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/baseline/theta_bar
-    reported: '0.897'
-    decimals: 3
+    reported: '0.8'
+    decimals: 1
     units: baseline strength
-    conditions: 30% into the bistable interval
+    conditions: midpoint of the bistable interval
+- id: dy-muL
+  kind: computation
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/baseline/steady_states/0/mu
+    reported: '0.796'
+    decimals: 3
+    units: expected strength
+    conditions: low state
 - id: dy-AL
   kind: computation
-  passage: With $\gamma = 1$ and $\bar\theta = 0.897$ the low state has participation 0.0004, the unstable state 0.353 and the high state close to one.
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/baseline/steady_states/0/A
-    reported: '0.0004'
-    decimals: 4
-    units: participation share
-    conditions: low steady state
+    reported: '0.006'
+    decimals: 3
+    units: participation
+    conditions: low state
+- id: dy-muM
+  kind: computation
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/baseline/steady_states/1/mu
+    reported: '0.5'
+    decimals: 1
+    units: expected strength
+    conditions: unstable state
 - id: dy-AM
   kind: computation
-  passage: With $\gamma = 1$ and $\bar\theta = 0.897$ the low state has participation 0.0004, the unstable state 0.353 and the high state close to one.
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/baseline/steady_states/1/A
-    reported: '0.353'
-    decimals: 3
-    units: participation share
-    conditions: unstable steady state
-- id: dy-T4
+    reported: '0.5'
+    decimals: 1
+    units: participation
+    conditions: unstable state
+- id: dy-muH
   kind: computation
-  passage: A campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = -0.070$; the threshold is sharp, in that content just below it leaves the system in the high state and content just above it returns the system to the low state (Figure 2b).
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/dynamics/campaign_lengths/2
+    pointer: /dynamics/baseline/steady_states/2/mu
+    reported: '0.204'
+    decimals: 3
+    units: expected strength
+    conditions: high state
+- id: dy-AH
+  kind: computation
+  passage: With $\gamma = 0.6$ and $\bar\theta = 0.8$, the middle of the bistable interval, the low state has expected strength 0.796 and participation 0.006, the unstable state 0.5 and 0.5, and the high state expected strength 0.204 and participation 0.994, so both states have a status quo of positive strength.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/baseline/steady_states/2/A
+    reported: '0.994'
+    decimals: 3
+    units: participation
+    conditions: high state
+- id: dy-T
+  kind: computation
+  passage: In the skeleton, a campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = 0.107$; content just below the threshold leaves the system in the high state and content just above returns it to the low state (Figure 2b).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/campaign_length
     reported: '4'
     units: periods
-    conditions: configured campaign length
-- id: dy-T4-tau
+    conditions: configured
+- id: dy-tau3
   kind: computation
-  passage: A campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = -0.070$; the threshold is sharp, in that content just below it leaves the system in the high state and content just above it returns the system to the low state (Figure 2b).
+  passage: In the skeleton, a campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = 0.107$; content just below the threshold leaves the system in the high state and content just above returns it to the low state (Figure 2b).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /isolated/tau_h
     reported: '3'
     units: perceived precision
-    conditions: undisclosed campaign of 3 accounts
-- id: dy-zc4
+    conditions: 3 accounts believed independent
+- id: dy-zc
   kind: computation
-  passage: A campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = -0.070$; the threshold is sharp, in that content just below it leaves the system in the high state and content just above it returns the system to the low state (Figure 2b).
+  passage: In the skeleton, a campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = 0.107$; content just below the threshold leaves the system in the high state and content just above returns it to the low state (Figure 2b).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/critical_message/4/undisclosed
-    reported: '-0.070'
+    reported: '0.107'
     decimals: 3
     units: message content
-    conditions: T = 4, tau = 3, reach 1, gamma = 1
+    conditions: T = 4, tau = 3, reach 1
 - id: dy-sharp-def
   kind: definition
-  passage: A campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = -0.070$; the threshold is sharp, in that content just below it leaves the system in the high state and content just above it returns the system to the low state (Figure 2b).
-  rationale: 'Sharpness is checked at content offsets of plus and minus 1e-6 from z_c (run_all.dynamics_results, results at /dynamics/sharpness): persistent at -1e-6, not at +1e-6.'
-- id: dy-rho1
+  passage: In the skeleton, a campaign of 4 periods with perceived precision 3 persists if its content is below $z_c = 0.107$; content just below the threshold leaves the system in the high state and content just above returns it to the low state (Figure 2b).
+  rationale: Sharpness checked at offsets of plus and minus 1e-6 from z_c (/dynamics/sharpness).
+- id: dy-rho
   kind: computation
-  passage: Longer campaigns need less extreme content, and a campaign assigned precision 1 needs content near $-1.33$ (Figure 2c).
+  passage: Longer campaigns need less extreme content, and a campaign assigned precision 1 needs content below $-0.76$ (Figure 2c).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/rho
     reported: '1'
-    units: perceived precision
+    units: precision
     conditions: disclosed campaign
-- id: dy-zc4d
+- id: dy-zcd
   kind: computation
-  passage: Longer campaigns need less extreme content, and a campaign assigned precision 1 needs content near $-1.33$ (Figure 2c).
+  passage: Longer campaigns need less extreme content, and a campaign assigned precision 1 needs content below $-0.76$ (Figure 2c).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/critical_message/4/disclosed
-    reported: '-1.33'
+    reported: '-0.76'
     decimals: 2
     units: message content
-    conditions: T = 4, tau = 1, reach 1
+    conditions: T = 4, tau = 1
 - id: dy-unique-def
   kind: definition
   passage: The same campaign at $\gamma = 0.8\gamma_c$ decays to the unique steady state.
-  rationale: The factor 0.8 is coded in run_all.dynamics_results; the run records a single steady state and final participation equal to the initial one (/dynamics/unique_regime).
+  rationale: Factor 0.8 coded in run_all.dynamics_results; one steady state, final participation equal to the initial (/dynamics/unique_regime).
 - id: dy-T6
   kind: computation
-  passage: 'Disclosure matters only before the crossing: in a campaign of 6 periods whose undisclosed version crosses the unstable state after 4 periods, the change persists if the source is disclosed after 4 or more periods and dies out if it is disclosed after 3 or fewer.'
+  passage: In a campaign of 6 periods whose undisclosed version crosses the unstable state after 4 periods, the change persists if the source is disclosed after 4 or more periods and dies out if it is disclosed after 3 or fewer.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/disclosure_timing/campaign_length
     reported: '6'
     units: periods
-    conditions: configured disclosure campaign
+    conditions: configured
 - id: dy-cross
   kind: computation
-  passage: 'Disclosure matters only before the crossing: in a campaign of 6 periods whose undisclosed version crosses the unstable state after 4 periods, the change persists if the source is disclosed after 4 or more periods and dies out if it is disclosed after 3 or fewer.'
+  passage: In a campaign of 6 periods whose undisclosed version crosses the unstable state after 4 periods, the change persists if the source is disclosed after 4 or more periods and dies out if it is disclosed after 3 or fewer.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/disclosure_timing/undisclosed_crossing_period
     reported: '4'
     units: periods
-    conditions: undisclosed campaign, content between z_c(3) and z_c(4)
+    conditions: undisclosed campaign
 - id: dy-latest
   kind: computation
-  passage: 'Disclosure matters only before the crossing: in a campaign of 6 periods whose undisclosed version crosses the unstable state after 4 periods, the change persists if the source is disclosed after 4 or more periods and dies out if it is disclosed after 3 or fewer.'
+  passage: In a campaign of 6 periods whose undisclosed version crosses the unstable state after 4 periods, the change persists if the source is disclosed after 4 or more periods and dies out if it is disclosed after 3 or fewer.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /dynamics/disclosure_timing/latest_preventing_disclosure
     reported: '3'
     units: periods before disclosure
-    conditions: disclosure switches tau from 3 to 1
-- id: fig2-def
-  kind: definition
-  passage: '![Persistence at baseline.'
-  rationale: Figure 2 is produced by run_all.fig_dynamics. Panel b uses a campaign of 4 periods with perceived precision 3 and content z_c - 0.05 and z_c + 0.05, and gamma = 0.8 gamma_c for the third path; panel c uses precisions 3 and 1; panel d uses 50,000 periods per point (/config/dynamics/shock_periods).
+    conditions: tau 3 to 1
 - id: fig2-T
   kind: computation
-  passage: (b) Participation over time under a campaign of 4 periods (shaded) with perceived precision 3 and content 0.05 below and 0.05 above the critical content, and the first of these campaigns when $\gamma = 0.8\gamma_c$.
+  passage: (b) Skeleton participation under a campaign of 4 periods (shaded) with perceived precision 3 and content 0.05 below and 0.05 above the critical content, and the first of these campaigns when $\gamma = 0.8\gamma_c$.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/dynamics/campaign_lengths/2
+    pointer: /config/dynamics/campaign_length
     reported: '4'
     units: periods
     conditions: configured
-- id: fig2-50k
+- id: fig2-off
   kind: computation
-  passage: (d) Mean number of periods spent in the high state before leaving it when the fundamental each period is the public expectation plus a normal shock; the dotted line marks the prior standard deviation; points at 50,000 periods had no exit.](figures/dynamics.pdf){width=100%}
+  passage: (b) Skeleton participation under a campaign of 4 periods (shaded) with perceived precision 3 and content 0.05 below and 0.05 above the critical content, and the first of these campaigns when $\gamma = 0.8\gamma_c$.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/dynamics/shock_periods
-    reported: 50,000
+    pointer: /config/dynamics/campaign_offset
+    reported: '0.05'
+    units: content offset
+    conditions: configured
+- id: fig2-tau
+  kind: computation
+  passage: (b) Skeleton participation under a campaign of 4 periods (shaded) with perceived precision 3 and content 0.05 below and 0.05 above the critical content, and the first of these campaigns when $\gamma = 0.8\gamma_c$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/tau_h
+    reported: '3'
+    units: perceived precision
+    conditions: undisclosed
+- id: fig2-g
+  kind: computation
+  passage: '![Persistence ($\gamma = 0.6$, $\bar\theta = 0.8$ unless stated).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/gamma
+    reported: '0.6'
+    units: erosion
+    conditions: configured
+- id: fig2-tb
+  kind: computation
+  passage: '![Persistence ($\gamma = 0.6$, $\bar\theta = 0.8$ unless stated).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/baseline/theta_bar
+    reported: '0.8'
+    decimals: 1
+    units: baseline strength
+    conditions: configured position
+- id: fig2-paths
+  kind: computation
+  passage: (d) Share of 4000 paths in the high state when each period's fundamental is drawn around its public expectation with the prior's standard deviation, with a campaign of 4 periods just past the skeleton threshold (solid) and without one (dashed), at baseline and in the precise environment ($\alpha = 16$, $\beta = 100$, campaign precision 8).](figures/dynamics.pdf){width=100%}
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/paths
+    reported: '4000'
+    units: paths
+    conditions: configured
+- id: fig2-T2
+  kind: computation
+  passage: (d) Share of 4000 paths in the high state when each period's fundamental is drawn around its public expectation with the prior's standard deviation, with a campaign of 4 periods just past the skeleton threshold (solid) and without one (dashed), at baseline and in the precise environment ($\alpha = 16$, $\beta = 100$, campaign precision 8).](figures/dynamics.pdf){width=100%}
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/campaign_length
+    reported: '4'
     units: periods
-    conditions: configured shock simulation length
+    conditions: configured
+- id: fig2-a
+  kind: computation
+  passage: (d) Share of 4000 paths in the high state when each period's fundamental is drawn around its public expectation with the prior's standard deviation, with a campaign of 4 periods just past the skeleton threshold (solid) and without one (dashed), at baseline and in the precise environment ($\alpha = 16$, $\beta = 100$, campaign precision 8).](figures/dynamics.pdf){width=100%}
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/precise/alpha
+    reported: '16'
+    units: prior precision
+    conditions: precise environment
+- id: fig2-b
+  kind: computation
+  passage: (d) Share of 4000 paths in the high state when each period's fundamental is drawn around its public expectation with the prior's standard deviation, with a campaign of 4 periods just past the skeleton threshold (solid) and without one (dashed), at baseline and in the precise environment ($\alpha = 16$, $\beta = 100$, campaign precision 8).](figures/dynamics.pdf){width=100%}
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/precise/beta
+    reported: '100'
+    units: private precision
+    conditions: precise environment
+- id: fig2-ct
+  kind: computation
+  passage: (d) Share of 4000 paths in the high state when each period's fundamental is drawn around its public expectation with the prior's standard deviation, with a campaign of 4 periods just past the skeleton threshold (solid) and without one (dashed), at baseline and in the precise environment ($\alpha = 16$, $\beta = 100$, campaign precision 8).](figures/dynamics.pdf){width=100%}
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/precise/campaign_tau
+    reported: '8'
+    units: campaign precision
+    conditions: precise environment
+- id: fig2-def
+  kind: definition
+  passage: (c) Critical content against campaign length for perceived precision 3 (undisclosed) and 1 (disclosed).
+  rationale: Figure 2 panel c plots /dynamics/critical_message for perceived precision 3 (undisclosed) and 1 (disclosed).
+- id: fig2-c3
+  kind: computation
+  passage: (c) Critical content against campaign length for perceived precision 3 (undisclosed) and 1 (disclosed).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /isolated/tau_h
+    reported: '3'
+    units: perceived precision
+    conditions: undisclosed
+- id: fig2-c1
+  kind: computation
+  passage: (c) Critical content against campaign length for perceived precision 3 (undisclosed) and 1 (disclosed).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/rho
+    reported: '1'
+    units: perceived precision
+    conditions: disclosed
 - id: sh-sd
   kind: computation
-  passage: When each period's fundamental is drawn around its public expectation with the prior's own standard deviation of 0.5, the high state at baseline lasts 34 periods on average before a shock tips it back; with shocks of standard deviation 0.3 it lasts 3107 periods, and with 0.2 it never left in 50,000 periods (Figure 2d).
+  passage: With the prior's standard deviation of 0.5, the high state lasts 4.7 periods on average and the low state 4.9, and the system spends 49% of periods in the high state.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1308,80 +2069,303 @@ claims:
     reported: '0.5'
     decimals: 1
     units: shock standard deviation
-    conditions: equal to the prior standard deviation
-- id: sh-34
+    conditions: prior standard deviation
+- id: sh-rh
   kind: computation
-  passage: When each period's fundamental is drawn around its public expectation with the prior's own standard deviation of 0.5, the high state at baseline lasts 34 periods on average before a shock tips it back; with shocks of standard deviation 0.3 it lasts 3107 periods, and with 0.2 it never left in 50,000 periods (Figure 2d).
+  passage: With the prior's standard deviation of 0.5, the high state lasts 4.7 periods on average and the low state 4.9, and the system spends 49% of periods in the high state.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /dynamics/shocks/g1_s0.5/mean_residence_high
-    reported: '34'
-    decimals: 0
+    pointer: /dynamics/shocks/g0.6_s0.5/mean_residence_high
+    reported: '4.7'
+    decimals: 1
     units: periods
-    conditions: gamma = 1, sigma = 0.5, 50,000 periods, seed 20261118
-- id: sh-sd03
+    conditions: gamma 0.6, sigma 0.5, 50,000 periods
+- id: sh-rl
   kind: computation
-  passage: When each period's fundamental is drawn around its public expectation with the prior's own standard deviation of 0.5, the high state at baseline lasts 34 periods on average before a shock tips it back; with shocks of standard deviation 0.3 it lasts 3107 periods, and with 0.2 it never left in 50,000 periods (Figure 2d).
+  passage: With the prior's standard deviation of 0.5, the high state lasts 4.7 periods on average and the low state 4.9, and the system spends 49% of periods in the high state.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/dynamics/shock_sds/2
-    reported: '0.3'
+    pointer: /dynamics/shocks/g0.6_s0.5/mean_residence_low
+    reported: '4.9'
+    decimals: 1
+    units: periods
+    conditions: gamma 0.6, sigma 0.5
+- id: sh-share
+  kind: computation
+  passage: With the prior's standard deviation of 0.5, the high state lasts 4.7 periods on average and the low state 4.9, and the system spends 49% of periods in the high state.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/shocks/g0.6_s0.5/share_high
+    reported: 49%
+    scale: 100
+    decimals: 0
+    units: percent of periods in the high state
+    conditions: gamma 0.6, sigma 0.5
+- id: sc-5
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/horizons/1
+    reported: '5'
+    units: periods
+    conditions: configured horizon
+- id: sc-n5
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/baseline/none/share_high/5
+    reported: '0.43'
+    decimals: 2
+    units: share of paths
+    conditions: baseline, no campaign, 5 periods
+- id: sc-p5
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/baseline/past/share_high/5
+    reported: '0.68'
+    decimals: 2
+    units: share of paths
+    conditions: baseline, campaign past threshold
+- id: sc-10
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/horizons/2
+    reported: '10'
+    units: periods
+    conditions: configured horizon
+- id: sc-p10
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/baseline/past/share_high/10
+    reported: '0.52'
+    decimals: 2
+    units: share of paths
+    conditions: baseline, campaign, 10 periods
+- id: sc-n10
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/baseline/none/share_high/10
+    reported: '0.49'
+    decimals: 2
+    units: share of paths
+    conditions: baseline, none, 10 periods
+- id: sc-50
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/horizons/3
+    reported: '50'
+    units: periods
+    conditions: configured horizon; shares equal at 50
+- id: sc-fp0
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/baseline/none/mean_first_passage
+    reported: '5.4'
+    decimals: 1
+    units: periods
+    conditions: baseline, none
+- id: sc-fp1
+  kind: computation
+  passage: A campaign just past the skeleton threshold raises the share of paths in the high state after 5 periods from 0.43 to 0.68, but after 10 periods the shares are 0.52 and 0.49 and after 50 they coincide; the mean time to the first transition falls from 5.4 to 3.2 periods.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/baseline/past/mean_first_passage
+    reported: '3.2'
+    decimals: 1
+    units: periods
+    conditions: baseline, campaign
+- id: pe-a
+  kind: computation
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/precise/alpha
+    reported: '16'
+    units: prior precision
+    conditions: configured
+- id: pe-b
+  kind: computation
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/precise/beta
+    reported: '100'
+    units: private precision
+    conditions: configured
+- id: pe-gc
+  kind: computation
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/gamma_c
+    reported: '0.078'
+    decimals: 3
+    units: erosion threshold
+    conditions: precise environment
+- id: pe-sd
+  kind: computation
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/shock_sd
+    reported: '0.25'
+    decimals: 2
     units: shock standard deviation
-    conditions: configured
-- id: sh-3107
+    conditions: 1/sqrt(16)
+- id: pe-ct
   kind: computation
-  passage: When each period's fundamental is drawn around its public expectation with the prior's own standard deviation of 0.5, the high state at baseline lasts 34 periods on average before a shock tips it back; with shocks of standard deviation 0.3 it lasts 3107 periods, and with 0.2 it never left in 50,000 periods (Figure 2d).
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /dynamics/shocks/g1_s0.3/mean_residence_high
-    reported: '3107'
+    pointer: /config/dynamics/precise/campaign_tau
+    reported: '8'
+    units: campaign precision
+    conditions: configured
+- id: pe-rh
+  kind: computation
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/residence/mean_residence_high
+    reported: '593'
     decimals: 0
     units: periods
-    conditions: gamma = 1, sigma = 0.3
-- id: sh-sd02
+    conditions: precise environment
+- id: pe-rl
   kind: computation
-  passage: When each period's fundamental is drawn around its public expectation with the prior's own standard deviation of 0.5, the high state at baseline lasts 34 periods on average before a shock tips it back; with shocks of standard deviation 0.3 it lasts 3107 periods, and with 0.2 it never left in 50,000 periods (Figure 2d).
+  passage: 'Persistence needs shocks that are small relative to the erosion: in a more precise environment ($\alpha = 16$, $\beta = 100$, with $\gamma_c = 0.078$, belief-consistent shocks of standard deviation 0.25 and a campaign of perceived precision 8) the high and low states last 593 and 448 periods on average.'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/dynamics/shock_sds/1
-    reported: '0.2'
-    units: shock standard deviation
-    conditions: configured; exits = 0 at /dynamics/shocks/g1_s0.2/exits_high
-- id: sh-50k
-  kind: computation
-  passage: When each period's fundamental is drawn around its public expectation with the prior's own standard deviation of 0.5, the high state at baseline lasts 34 periods on average before a shock tips it back; with shocks of standard deviation 0.3 it lasts 3107 periods, and with 0.2 it never left in 50,000 periods (Figure 2d).
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /config/dynamics/shock_periods
-    reported: 50,000
-    units: periods
-    conditions: configured
-- id: sh-g15
-  kind: computation
-  passage: 'Stronger erosion makes the states more robust: at $\gamma = 1.5$ and the prior''s standard deviation the mean stay is 741 periods.'
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /config/dynamics/shock_gammas/2
-    reported: '1.5'
-    units: erosion
-    conditions: configured
-- id: sh-741
-  kind: computation
-  passage: 'Stronger erosion makes the states more robust: at $\gamma = 1.5$ and the prior''s standard deviation the mean stay is 741 periods.'
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /dynamics/shocks/g1.5_s0.5/mean_residence_high
-    reported: '741'
+    pointer: /dynamics/campaign_shocks/precise/residence/mean_residence_low
+    reported: '448'
     decimals: 0
     units: periods
-    conditions: gamma = 1.5, sigma = 0.5
+    conditions: precise environment
+- id: ps-p50
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/past/share_high/50
+    reported: 92%
+    scale: 100
+    decimals: 0
+    units: percent of paths
+    conditions: precise, campaign past threshold, 50 periods
+- id: ps-50
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/horizons/3
+    reported: '50'
+    units: periods
+    conditions: configured
+- id: ps-p200
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/past/share_high/200
+    reported: 77%
+    scale: 100
+    decimals: 0
+    units: percent of paths
+    conditions: 200 periods
+- id: ps-200
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/dynamics/horizons/4
+    reported: '200'
+    units: periods
+    conditions: configured
+- id: ps-n50
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/none/share_high/50
+    reported: 7%
+    scale: 100
+    decimals: 0
+    units: percent of paths
+    conditions: no campaign, 50 periods
+- id: ps-n200
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/none/share_high/200
+    reported: 22%
+    scale: 100
+    decimals: 0
+    units: percent of paths
+    conditions: no campaign, 200 periods
+- id: ps-s50
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/short/share_high/50
+    reported: 23%
+    scale: 100
+    decimals: 0
+    units: percent of paths
+    conditions: campaign short of threshold, 50
+- id: ps-s200
+  kind: computation
+  passage: There a campaign just past the skeleton threshold leaves 92% of paths in the high state after 50 periods and 77% after 200, against 7% and 22% without a campaign, while a campaign just short of the threshold leaves 23% and 32% (Figure 2d).
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /dynamics/campaign_shocks/precise/short/share_high/200
+    reported: 32%
+    scale: 100
+    decimals: 0
+    units: percent of paths
+    conditions: campaign short of threshold, 200
 - id: id-tau
   kind: computation
   passage: At baseline the full-reach campaign with $\tau = 1$ raises exposed participation by 11.83 points.
@@ -1405,7 +2389,7 @@ claims:
     conditions: tau = 1, reach 1
 - id: id-tauE
   kind: computation
-  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, or by a neglected bias of 0.060 in private signals.
+  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, by a neglected bias of 0.060 in private signals, or by a belief that others' cutoff is 0.077 higher than it is.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1416,39 +2400,50 @@ claims:
     conditions: same exposed cutoff
 - id: id-cost
   kind: computation
-  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, or by a neglected bias of 0.060 in private signals.
+  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, by a neglected bias of 0.060 in private signals, or by a belief that others' cutoff is 0.077 higher than it is.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /identification/persuasion_cost_cut
     reported: '0.109'
     decimals: 3
-    units: cost reduction (share of success payoff)
-    conditions: same exposed cutoff, others at k0
+    units: cost reduction
+    conditions: same exposed cutoff
 - id: id-bias
   kind: computation
-  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, or by a neglected bias of 0.060 in private signals.
+  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, by a neglected bias of 0.060 in private signals, or by a belief that others' cutoff is 0.077 higher than it is.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /identification/illusion_bias
     reported: '0.060'
     decimals: 3
-    units: bias in private signals (theta units)
+    units: bias in private signals
+    conditions: same exposed cutoff
+- id: id-others
+  kind: computation
+  passage: The same exposed behaviour is produced by a privately seen message with perceived precision 4.96, by persuasion that lowers the cost of participating by 0.109, by a neglected bias of 0.060 in private signals, or by a belief that others' cutoff is 0.077 higher than it is.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/illusion_others_shift
+    reported: '0.077'
+    decimals: 3
+    units: shift in believed others' cutoff
     conditions: same exposed cutoff
 - id: id-rho
   kind: computation
-  passage: Along the curve of equal responses to content, precision 1 with full reach matches precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
+  passage: At the neutral message, precision 1 with full reach has the same response as precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/rho
     reported: '1'
-    units: perceived precision
-    conditions: reference point of the curve
+    units: precision
+    conditions: reference
 - id: id-half
   kind: computation
-  passage: Along the curve of equal responses to content, precision 1 with full reach matches precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
+  passage: At the neutral message, precision 1 with full reach has the same response as precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1459,7 +2454,7 @@ claims:
     conditions: reach 0.5
 - id: id-zero
   kind: computation
-  passage: Along the curve of equal responses to content, precision 1 with full reach matches precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
+  passage: At the neutral message, precision 1 with full reach has the same response as precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1470,8 +2465,82 @@ claims:
     conditions: reach 0
 - id: id-half-def
   kind: definition
-  passage: Along the curve of equal responses to content, precision 1 with full reach matches precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
-  rationale: The curve is evaluated at 21 reaches from 0 to 1 in run_all.identification; reach 0.5 is point 10 of /identification/iso_response.
+  passage: At the neutral message, precision 1 with full reach has the same response as precision 2.85 at reach 0.5 and 4.94 at reach zero (Figure 3c).
+  rationale: The iso-response curve is evaluated at 21 reaches from 0 to 1; reach 0.5 is point 10 of /identification/iso_response.
+- id: iw-def
+  kind: definition
+  passage: 'Globally the pairs differ, but little: over contents within 2 standard deviations of the bulletin, participation at $\theta_0$ differs from the reference pair by at most 1.45 points for the zero-reach alternative and 0.42 points for the half-reach one.'
+  rationale: The central range is theta0 +/- 2.2, about 2 standard deviations of the bulletin (1.12), as coded in run_all.identification; the likelihood-ratio target is 20.
+- id: iw-d0
+  kind: computation
+  passage: 'Globally the pairs differ, but little: over contents within 2 standard deviations of the bulletin, participation at $\theta_0$ differs from the reference pair by at most 1.45 points for the zero-reach alternative and 0.42 points for the half-reach one.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/weak_identification/zero/max_abs_diff_pp_central
+    reported: '1.45'
+    decimals: 2
+    units: percentage points
+    conditions: zero-reach alternative
+- id: iw-dh
+  kind: computation
+  passage: 'Globally the pairs differ, but little: over contents within 2 standard deviations of the bulletin, participation at $\theta_0$ differs from the reference pair by at most 1.45 points for the zero-reach alternative and 0.42 points for the half-reach one.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/weak_identification/half/max_abs_diff_pp_central
+    reported: '0.42'
+    decimals: 2
+    units: percentage points
+    conditions: half-reach alternative
+- id: ik-0
+  kind: computation
+  passage: In laboratory data where $\theta$ and $z$ are observed and choices are free of noise, the Kullback-Leibler divergence per choice is $2.4 \times 10^{-4}$ and $1.2 \times 10^{-5}$, so 12,233 and 259,066 choices would be needed for an expected likelihood ratio of 20.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/weak_identification/zero/kl_per_choice
+    reported: 2.4 \times 10^{-4}
+    significant_digits: 2
+    units: nats per choice
+    conditions: zero-reach alternative, 200000 draws
+- id: ik-h
+  kind: computation
+  passage: In laboratory data where $\theta$ and $z$ are observed and choices are free of noise, the Kullback-Leibler divergence per choice is $2.4 \times 10^{-4}$ and $1.2 \times 10^{-5}$, so 12,233 and 259,066 choices would be needed for an expected likelihood ratio of 20.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/weak_identification/half/kl_per_choice
+    reported: 1.2 \times 10^{-5}
+    significant_digits: 2
+    units: nats per choice
+    conditions: half-reach alternative
+- id: ik-n0
+  kind: computation
+  passage: In laboratory data where $\theta$ and $z$ are observed and choices are free of noise, the Kullback-Leibler divergence per choice is $2.4 \times 10^{-4}$ and $1.2 \times 10^{-5}$, so 12,233 and 259,066 choices would be needed for an expected likelihood ratio of 20.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/weak_identification/zero/choices_for_lr20
+    reported: 12,233
+    decimals: 0
+    units: choices
+    conditions: log(20)/KL
+- id: ik-nh
+  kind: computation
+  passage: In laboratory data where $\theta$ and $z$ are observed and choices are free of noise, the Kullback-Leibler divergence per choice is $2.4 \times 10^{-4}$ and $1.2 \times 10^{-5}$, so 12,233 and 259,066 choices would be needed for an expected likelihood ratio of 20.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/weak_identification/half/choices_for_lr20
+    reported: 259,066
+    decimals: 0
+    units: choices
+    conditions: log(20)/KL
+- id: ik-def
+  kind: definition
+  passage: In laboratory data where $\theta$ and $z$ are observed and choices are free of noise, the Kullback-Leibler divergence per choice is $2.4 \times 10^{-4}$ and $1.2 \times 10^{-5}$, so 12,233 and 259,066 choices would be needed for an expected likelihood ratio of 20.
+  rationale: The likelihood-ratio target 20 is coded in run_all.identification (choices_for_lr20 = log 20 / KL).
 - id: tab1-head
   kind: computation
   passage: '| Explanation of an 11.83-point effect | Response to content, individual task | Level shift, individual task (points) | Shift removed by representative peer sample |'
@@ -1535,7 +2604,7 @@ claims:
     pointer: /identification/signatures/private_evidence/hurdle_weight
     reported: '0.199'
     decimals: 3
-    units: weight relative to private signal
+    units: weight
     conditions: individual task
 - id: tab1-e-l
   kind: computation
@@ -1557,7 +2626,7 @@ claims:
     pointer: /identification/signatures/persuasion/hurdle_weight
     reported: '0'
     decimals: 0
-    units: weight relative to private signal
+    units: weight
     conditions: individual task
 - id: tab1-p-l
   kind: computation
@@ -1572,18 +2641,18 @@ claims:
     conditions: individual task
 - id: tab1-m-w
   kind: computation
-  passage: '| Majority illusion | 0 | 11.83 | yes |'
+  passage: '| Majority illusion about the state | 0 | 11.83 | yes |'
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /identification/signatures/illusion/hurdle_weight
     reported: '0'
     decimals: 0
-    units: weight relative to private signal
+    units: weight
     conditions: individual task
 - id: tab1-m-l
   kind: computation
-  passage: '| Majority illusion | 0 | 11.83 | yes |'
+  passage: '| Majority illusion about the state | 0 | 11.83 | yes |'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1591,7 +2660,33 @@ claims:
     reported: '11.83'
     decimals: 2
     units: percentage points of receivers' participation at theta = theta0, relative to no message
-    conditions: individual task, biased peer sample
+    conditions: individual task, biased sample
+- id: tab1-o-w
+  kind: computation
+  passage: '| Majority illusion about others'' participation | 0 | 0 | yes |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/signatures/illusion_others/hurdle_weight
+    reported: '0'
+    decimals: 0
+    units: weight
+    conditions: individual task
+- id: tab1-o-l
+  kind: computation
+  passage: '| Majority illusion about others'' participation | 0 | 0 | yes |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /identification/signatures/illusion_others/hurdle_level_pp
+    reported: '0'
+    decimals: 0
+    units: percentage points of receivers' participation at theta = theta0, relative to no message
+    conditions: individual task
+- id: tab1-def
+  kind: assumption
+  passage: ': Signatures of five observationally equivalent explanations in an individual task with the same information.'
+  rationale: The signature columns follow from how each explanation is modelled (run_all.identification); they are predictions to test, not measured facts.
 - id: ex-N
   kind: computation
   passage: 'Groups of 20 participants play 30 rounds of the game with the baseline parameters as its actual distributions: in each round the computer draws $\theta$, every participant''s private signal and one bulletin of precision 1.'
@@ -1635,10 +2730,10 @@ claims:
 - id: ex-noise-def
   kind: definition
   passage: 'Participants are allowed to fall short of equilibrium: their cutoff is the evidential cutoff plus a fraction $\omega$ of the coordination component, with logistic decision noise (scale 0.1), participant heterogeneity (standard deviation 0.1) and group heterogeneity (0.05) in cutoffs.'
-  rationale: Noise scale, participant and group standard deviations are 0.5, 0.5 and 0.25 times the private-signal standard deviation 0.2 (CONFIG design noise_sd_units, subject_sd_units, group_sd_units), that is 0.1, 0.1 and 0.05.
-- id: ex-zsd
+  rationale: Noise scale, participant and group standard deviations are 0.5, 0.5 and 0.25 times the private-signal standard deviation 0.2 (CONFIG design), that is 0.1, 0.1 and 0.05.
+- id: ep-zsd
   kind: computation
-  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.07 points in the public coordination cell against 2.85 to 3.70 points in the other three cells (Figure 3a), and the interaction is 8.48 points.
+  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.17 points in the public coordination cell against 2.89 to 3.58 points in the other three cells of the main design (Figure 3a), and the interaction is 8.64 points.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1647,64 +2742,64 @@ claims:
     decimals: 2
     units: standard deviation of bulletin content
     conditions: sqrt(1/alpha + 1/tau)
-- id: ex-pubc
+- id: ep-pub
   kind: computation
-  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.07 points in the public coordination cell against 2.85 to 3.70 points in the other three cells (Figure 3a), and the interaction is 8.48 points.
+  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.17 points in the public coordination cell against 2.89 to 3.58 points in the other three cells of the main design (Figure 3a), and the interaction is 8.64 points.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/1/cell_response_pp_per_sd/public-coord
-    reported: '12.07'
+    reported: '12.17'
     decimals: 2
-    units: percentage points per s.d. of bulletin
+    units: points per s.d. of bulletin
     conditions: omega = 1, 4000 simulated groups
-- id: ex-hurdle-min
+- id: ep-min
   kind: computation
-  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.07 points in the public coordination cell against 2.85 to 3.70 points in the other three cells (Figure 3a), and the interaction is 8.48 points.
+  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.17 points in the public coordination cell against 2.89 to 3.58 points in the other three cells of the main design (Figure 3a), and the interaction is 8.64 points.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/1/cell_response_pp_per_sd/public-hurdle
-    reported: '2.85'
+    reported: '2.89'
     decimals: 2
-    units: percentage points per s.d. of bulletin
-    conditions: omega = 1
-- id: ex-parc
+    units: points per s.d.
+    conditions: omega = 1, public hurdle
+- id: ep-max
   kind: computation
-  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.07 points in the public coordination cell against 2.85 to 3.70 points in the other three cells (Figure 3a), and the interaction is 8.48 points.
+  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.17 points in the public coordination cell against 2.89 to 3.58 points in the other three cells of the main design (Figure 3a), and the interaction is 8.64 points.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/1/cell_response_pp_per_sd/partial-coord
-    reported: '3.70'
+    reported: '3.58'
     decimals: 2
-    units: percentage points per s.d. of bulletin
-    conditions: omega = 1
-- id: ex-int1
+    units: points per s.d.
+    conditions: omega = 1, partial coordination
+- id: ep-int
   kind: computation
-  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.07 points in the public coordination cell against 2.85 to 3.70 points in the other three cells (Figure 3a), and the interaction is 8.48 points.
+  passage: Under equilibrium play the response of participation to one standard deviation of bulletin content (1.12) is 12.17 points in the public coordination cell against 2.89 to 3.58 points in the other three cells of the main design (Figure 3a), and the interaction is 8.64 points.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/1/interaction_response_pp_per_sd
-    reported: '8.48'
+    reported: '8.64'
     decimals: 2
-    units: percentage points per s.d. of bulletin
+    units: points per s.d.
     conditions: omega = 1
-- id: ex-int05
+- id: e2-int05
   kind: computation
-  passage: It is 4.59 points at $\omega = 0.5$ and 2.41 points at $\omega = 0.25$.
+  passage: It is 4.75 points at $\omega = 0.5$ and 2.56 points at $\omega = 0.25$.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/0.5/interaction_response_pp_per_sd
-    reported: '4.59'
+    reported: '4.75'
     decimals: 2
-    units: percentage points per s.d. of bulletin
+    units: points per s.d.
     conditions: omega = 0.5
-- id: ex-om05
+- id: e2-om05
   kind: computation
-  passage: It is 4.59 points at $\omega = 0.5$ and 2.41 points at $\omega = 0.25$.
+  passage: It is 4.75 points at $\omega = 0.5$ and 2.56 points at $\omega = 0.25$.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1712,20 +2807,20 @@ claims:
     reported: '0.5'
     units: omega
     conditions: configured
-- id: ex-int025
+- id: e2-int025
   kind: computation
-  passage: It is 4.59 points at $\omega = 0.5$ and 2.41 points at $\omega = 0.25$.
+  passage: It is 4.75 points at $\omega = 0.5$ and 2.56 points at $\omega = 0.25$.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/0.25/interaction_response_pp_per_sd
-    reported: '2.41'
+    reported: '2.56'
     decimals: 2
-    units: percentage points per s.d. of bulletin
+    units: points per s.d.
     conditions: omega = 0.25
-- id: ex-om025
+- id: e2-om025
   kind: computation
-  passage: It is 4.59 points at $\omega = 0.5$ and 2.41 points at $\omega = 0.25$.
+  passage: It is 4.75 points at $\omega = 0.5$ and 2.56 points at $\omega = 0.25$.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1733,37 +2828,35 @@ claims:
     reported: '0.25'
     units: omega
     conditions: configured
-- id: ex-alpha-def
-  kind: definition
-  passage: Power for a two-sided 5% test with group-level slopes as observations follows from the simulated between-group variance in each cell.
-  rationale: The test level 5% is the default alpha_level = 0.05 in experiment.interaction_test and in the analytic power calculation of run_all.design_results.
-- id: t2-80
+- id: e3-5
   kind: computation
-  passage: '| Coordination component acted on ($\omega$) | Interaction (points per s.d.) | Groups per cell, 80% power | Participants, 80% | Groups per cell, 90% | Simulated power at 80% design |'
+  passage: 'Sample sizes were found by simulation: starting from a noncentral-t approximation that uses the simulated between-group variances, the number of groups was raised until the rejection rate of a two-sided 5% test in 2000 simulated experiments reached 80%.'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/design/power_targets/0
+    pointer: /config/design/power_target
     reported: 80%
     scale: 100
     decimals: 0
     units: power target
     conditions: configured
-- id: t2-90
+- id: e3-reps
   kind: computation
-  passage: '| Coordination component acted on ($\omega$) | Interaction (points per s.d.) | Groups per cell, 80% power | Participants, 80% | Groups per cell, 90% | Simulated power at 80% design |'
+  passage: 'Sample sizes were found by simulation: starting from a noncentral-t approximation that uses the simulated between-group variances, the number of groups was raised until the rejection rate of a two-sided 5% test in 2000 simulated experiments reached 80%.'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/design/power_targets/1
-    reported: 90%
-    scale: 100
-    decimals: 0
-    units: power target
+    pointer: /config/design/power_reps
+    reported: '2000'
+    units: simulated experiments
     conditions: configured
+- id: e3-def
+  kind: definition
+  passage: 'Sample sizes were found by simulation: starting from a noncentral-t approximation that uses the simulated between-group variances, the number of groups was raised until the rejection rate of a two-sided 5% test in 2000 simulated experiments reached 80%.'
+  rationale: The test level 5% is the default alpha_level = 0.05 in experiment.interaction_cells and in the analytic approximation.
 - id: t2-om1
   kind: computation
-  passage: '| 1 | 8.48 | 7 | 560 | 9 | 0.799 |'
+  passage: '| 1 | 8.64 | 7 | 7 | 560 | 0.809 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1773,59 +2866,59 @@ claims:
     conditions: configured
 - id: t2-int1
   kind: computation
-  passage: '| 1 | 8.48 | 7 | 560 | 9 | 0.799 |'
+  passage: '| 1 | 8.64 | 7 | 7 | 560 | 0.809 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/1/interaction_response_pp_per_sd
-    reported: '8.48'
+    reported: '8.64'
     decimals: 2
-    units: percentage points per s.d.
+    units: points per s.d.
     conditions: omega = 1
-- id: t2-g801
+- id: t2-an1
   kind: computation
-  passage: '| 1 | 8.48 | 7 | 560 | 9 | 0.799 |'
+  passage: '| 1 | 8.64 | 7 | 7 | 560 | 0.809 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/1/required/0.8/groups_per_cell
+    pointer: /design/by_omega/1/analytic_groups_per_cell
     reported: '7'
     units: groups per cell
-    conditions: 80% power, omega = 1
-- id: t2-p801
+    conditions: noncentral-t approximation
+- id: t2-g1
   kind: computation
-  passage: '| 1 | 8.48 | 7 | 560 | 9 | 0.799 |'
+  passage: '| 1 | 8.64 | 7 | 7 | 560 | 0.809 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/1/required/0.8/participants
+    pointer: /design/by_omega/1/required/groups_per_cell
+    reported: '7'
+    units: groups per cell
+    conditions: simulated 80% power
+- id: t2-p1
+  kind: computation
+  passage: '| 1 | 8.64 | 7 | 7 | 560 | 0.809 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/by_omega/1/required/participants
     reported: '560'
     units: participants
-    conditions: 80% power, omega = 1
-- id: t2-g901
+    conditions: 4 cells times groups times 20
+- id: t2-s1
   kind: computation
-  passage: '| 1 | 8.48 | 7 | 560 | 9 | 0.799 |'
+  passage: '| 1 | 8.64 | 7 | 7 | 560 | 0.809 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/1/required/0.9/groups_per_cell
-    reported: '9'
-    units: groups per cell
-    conditions: 90% power, omega = 1
-- id: t2-sim1
-  kind: computation
-  passage: '| 1 | 8.48 | 7 | 560 | 9 | 0.799 |'
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /design/by_omega/1/simulated_power_at_G80
-    reported: '0.799'
+    pointer: /design/by_omega/1/required/simulated_power
+    reported: '0.809'
     decimals: 3
     units: rejection rate
-    conditions: 1000 simulated experiments, omega = 1
+    conditions: 2000 simulated experiments
 - id: t2-om05
   kind: computation
-  passage: '| 0.5 | 4.59 | 21 | 1680 | 28 | 0.786 |'
+  passage: '| 0.5 | 4.75 | 20 | 21 | 1680 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1835,59 +2928,59 @@ claims:
     conditions: configured
 - id: t2-int05
   kind: computation
-  passage: '| 0.5 | 4.59 | 21 | 1680 | 28 | 0.786 |'
+  passage: '| 0.5 | 4.75 | 20 | 21 | 1680 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/0.5/interaction_response_pp_per_sd
-    reported: '4.59'
+    reported: '4.75'
     decimals: 2
-    units: percentage points per s.d.
+    units: points per s.d.
     conditions: omega = 0.5
-- id: t2-g8005
+- id: t2-an05
   kind: computation
-  passage: '| 0.5 | 4.59 | 21 | 1680 | 28 | 0.786 |'
+  passage: '| 0.5 | 4.75 | 20 | 21 | 1680 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.5/required/0.8/groups_per_cell
+    pointer: /design/by_omega/0.5/analytic_groups_per_cell
+    reported: '20'
+    units: groups per cell
+    conditions: noncentral-t approximation
+- id: t2-g05
+  kind: computation
+  passage: '| 0.5 | 4.75 | 20 | 21 | 1680 | 0.803 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/by_omega/0.5/required/groups_per_cell
     reported: '21'
     units: groups per cell
-    conditions: 80% power, omega = 0.5
-- id: t2-p8005
+    conditions: simulated 80% power
+- id: t2-p05
   kind: computation
-  passage: '| 0.5 | 4.59 | 21 | 1680 | 28 | 0.786 |'
+  passage: '| 0.5 | 4.75 | 20 | 21 | 1680 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.5/required/0.8/participants
+    pointer: /design/by_omega/0.5/required/participants
     reported: '1680'
     units: participants
-    conditions: 80% power, omega = 0.5
-- id: t2-g9005
+    conditions: 4 cells times groups times 20
+- id: t2-s05
   kind: computation
-  passage: '| 0.5 | 4.59 | 21 | 1680 | 28 | 0.786 |'
+  passage: '| 0.5 | 4.75 | 20 | 21 | 1680 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.5/required/0.9/groups_per_cell
-    reported: '28'
-    units: groups per cell
-    conditions: 90% power, omega = 0.5
-- id: t2-sim05
-  kind: computation
-  passage: '| 0.5 | 4.59 | 21 | 1680 | 28 | 0.786 |'
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /design/by_omega/0.5/simulated_power_at_G80
-    reported: '0.786'
+    pointer: /design/by_omega/0.5/required/simulated_power
+    reported: '0.803'
     decimals: 3
     units: rejection rate
-    conditions: 1000 simulated experiments, omega = 0.5
+    conditions: 2000 simulated experiments
 - id: t2-om025
   kind: computation
-  passage: '| 0.25 | 2.41 | 74 | 5920 | 99 | 0.775 |'
+  passage: '| 0.25 | 2.56 | 65 | 81 | 6480 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -1897,56 +2990,56 @@ claims:
     conditions: configured
 - id: t2-int025
   kind: computation
-  passage: '| 0.25 | 2.41 | 74 | 5920 | 99 | 0.775 |'
+  passage: '| 0.25 | 2.56 | 65 | 81 | 6480 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/0.25/interaction_response_pp_per_sd
-    reported: '2.41'
+    reported: '2.56'
     decimals: 2
-    units: percentage points per s.d.
+    units: points per s.d.
     conditions: omega = 0.25
-- id: t2-g80025
+- id: t2-an025
   kind: computation
-  passage: '| 0.25 | 2.41 | 74 | 5920 | 99 | 0.775 |'
+  passage: '| 0.25 | 2.56 | 65 | 81 | 6480 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.25/required/0.8/groups_per_cell
-    reported: '74'
+    pointer: /design/by_omega/0.25/analytic_groups_per_cell
+    reported: '65'
     units: groups per cell
-    conditions: 80% power, omega = 0.25
-- id: t2-p80025
+    conditions: noncentral-t approximation
+- id: t2-g025
   kind: computation
-  passage: '| 0.25 | 2.41 | 74 | 5920 | 99 | 0.775 |'
+  passage: '| 0.25 | 2.56 | 65 | 81 | 6480 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.25/required/0.8/participants
-    reported: '5920'
+    pointer: /design/by_omega/0.25/required/groups_per_cell
+    reported: '81'
+    units: groups per cell
+    conditions: simulated 80% power
+- id: t2-p025
+  kind: computation
+  passage: '| 0.25 | 2.56 | 65 | 81 | 6480 | 0.803 |'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/by_omega/0.25/required/participants
+    reported: '6480'
     units: participants
-    conditions: 80% power, omega = 0.25
-- id: t2-g90025
+    conditions: 4 cells times groups times 20
+- id: t2-s025
   kind: computation
-  passage: '| 0.25 | 2.41 | 74 | 5920 | 99 | 0.775 |'
+  passage: '| 0.25 | 2.56 | 65 | 81 | 6480 | 0.803 |'
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/by_omega/0.25/required/0.9/groups_per_cell
-    reported: '99'
-    units: groups per cell
-    conditions: 90% power, omega = 0.25
-- id: t2-sim025
-  kind: computation
-  passage: '| 0.25 | 2.41 | 74 | 5920 | 99 | 0.775 |'
-  evidence:
-    file: simulation/output/results.json
-    run_id: model
-    pointer: /design/by_omega/0.25/simulated_power_at_G80
-    reported: '0.775'
+    pointer: /design/by_omega/0.25/required/simulated_power
+    reported: '0.803'
     decimals: 3
     units: rejection rate
-    conditions: 1000 simulated experiments, omega = 0.25
+    conditions: 2000 simulated experiments
 - id: t2c-N
   kind: computation
   passage: ': Model-derived effect sizes and sample sizes for the visibility-by-incentive interaction (groups of 20, 30 rounds).'
@@ -1969,82 +3062,100 @@ claims:
     conditions: configured
 - id: t2c-reps
   kind: computation
-  passage: The last column is the rejection rate in 1000 simulated experiments at the 80% design.
+  passage: The simulated count is the smallest number of groups in the search whose rejection rate in 2000 simulated experiments is at least 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/design/power_reps
-    reported: '1000'
+    reported: '2000'
     units: simulated experiments
     conditions: configured
 - id: t2c-80
   kind: computation
-  passage: The last column is the rejection rate in 1000 simulated experiments at the 80% design.
+  passage: The simulated count is the smallest number of groups in the search whose rejection rate in 2000 simulated experiments is at least 80%.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/design/power_targets/0
+    pointer: /config/design/power_target
     reported: 80%
     scale: 100
     decimals: 0
     units: power target
     conditions: configured
-- id: ex-size-int
+- id: es-int
   kind: computation
-  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.05 points and the test rejected in 4.9% of 1000 simulated experiments with 21 groups per cell, so its size is close to nominal.
+  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.23 points and the test rejected in 5.3% of 2000 simulated experiments with 21 groups per cell, close to the nominal 5%.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/by_omega/0/interaction_response_pp_per_sd
-    reported: '0.05'
+    reported: '0.23'
     decimals: 2
-    units: percentage points per s.d.
+    units: points per s.d.
     conditions: omega = 0
-- id: ex-size-rate
+- id: es-rate
   kind: computation
-  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.05 points and the test rejected in 4.9% of 1000 simulated experiments with 21 groups per cell, so its size is close to nominal.
+  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.23 points and the test rejected in 5.3% of 2000 simulated experiments with 21 groups per cell, close to the nominal 5%.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/size_at_omega0/rejection_rate
-    reported: 4.9%
+    reported: 5.3%
     scale: 100
     decimals: 1
     units: rejection rate
-    conditions: omega = 0, 1000 simulated experiments
-- id: ex-size-reps
+    conditions: omega = 0, 2000 experiments
+- id: es-reps
   kind: computation
-  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.05 points and the test rejected in 4.9% of 1000 simulated experiments with 21 groups per cell, so its size is close to nominal.
+  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.23 points and the test rejected in 5.3% of 2000 simulated experiments with 21 groups per cell, close to the nominal 5%.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/design/power_reps
-    reported: '1000'
+    reported: '2000'
     units: simulated experiments
     conditions: configured
-- id: ex-size-G
+- id: es-G
   kind: computation
-  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.05 points and the test rejected in 4.9% of 1000 simulated experiments with 21 groups per cell, so its size is close to nominal.
+  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.23 points and the test rejected in 5.3% of 2000 simulated experiments with 21 groups per cell, close to the nominal 5%.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/size_at_omega0/G
     reported: '21'
     units: groups per cell
-    conditions: the 80% design for omega = 0.5
-- id: fig3-rho
+    conditions: 80% design for omega = 0.5
+- id: es-def
+  kind: definition
+  passage: With the coordination component switched off ($\omega = 0$) the interaction is 0.23 points and the test rejected in 5.3% of 2000 simulated experiments with 21 groups per cell, close to the nominal 5%.
+  rationale: Nominal level 5% (alpha_level = 0.05).
+- id: f3-p
   kind: computation
-  passage: (c) Pairs of perceived precision and reach that produce the same response to content as precision 1 at full reach (dot).
+  passage: (a) Response of participation to one standard deviation of bulletin content in each cell, for four values of $\omega$; the private coordination cell holds receipt fixed with commonly believed reach $p = 0.5$.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/beliefs/1
+    reported: '0.5'
+    units: commonly believed reach in the private cell
+    conditions: configured
+- id: f3-def
+  kind: definition
+  passage: (a) Response of participation to one standard deviation of bulletin content in each cell, for four values of $\omega$; the private coordination cell holds receipt fixed with commonly believed reach $p = 0.5$.
+  rationale: Figure 3 panel a shows four values of omega (1, 0.5, 0.25, 0); panel b the approximation curves with simulated designs; panel c the iso-response curve; panel d the provenance arm.
+- id: f3-rho
+  kind: computation
+  passage: (c) Pairs of perceived precision and commonly believed reach that produce the same response to content at the neutral message as precision 1 at full reach (dot).
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /config/rho
     reported: '1'
     units: precision
-    conditions: reference point
-- id: fig3-n
+    conditions: reference
+- id: f3-n
   kind: computation
-  passage: (d) Gain in response, public disclosed bulletin over partial undisclosed bulletin from 5 accounts repeating one report, by degree of correlation neglect.](figures/design.pdf){width=100%}
+  passage: (d) Gain in response of the public disclosed bulletin over the partial undisclosed bulletin from 5 accounts repeating one report, by neglect $\chi'$ of the disclosed correlation.](figures/design.pdf){width=100%}
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -2052,100 +3163,290 @@ claims:
     reported: '5'
     units: accounts
     conditions: configured
-- id: fig3-def
-  kind: definition
-  passage: '![Experimental predictions.'
-  rationale: 'Figure 3 is produced by run_all.fig_design: panel a for four values of omega (1, 0.5, 0.25, 0), panel b analytic power curves, panel c the iso-response curve, panel d the provenance arm for neglect 0, 0.5 and 1.'
-- id: pa-n
+- id: ak-r0
   kind: computation
-  passage: The bulletin is presented as the average of $n = 5$ accounts that in fact repeat one report.
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /config/n_large
-    reported: '5'
-    units: accounts
-    conditions: configured
-- id: pa-gain0
+    pointer: /design/by_omega/1/cell_response_pp_per_sd/private-coord-0.25
+    reported: '3.58'
+    decimals: 2
+    units: points per s.d.
+    conditions: omega 1, p = 0.25
+- id: ak-p0
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/beliefs/0
+    reported: '0.25'
+    units: commonly believed reach
+    conditions: configured
+- id: ak-r1
+  kind: computation
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/by_omega/1/cell_response_pp_per_sd/private-coord-0.5
+    reported: '4.80'
+    decimals: 2
+    units: points per s.d.
+    conditions: omega 1, p = 0.5
+- id: ak-p1
+  kind: computation
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/beliefs/1
+    reported: '0.5'
+    units: commonly believed reach
+    conditions: configured
+- id: ak-r2
+  kind: computation
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/by_omega/1/cell_response_pp_per_sd/private-coord-0.75
+    reported: '6.88'
+    decimals: 2
+    units: points per s.d.
+    conditions: omega 1, p = 0.75
+- id: ak-p2
+  kind: computation
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/beliefs/2
+    reported: '0.75'
+    units: commonly believed reach
+    conditions: configured
+- id: ak-pub
+  kind: computation
+  passage: Under equilibrium play the private condition's response to content is 3.58 points per standard deviation at $p = 0.25$, 4.80 at $p = 0.5$ and 6.88 at $p = 0.75$, against 12.17 in the public condition.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/by_omega/1/cell_response_pp_per_sd/public-coord
+    reported: '12.17'
+    decimals: 2
+    units: points per s.d.
+    conditions: omega 1, public
+- id: ag-g1-0
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/acknowledgment/w1_p0.25/groups_per_cell
+    reported: '6'
+    units: groups per cell
+    conditions: omega 1, p = 0.25, simulated 80% power
+- id: ag-g05-0
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/acknowledgment/w0.5_p0.25/groups_per_cell
+    reported: '17'
+    units: groups per cell
+    conditions: omega 0.5, p = 0.25
+- id: ag-g1-1
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/acknowledgment/w1_p0.5/groups_per_cell
+    reported: '8'
+    units: groups per cell
+    conditions: omega 1, p = 0.5, simulated 80% power
+- id: ag-g05-1
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/acknowledgment/w0.5_p0.5/groups_per_cell
+    reported: '22'
+    units: groups per cell
+    conditions: omega 0.5, p = 0.5
+- id: ag-g1-2
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/acknowledgment/w1_p0.75/groups_per_cell
+    reported: '14'
+    units: groups per cell
+    conditions: omega 1, p = 0.75, simulated 80% power
+- id: ag-g05-2
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/acknowledgment/w0.5_p0.75/groups_per_cell
+    reported: '43'
+    units: groups per cell
+    conditions: omega 0.5, p = 0.75
+- id: ag-80
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/power_target
+    reported: 80%
+    scale: 100
+    decimals: 0
+    units: power
+    conditions: configured
+- id: ag-om
+  kind: computation
+  passage: Crossed with the incentive, so that any effect of the shared screen on attention appears in the individual task as well, the acknowledgment-by-incentive interaction needs 6, 8 and 14 groups per cell for 80% power at these values of $p$, and 17, 22 and 43 groups if participants act on a share $\omega = 0.5$ of the coordination component.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/belief_omegas/1
+    reported: '0.5'
+    units: omega
+    conditions: configured
+- id: pv-Pi0
+  kind: computation
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/provenance_arm/0/Pi_closed_form
+    reported: '0.76'
+    decimals: 2
+    units: publicity-credibility ratio
+    conditions: closed form, chi' = 0
+- id: pv-Pia
+  kind: computation
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/provenance_arm/0/Pi_aware
+    reported: '0.76'
+    decimals: 2
+    units: ratio of slopes at theta0
+    conditions: informed non-receiver model, chi' = 0
+- id: pv-g0
+  kind: computation
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/provenance_arm/0/response_gain_pp_per_sd
-    reported: '8.48'
+    reported: '2.56'
+    scale: -1
     decimals: 2
-    units: percentage points per s.d.
-    conditions: chi = 0, 2000 simulated groups per condition
-- id: pa-G0
+    units: points per s.d. (undisclosed partial over disclosed public)
+    conditions: chi' = 0
+- id: pv-G0
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/provenance_arm/0/groups_per_condition_80
-    reported: '5'
+    pointer: /design/provenance_arm/0/groups_per_condition
+    reported: '43'
     units: groups per condition
-    conditions: 80% power, chi = 0
-- id: pa-gain05
+    conditions: simulated 80% power
+- id: pv-chi5
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/arm_post_neglect/1
+    reported: '0.5'
+    units: post-disclosure neglect
+    conditions: configured
+- id: pv-Pi5
+  kind: computation
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/provenance_arm/0.5/Pi_closed_form
+    reported: '1.40'
+    decimals: 2
+    units: publicity-credibility ratio
+    conditions: chi' = 0.5
+- id: pv-g5
+  kind: computation
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
   evidence:
     file: simulation/output/results.json
     run_id: model
     pointer: /design/provenance_arm/0.5/response_gain_pp_per_sd
-    reported: '6.09'
+    reported: '3.41'
     decimals: 2
-    units: percentage points per s.d.
-    conditions: chi = 0.5
-- id: pa-G05
+    units: points per s.d.
+    conditions: chi' = 0.5
+- id: pv-G5
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: With $\chi' = 0$ the ratio $\Pi$ is 0.76, both in closed form and when computed from the informed-non-receiver model used for the cells, and the undisclosed partial bulletin draws a response 2.56 points per standard deviation larger, detectable with 43 groups per condition; with $\chi' = 0.5$, $\Pi = 1.40$ and the disclosed public bulletin draws a response 3.41 points larger, detectable with 30 groups.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/provenance_arm/0.5/groups_per_condition_80
-    reported: '8'
+    pointer: /design/provenance_arm/0.5/groups_per_condition
+    reported: '30'
     units: groups per condition
-    conditions: 80% power, chi = 0.5
-- id: pa-chi-def
-  kind: definition
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
-  rationale: Neglect levels 0, 0.5 and 1 are coded in run_all.design_results (provenance arm).
-- id: pa-Pi1
+    conditions: simulated 80% power
+- id: pv-n
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: The bulletin is presented as the average of $n = 5$ accounts that in fact repeat one report, so its true precision is 1.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/provenance_arm/1/Pi
-    reported: '0.76'
-    decimals: 2
-    units: publicity-credibility ratio
-    conditions: chi = 1
-- id: pa-gain1
+    pointer: /config/n_large
+    reported: '5'
+    units: accounts
+    conditions: configured
+- id: pv-t1
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: The bulletin is presented as the average of $n = 5$ accounts that in fact repeat one report, so its true precision is 1.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/provenance_arm/1/response_gain_pp_per_sd
-    reported: '2.63'
-    scale: -1
-    decimals: 2
-    units: percentage points per s.d. (undisclosed partial over disclosed public)
-    conditions: chi = 1; sign reversed
-- id: pa-G1
+    pointer: /config/rho
+    reported: '1'
+    units: true precision
+    conditions: one report
+- id: pv-th
   kind: computation
-  passage: Without neglect the disclosed public bulletin draws a response 8.48 points per standard deviation larger and 5 groups per condition suffice; at $\chi = 0.5$ the gain is 6.09 points with 8 groups; under full neglect the sign reverses ($\Pi = 0.76$) and the undisclosed partial bulletin draws a response 2.63 points larger, which needs 43 groups per condition.
+  passage: In the undisclosed condition participants see only that the accounts posted, and the prediction assumes they take them for independent sources ($\tau_h = 5$); in the disclosed condition they are told that all of them copied one report, and their remaining neglect $\chi'$ sets $\tau_l$.
   evidence:
     file: simulation/output/results.json
     run_id: model
-    pointer: /design/provenance_arm/1/groups_per_condition_80
-    reported: '43'
-    units: groups per condition
-    conditions: 80% power, chi = 1
-- id: ap-kN2
+    pointer: /design/provenance_arm/0/tau_h
+    reported: '5'
+    units: perceived precision
+    conditions: believed independent
+- id: pv-thr
+  kind: computation
+  passage: Near $\chi' = 0.260$ the difference vanishes.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /paradox/post_neglect_threshold/chi_star
+    reported: '0.260'
+    decimals: 3
+    units: post-disclosure neglect
+    conditions: Pi = 1
+- id: ap-kN
   kind: computation
   passage: In the common-prior version with informed non-receivers, the non-receivers' participation at $\theta_0$ moves by at most 1.06 points and receivers' predicted participation differs from the simpler model by at most 0.44 points, 1.8% of the largest effect, over two precisions, four reaches and thirteen message contents; a Monte Carlo check with 400,000 draws put the non-receivers' success probability at their cutoff at 0.5001 against the required 0.5.
   evidence:
@@ -2182,7 +3483,7 @@ claims:
 - id: ap-grid-def
   kind: definition
   passage: In the common-prior version with informed non-receivers, the non-receivers' participation at $\theta_0$ moves by at most 1.06 points and receivers' predicted participation differs from the simpler model by at most 0.44 points, 1.8% of the largest effect, over two precisions, four reaches and thirteen message contents; a Monte Carlo check with 400,000 draws put the non-receivers' success probability at their cutoff at 0.5001 against the required 0.5.
-  rationale: Two precisions (1, 3), four reaches (0.1, 0.25, 0.5, 0.9) and thirteen contents from theta0 - 0.6 to theta0 + 0.6, as coded in run_all.aware_robustness.
+  rationale: Two precisions (1, 3), four reaches (0.1, 0.25, 0.5, 0.9) and thirteen contents, as coded in run_all.aware_robustness.
 - id: ap-mc-n
   kind: computation
   passage: In the common-prior version with informed non-receivers, the non-receivers' participation at $\theta_0$ moves by at most 1.06 points and receivers' predicted participation differs from the simpler model by at most 0.44 points, 1.8% of the largest effect, over two precisions, four reaches and thirteen message contents; a Monte Carlo check with 400,000 draws put the non-receivers' success probability at their cutoff at 0.5001 against the required 0.5.
@@ -2203,7 +3504,7 @@ claims:
     reported: '0.5001'
     decimals: 4
     units: success probability
-    conditions: non-receiver at cutoff, tau = 1, q = 0.25
+    conditions: non-receiver at cutoff
 - id: ap-mc-t
   kind: computation
   passage: In the common-prior version with informed non-receivers, the non-receivers' participation at $\theta_0$ moves by at most 1.06 points and receivers' predicted participation differs from the simpler model by at most 0.44 points, 1.8% of the largest effect, over two precisions, four reaches and thirteen message contents; a Monte Carlo check with 400,000 draws put the non-receivers' success probability at their cutoff at 0.5001 against the required 0.5.
@@ -2214,7 +3515,7 @@ claims:
     reported: '0.5'
     units: required probability c
     conditions: baseline
-- id: ap-fin-N
+- id: af-N
   kind: computation
   passage: In groups of 20 the symmetric equilibrium of the public task, computed with the binomial distribution of others' choices, has a response to content equal to 96% of the continuum value and a participation level 10.3 points higher at $\theta_0$, because each participant's own choice counts toward the threshold; with groups of 50 the response is 98.5% of the continuum value and the level 4.2 points higher.
   evidence:
@@ -2224,7 +3525,7 @@ claims:
     reported: '20'
     units: participants per group
     conditions: configured
-- id: ap-fin-r
+- id: af-r
   kind: computation
   passage: In groups of 20 the symmetric equilibrium of the public task, computed with the binomial distribution of others' choices, has a response to content equal to 96% of the continuum value and a participation level 10.3 points higher at $\theta_0$, because each participant's own choice counts toward the threshold; with groups of 50 the response is 98.5% of the continuum value and the level 4.2 points higher.
   evidence:
@@ -2235,8 +3536,8 @@ claims:
     scale: 100
     decimals: 0
     units: percent of the continuum response
-    conditions: N = 20, tau = 1, at z0
-- id: ap-fin-l
+    conditions: N = 20 public
+- id: af-l
   kind: computation
   passage: In groups of 20 the symmetric equilibrium of the public task, computed with the binomial distribution of others' choices, has a response to content equal to 96% of the continuum value and a participation level 10.3 points higher at $\theta_0$, because each participant's own choice counts toward the threshold; with groups of 50 the response is 98.5% of the continuum value and the level 4.2 points higher.
   evidence:
@@ -2247,7 +3548,7 @@ claims:
     decimals: 1
     units: percentage points
     conditions: N = 20 at z0
-- id: ap-fin50-r
+- id: af-50r
   kind: computation
   passage: In groups of 20 the symmetric equilibrium of the public task, computed with the binomial distribution of others' choices, has a response to content equal to 96% of the continuum value and a participation level 10.3 points higher at $\theta_0$, because each participant's own choice counts toward the threshold; with groups of 50 the response is 98.5% of the continuum value and the level 4.2 points higher.
   evidence:
@@ -2257,9 +3558,9 @@ claims:
     reported: 98.5%
     scale: 100
     decimals: 1
-    units: percent of the continuum response
+    units: percent
     conditions: N = 50
-- id: ap-fin50-l
+- id: af-50l
   kind: computation
   passage: In groups of 20 the symmetric equilibrium of the public task, computed with the binomial distribution of others' choices, has a response to content equal to 96% of the continuum value and a participation level 10.3 points higher at $\theta_0$, because each participant's own choice counts toward the threshold; with groups of 50 the response is 98.5% of the continuum value and the level 4.2 points higher.
   evidence:
@@ -2270,13 +3571,131 @@ claims:
     decimals: 1
     units: percentage points
     conditions: N = 50
-- id: ap-fin50-def
+- id: af-50-def
   kind: definition
   passage: In groups of 20 the symmetric equilibrium of the public task, computed with the binomial distribution of others' choices, has a response to content equal to 96% of the continuum value and a participation level 10.3 points higher at $\theta_0$, because each participant's own choice counts toward the threshold; with groups of 50 the response is 98.5% of the continuum value and the level 4.2 points higher.
-  rationale: Group size 50 is the second size coded in run_all.design_results (finite_group).
-- id: im-iso2
+  rationale: Group size 50 is the second size coded in run_all.design_results.
+- id: apt-nR
   kind: computation
-  passage: It removes the evidential channel for the user who sees it and leaves the coordination channel, because the user still expects others to act on the message; at baseline it removes 11% of the effect at full reach.
+  passage: In the partial task with 5 receivers and 15 informed non-receivers per group of 20, the finite equilibrium's response is also 96% of the continuum value, so the interaction in cutoff responses is 96% of its continuum value and the sample sizes above, computed with continuum cutoffs, are slightly optimistic.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/finite_group/partial/receivers
+    reported: '5'
+    units: receivers
+    conditions: q N
+- id: apt-N
+  kind: computation
+  passage: In the partial task with 5 receivers and 15 informed non-receivers per group of 20, the finite equilibrium's response is also 96% of the continuum value, so the interaction in cutoff responses is 96% of its continuum value and the sample sizes above, computed with continuum cutoffs, are slightly optimistic.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/N
+    reported: '20'
+    units: participants
+    conditions: configured
+- id: apt-r
+  kind: computation
+  passage: In the partial task with 5 receivers and 15 informed non-receivers per group of 20, the finite equilibrium's response is also 96% of the continuum value, so the interaction in cutoff responses is 96% of its continuum value and the sample sizes above, computed with continuum cutoffs, are slightly optimistic.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/finite_group/partial/response_ratio
+    reported: 96%
+    scale: 100
+    decimals: 0
+    units: percent of the continuum response
+    conditions: partial task, finite group
+- id: apt-i
+  kind: computation
+  passage: In the partial task with 5 receivers and 15 informed non-receivers per group of 20, the finite equilibrium's response is also 96% of the continuum value, so the interaction in cutoff responses is 96% of its continuum value and the sample sizes above, computed with continuum cutoffs, are slightly optimistic.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /design/finite_group/partial/interaction_ratio
+    reported: 96%
+    scale: 100
+    decimals: 0
+    units: percent of the continuum interaction
+    conditions: cutoff responses
+- id: apt-def
+  kind: definition
+  passage: In the partial task with 5 receivers and 15 informed non-receivers per group of 20, the finite equilibrium's response is also 96% of the continuum value, so the interaction in cutoff responses is 96% of its continuum value and the sample sizes above, computed with continuum cutoffs, are slightly optimistic.
+  rationale: 15 = 20 - 5 non-receivers.
+- id: lg-rho
+  kind: computation
+  passage: With full reach, uniqueness requires $\tau \le \sqrt{2\pi\beta} - \alpha = 8.53$ at baseline, so a campaign believed to consist of independent reports of precision 1 is covered only up to 8 accounts.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/rho
+    reported: '1'
+    units: precision of one report
+    conditions: configured
+- id: fig1-alpha
+  kind: computation
+  passage: '![Channels and disclosure at baseline ($\alpha=4$, $\mu=0.6$, $\beta=25$, $c=0.5$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/baseline/alpha
+    reported: '4'
+    units: prior precision
+    conditions: configured
+- id: fig1-mu
+  kind: computation
+  passage: '![Channels and disclosure at baseline ($\alpha=4$, $\mu=0.6$, $\beta=25$, $c=0.5$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/baseline/mu
+    reported: '0.6'
+    units: prior mean
+    conditions: configured
+- id: fig1-beta
+  kind: computation
+  passage: '![Channels and disclosure at baseline ($\alpha=4$, $\mu=0.6$, $\beta=25$, $c=0.5$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/baseline/beta
+    reported: '25'
+    units: private precision
+    conditions: configured
+- id: fig1-c
+  kind: computation
+  passage: '![Channels and disclosure at baseline ($\alpha=4$, $\mu=0.6$, $\beta=25$, $c=0.5$).'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/baseline/c
+    reported: '0.5'
+    units: cost
+    conditions: configured
+- id: fig3-80
+  kind: computation
+  passage: (b) Power for the visibility-by-incentive interaction against groups per cell from the noncentral-t approximation, with the simulated 80% designs as dots.
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /config/design/power_target
+    reported: 80%
+    scale: 100
+    decimals: 0
+    units: power target
+    conditions: configured
+- id: lg-range-def
+  kind: definition
+  passage: At perceived precision 9 the full-reach game has several equilibria for 0.5% of message contents within one unit of $\theta_0$; at 20, 16%; at 40, 29%; at 80, 37%, including the baseline message, at which the game then has 3 equilibria.
+  rationale: Contents are 201 points within one unit of theta0 (theta0 - 1 to theta0 + 1), as coded in run_all.large_campaigns.
+- id: ex-pay-def
+  kind: definition
+  passage: Participants receive no feedback on $\theta$, on outcomes or on the bulletin's accuracy until the session ends, and one round is paid, so that beliefs about the bulletin's precision cannot be learned from experience during the session.
+  rationale: 'Design rule: one round is paid, chosen at random; one bulletin per round. Stated as part of the protocol, not a computed result.'
+- id: im-iso
+  kind: computation
+  passage: In the model its effect lies between an isolated disclosure, which removes 11% of the effect at full reach for the viewer who notices it, and a disclosure that is common knowledge among receivers, which removes 71%; it reaches the upper figure only as the probability that others noticed approaches one.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -2285,10 +3704,10 @@ claims:
     scale: 100
     decimals: 0
     units: percent removed
-    conditions: isolated disclosure, reach 1
+    conditions: isolated, reach 1
 - id: im-com
   kind: computation
-  passage: A disclosure that is common knowledge among those who received the message removes coordination value in proportion to evidential value, 71% at baseline.
+  passage: In the model its effect lies between an isolated disclosure, which removes 11% of the effect at full reach for the viewer who notices it, and a disclosure that is common knowledge among receivers, which removes 71%; it reaches the upper figure only as the probability that others noticed approaches one.
   evidence:
     file: simulation/output/results.json
     run_id: model
@@ -2297,7 +3716,7 @@ claims:
     scale: 100
     decimals: 0
     units: percent removed
-    conditions: common disclosure, reach 1
+    conditions: common, reach 1
 - id: sc-cert
   kind: computation
   passage: Uniqueness is established among cutoff strategies under the condition of Lemma 1 and, for 20 configurations, among all strategies by iterated best responses from the extreme profiles.
@@ -2308,6 +3727,16 @@ claims:
     reported: '20'
     units: configurations
     conditions: certificates
+- id: sc-8
+  kind: computation
+  passage: 'It binds the size of campaign the analysis covers: at baseline, 8 reports believed independent.'
+  evidence:
+    file: simulation/output/results.json
+    run_id: model
+    pointer: /large/max_independent_reports
+    reported: '8'
+    units: reports
+    conditions: baseline
 - id: sc-aware
   kind: computation
   passage: Non-receivers ignore the message in the main model; the common-prior version with informed non-receivers changes receivers' predicted participation by at most 1.8% of the largest effect.
@@ -2320,46 +3749,18 @@ claims:
     decimals: 1
     units: percent of largest effect
     conditions: max over configurations
-- id: def-example
-  kind: definition
-  passage: A call to stop work at noon on Friday circulates in a city's feeds, posted by eighty accounts that look unrelated.
-  rationale: 'Illustrative scenario: eighty accounts and one source are invented for exposition and carry no empirical claim.'
-- id: def-reach
-  kind: definition
-  passage: Reach is the paper's measure of shared visibility; it is distinct from the number of accounts, which acts only through $\hat\tau$.
-  rationale: Reach is defined as the mass of receivers among whom receipt, and the groups' perceived precisions, are common knowledge.
-- id: def-evid
-  kind: definition
-  passage: The evidential channel is the change in the cutoff of a receiver who updates her belief about $\theta$ but expects everyone else to behave as without the message; it equals the effect at reach zero.
-  rationale: Defines the evidential channel as the reach-zero effect; the coordination channel is the remainder.
-- id: as-unaware
-  kind: assumption
-  passage: Non-receivers do not condition on the message and play the equilibrium of the game without it.
-  rationale: Simplifies the equilibrium to one equation. Checked against the common-prior version with informed non-receivers (aware.py), which changes receivers' predicted participation by at most 1.8% of the largest effect.
-- id: as-provenance
-  kind: assumption
-  passage: Provenance enters the model only through perceived precision.
-  rationale: Disclosure is modelled as a change in perceived precision; it ignores any effect of provenance on valuations (for example resentment at manipulation), which would act like valuation persuasion.
 - id: as-skeleton
   kind: assumption
-  passage: The deterministic skeleton sets each period's fundamental equal to its public expectation.
-  rationale: Makes persistence a property of a deterministic map; the shock simulations quantify how much persistence survives when the fundamental varies.
-- id: int-parasitic
-  kind: interpretation
-  passage: Coordination value therefore multiplies evidential value; it cannot exist without it somewhere in the belief hierarchy.
-  rationale: Follows from Proposition 2(i)-(ii) under uniqueness; with multiple equilibria a commonly known uninformative message could select an equilibrium.
+  passage: Its deterministic skeleton sets $\xi_t = 0$.
+  rationale: The skeleton is the noise-free limit; belief-consistent shocks are reported alongside.
 - id: int-exposure
   kind: interpretation
-  passage: Eady and colleagues' null finding on attitudes and votes [@eady2023] concerns a population in which exposure was concentrated in a small share of users; the model implies that an exposure effect measured at one reach does not bound the effect of the same messages when receipt is common knowledge, because the multiplier depends on reach.
-  rationale: Follows from the dependence of the multiplier on reach (Proposition 1(iv)); it does not claim that the campaign studied by Eady and colleagues had any effect.
-- id: int-detect
-  kind: interpretation
-  passage: The value of early detection is concentrated in the periods before that crossing.
-  rationale: Follows from Proposition 3(ii) and the disclosure-timing computation in the deterministic skeleton.
+  passage: Eady and colleagues' null finding on attitudes and votes [@eady2023] concerns a population in which exposure was concentrated in a small share of users; the model implies that an exposure effect measured at one commonly believed reach does not bound the effect of the same messages when receipt is common knowledge, because the multiplier depends on reach.
+  rationale: Follows from the dependence of the multiplier on reach (Proposition 1(iv)); no claim about the campaign Eady and colleagues studied.
 - id: int-correction
   kind: normative
   passage: Institutions that publish verified counts of independent participation in a channel everyone knows everyone watches supply the common-knowledge form of correction.
-  rationale: 'Policy implication drawn from Theorem 1(a)-(b): only common-knowledge corrections remove coordination value; the model does not evaluate costs or risks of such institutions.'
+  rationale: Policy implication drawn from Theorem 1(a)-(b); the model does not evaluate costs or risks of such institutions.
 runs:
 - id: model
   required: true

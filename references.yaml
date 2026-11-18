@@ -628,3 +628,114 @@ references:
       date-parts:
         - [2021, 5]
     DOI: "10.1609/icwsm.v15i1.18075"
+
+  # ---------------- added in revision round 1 ----------------
+  - id: morris2007
+    type: article-journal
+    author:
+      - family: Morris
+        given: Stephen
+      - family: Shin
+        given: Hyun Song
+    title: "Optimal Communication"
+    container-title: Journal of the European Economic Association
+    volume: 5
+    issue: 2-3
+    page: "594-602"
+    issued:
+      date-parts:
+        - [2007, 5]
+    DOI: "10.1162/jeea.2007.5.2-3.594"
+
+  - id: myatt2012
+    type: article-journal
+    author:
+      - family: Myatt
+        given: David P.
+      - family: Wallace
+        given: Chris
+    title: "Endogenous Information Acquisition in Coordination Games"
+    container-title: Review of Economic Studies
+    volume: 79
+    issue: 1
+    page: "340-374"
+    issued:
+      date-parts:
+        - [2012]
+    DOI: "10.1093/restud/rdr018"
+
+  - id: thomas2014
+    type: article-journal
+    author:
+      - family: Thomas
+        given: Kyle A.
+      - family: DeScioli
+        given: Peter
+      - family: Haque
+        given: Omar Sultan
+      - family: Pinker
+        given: Steven
+    title: "The Psychology of Coordination and Common Knowledge"
+    container-title: Journal of Personality and Social Psychology
+    volume: 107
+    issue: 4
+    page: "657-676"
+    issued:
+      date-parts:
+        - [2014]
+    DOI: "10.1037/a0037037"
+
+  - id: defreitas2019
+    type: article-journal
+    author:
+      - family: De Freitas
+        given: Julian
+      - family: Thomas
+        given: Kyle
+      - family: DeScioli
+        given: Peter
+      - family: Pinker
+        given: Steven
+    title: "Common Knowledge, Coordination, and Strategic Mentalizing in Human Social Life"
+    container-title: Proceedings of the National Academy of Sciences
+    volume: 116
+    issue: 28
+    page: "13751-13758"
+    issued:
+      date-parts:
+        - [2019, 6]
+    DOI: "10.1073/pnas.1905518116"
+
+  - id: shadmehr2011
+    type: article-journal
+    author:
+      - family: Shadmehr
+        given: Mehdi
+      - family: Bernhardt
+        given: Dan
+    title: "Collective Action with Uncertain Payoffs: Coordination, Public Signals, and Punishment Dilemmas"
+    container-title: American Political Science Review
+    volume: 105
+    issue: 4
+    page: "829-851"
+    issued:
+      date-parts:
+        - [2011, 11]
+    DOI: "10.1017/S0003055411000359"
+
+  - id: levy2015
+    type: article-journal
+    author:
+      - family: Levy
+        given: Gilat
+      - family: Razin
+        given: Ronny
+    title: "Correlation Neglect, Voting Behavior, and Information Aggregation"
+    container-title: American Economic Review
+    volume: 105
+    issue: 4
+    page: "1634-1645"
+    issued:
+      date-parts:
+        - [2015, 4]
+    DOI: "10.1257/aer.20140134"

@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "references_sha256": "f677d6b16d4fa1cf55c73257bbdd2dcacf45e75863243c7443399a20b8ee1aa9",
+  "references_sha256": "368db1e03a1025a5a8297d3638f57c623811c86e122c01be62640c0429819868",
   "bibliography_inputs": {
-    "references.yaml": "f677d6b16d4fa1cf55c73257bbdd2dcacf45e75863243c7443399a20b8ee1aa9"
+    "references.yaml": "368db1e03a1025a5a8297d3638f57c623811c86e122c01be62640c0429819868"
   },
   "entries": [
     {
@@ -11,7 +11,7 @@
       "outcome": "unverified",
       "compared_fields": {},
       "registry": null,
-      "fetched_at": "2026-11-18T19:41:57.899826+00:00",
+      "fetched_at": "2026-11-18T21:02:31.236842+00:00",
       "record_sha256": null,
       "suggestions": [
         {
@@ -93,7 +93,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:41:58.524566+00:00",
+      "fetched_at": "2026-11-18T21:02:31.834468+00:00",
       "record_sha256": "6ea5a6858efe8c6bb1ace8f348ad249c263dcb181b88e0675e88f46fa471335a",
       "suggestions": [],
       "message": "different fields: page"
@@ -104,7 +104,7 @@
       "outcome": "unverified",
       "compared_fields": {},
       "registry": null,
-      "fetched_at": "2026-11-18T19:41:59.025694+00:00",
+      "fetched_at": "2026-11-18T21:02:32.318719+00:00",
       "record_sha256": null,
       "suggestions": [
         {
@@ -186,7 +186,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:41:59.646836+00:00",
+      "fetched_at": "2026-11-18T21:02:32.865681+00:00",
       "record_sha256": "aa57433d05259019b1f200739eb6674fbb2dab756caacf59cfa2b348364f7bd6",
       "suggestions": [],
       "message": "identity matches"
@@ -197,13 +197,29 @@
       "outcome": "unverified",
       "compared_fields": {},
       "registry": null,
-      "fetched_at": "2026-11-18T19:42:00.818374+00:00",
+      "fetched_at": "2026-11-18T21:02:33.437894+00:00",
       "record_sha256": null,
       "suggestions": [
         {
-          "ISBN": "8493424560",
-          "title": "The Human Planet",
-          "registry": "OpenLibrary"
+          "DOI": "10.1017/ccol0521818729.003",
+          "title": [
+            "Global Games: Theory and Applications"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1016/s0022-0531(02)00018-2",
+          "title": [
+            "Equilibrium selection in global games with strategic complementarities"
+          ],
+          "registry": "Crossref"
+        },
+        {
+          "DOI": "10.1017/cbo9780511610240.004",
+          "title": [
+            "Global Games: Theory and Applications"
+          ],
+          "registry": "Crossref"
         }
       ],
       "message": "no DOI; identity reviewed by the referee",
@@ -263,7 +279,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:01.384818+00:00",
+      "fetched_at": "2026-11-18T21:02:34.053357+00:00",
       "record_sha256": "95d4032d05da40a02d26f45f02fd10d0baf0bf6d14bbf1939b8e02a0da2ad943",
       "suggestions": [],
       "message": "identity matches"
@@ -322,7 +338,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:02.070891+00:00",
+      "fetched_at": "2026-11-18T21:02:34.721533+00:00",
       "record_sha256": "5b7fb1983a1f4327f6fb8626d65abba39a1ccca683ac108726d374e27e1cb0c2",
       "suggestions": [],
       "message": "identity matches"
@@ -381,7 +397,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:02.713108+00:00",
+      "fetched_at": "2026-11-18T21:02:35.296647+00:00",
       "record_sha256": "b292d69f03a44bc7c6a4efd05290278f92982cc5ec3dc47f1a0887b1fe42bda5",
       "suggestions": [],
       "message": "identity matches"
@@ -441,7 +457,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:03.326124+00:00",
+      "fetched_at": "2026-11-18T21:02:35.925337+00:00",
       "record_sha256": "7ecee022e506d362bb4c5e9f2976844a69c2a8c5ef65ebec95f23fe2072c15bb",
       "suggestions": [],
       "message": "different fields: container-title"
@@ -500,7 +516,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:04.209921+00:00",
+      "fetched_at": "2026-11-18T21:02:36.514387+00:00",
       "record_sha256": "4e5fa4c9aa1a4256460cfa56ad236705fdaf94eeffc7578fde6269c7ae788b8e",
       "suggestions": [],
       "message": "different fields: container-title"
@@ -559,7 +575,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:04.778959+00:00",
+      "fetched_at": "2026-11-18T21:02:37.087888+00:00",
       "record_sha256": "bc3d591d5b989715039863f284184f2afe5b8227b3d871f14215e5e2da5edd1b",
       "suggestions": [],
       "message": "identity matches"
@@ -619,7 +635,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:05.632118+00:00",
+      "fetched_at": "2026-11-18T21:02:37.861049+00:00",
       "record_sha256": "899e8896c86ea4ea4e0281f0d3b1be468c2e158118dc1070c2926ef68485ae2e",
       "suggestions": [],
       "message": "identity matches"
@@ -679,7 +695,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:06.292949+00:00",
+      "fetched_at": "2026-11-18T21:02:38.397909+00:00",
       "record_sha256": "08afe5ecce77ce1546287fd606771caf8de4f3c2c54c036e4f95c21be36ae826",
       "suggestions": [],
       "message": "identity matches"
@@ -690,7 +706,7 @@
       "outcome": "unverified",
       "compared_fields": {},
       "registry": null,
-      "fetched_at": "2026-11-18T19:42:06.927458+00:00",
+      "fetched_at": "2026-11-18T21:02:38.951272+00:00",
       "record_sha256": null,
       "suggestions": [
         {
@@ -772,7 +788,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:07.576863+00:00",
+      "fetched_at": "2026-11-18T21:02:39.560085+00:00",
       "record_sha256": "37524afeb537b6ce5ed8f8d29eb3eca88edea8ff2b06d4c28638c70d011c3582",
       "suggestions": [],
       "message": "identity matches"
@@ -783,7 +799,7 @@
       "outcome": "unverified",
       "compared_fields": {},
       "registry": null,
-      "fetched_at": "2026-11-18T19:42:08.112063+00:00",
+      "fetched_at": "2026-11-18T21:02:40.087582+00:00",
       "record_sha256": null,
       "suggestions": [
         {
@@ -866,7 +882,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:08.681398+00:00",
+      "fetched_at": "2026-11-18T21:02:40.642999+00:00",
       "record_sha256": "46a31a91a2205c7b102c6b5f61ebb6b67e126fd84941b6ea967f6b1e1b238771",
       "suggestions": [],
       "message": "identity matches"
@@ -877,7 +893,7 @@
       "outcome": "unverified",
       "compared_fields": {},
       "registry": null,
-      "fetched_at": "2026-11-18T19:42:09.182348+00:00",
+      "fetched_at": "2026-11-18T21:02:41.114205+00:00",
       "record_sha256": null,
       "suggestions": [
         {
@@ -959,7 +975,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:09.729930+00:00",
+      "fetched_at": "2026-11-18T21:02:41.674210+00:00",
       "record_sha256": "fe0e38093192fb87779926f1e56b6cff15e19dc5aeed6e3ea5bfdd3de82d87d4",
       "suggestions": [],
       "message": "identity matches"
@@ -1018,7 +1034,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:10.281173+00:00",
+      "fetched_at": "2026-11-18T21:02:42.233897+00:00",
       "record_sha256": "8901e78b7142d6bc99256ef9031db02de656c1bea6c35c957e50752d4572d904",
       "suggestions": [],
       "message": "different fields: container-title"
@@ -1077,7 +1093,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:10.847288+00:00",
+      "fetched_at": "2026-11-18T21:02:42.776782+00:00",
       "record_sha256": "2bc79ea5c969ce210b886b6144e79c95b76123bb34921caadb49ff7410aa9594",
       "suggestions": [],
       "message": "identity matches"
@@ -1136,7 +1152,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:11.401760+00:00",
+      "fetched_at": "2026-11-18T21:02:43.326840+00:00",
       "record_sha256": "59555829461299ad4cba82f04d3b4037f7d1d0c8d051773fe458e765d7a077a7",
       "suggestions": [],
       "message": "identity matches"
@@ -1195,7 +1211,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:12.028677+00:00",
+      "fetched_at": "2026-11-18T21:02:43.877593+00:00",
       "record_sha256": "f7f098d7a631f3f8840a485dd7179760eee9908fe6b3a342e12d182fdc807ca2",
       "suggestions": [],
       "message": "identity matches"
@@ -1254,7 +1270,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:12.877772+00:00",
+      "fetched_at": "2026-11-18T21:02:44.637798+00:00",
       "record_sha256": "51bc97a6407bc1780f43a29c72a11e0ccbf50d77b29808ae5ef7aa10e04f5a62",
       "suggestions": [],
       "message": "identity matches"
@@ -1314,7 +1330,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:13.433869+00:00",
+      "fetched_at": "2026-11-18T21:02:45.178024+00:00",
       "record_sha256": "8cda9d1210d64554acacca420860d2dbc4dbeefdfe6068cb3c63db867977970d",
       "suggestions": [],
       "message": "different fields: container-title"
@@ -1373,7 +1389,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:13.990062+00:00",
+      "fetched_at": "2026-11-18T21:02:45.805224+00:00",
       "record_sha256": "6bc9f34d8bf5172c0d1d7edc34b2ec723243b789b6ab3ff07afe3b0fe0895350",
       "suggestions": [],
       "message": "different fields: container-title"
@@ -1433,7 +1449,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:14.661451+00:00",
+      "fetched_at": "2026-11-18T21:02:46.483213+00:00",
       "record_sha256": "e93284b44bd7243d0644d8ae079a896cc5449e527fb7d330db09797aeac43cc7",
       "suggestions": [],
       "message": "different fields: container-title, volume, issue, page"
@@ -1492,7 +1508,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:15.203283+00:00",
+      "fetched_at": "2026-11-18T21:02:47.107170+00:00",
       "record_sha256": "ec7c9a4992fa4f73af4fbdcc767e81745feb4cbd3f3a03a715c8bde32e2c8973",
       "suggestions": [],
       "message": "identity matches"
@@ -1551,7 +1567,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:15.758851+00:00",
+      "fetched_at": "2026-11-18T21:02:47.797764+00:00",
       "record_sha256": "0d1af185602487473d65581c979de344cbb0e1368f00c4069f6d7e4529d74a37",
       "suggestions": [],
       "message": "identity matches"
@@ -1610,7 +1626,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:16.452303+00:00",
+      "fetched_at": "2026-11-18T21:02:48.547662+00:00",
       "record_sha256": "7545625665c9ed62d1e289e67ffe5a4c01ad244510aa5b90066824bac1dfa0f3",
       "suggestions": [],
       "message": "identity matches"
@@ -1669,7 +1685,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:17.125948+00:00",
+      "fetched_at": "2026-11-18T21:02:49.260169+00:00",
       "record_sha256": "072f170e0e7b78443dcf68268bdffd6aeb9e16c17b0ffef90538e57cd080d442",
       "suggestions": [],
       "message": "different fields: issue, page"
@@ -1728,7 +1744,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:17.691760+00:00",
+      "fetched_at": "2026-11-18T21:02:49.804607+00:00",
       "record_sha256": "2f21ad67e90bc779f8a6a0c2b773f9fbebe097788b8b158dfd4f00ce2d4864aa",
       "suggestions": [],
       "message": "identity matches"
@@ -1787,7 +1803,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:18.374026+00:00",
+      "fetched_at": "2026-11-18T21:02:50.426666+00:00",
       "record_sha256": "59e98a97fb21afe047a55ed9b19aa18c99d68d214642e934c018e8cb67f959bf",
       "suggestions": [],
       "message": "identity matches"
@@ -1846,7 +1862,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:19.012964+00:00",
+      "fetched_at": "2026-11-18T21:02:50.980061+00:00",
       "record_sha256": "64230c0b5bf150aa662885544b97ab87c5b45ed602b5df162ba3f04fad968826",
       "suggestions": [],
       "message": "identity matches"
@@ -1906,7 +1922,7 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:19.583246+00:00",
+      "fetched_at": "2026-11-18T21:02:51.536814+00:00",
       "record_sha256": "fcf975b511e8ad6a9b0816cef7a0f1abac606752e284b516ba09cc1a60b7ab4e",
       "suggestions": [],
       "message": "identity matches"
@@ -1965,8 +1981,365 @@
         }
       },
       "registry": "Crossref",
-      "fetched_at": "2026-11-18T19:42:20.232426+00:00",
+      "fetched_at": "2026-11-18T21:02:52.087060+00:00",
       "record_sha256": "58f1652d7a51801a3442398b71242f0c1d2b4b0d130727d4e51c7474d0ece5ba",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "morris2007",
+      "doi": "10.1162/jeea.2007.5.2-3.594",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Optimal Communication",
+          "registry": [
+            "Optimal Communication"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "morris",
+          "registry": "morris",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2007
+          ],
+          "registry": [
+            2007,
+            2007,
+            2007
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of the European Economic Association",
+          "registry": [
+            "Journal of the European Economic Association"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 5,
+          "registry": "5",
+          "match": true
+        },
+        "issue": {
+          "reference": "2-3",
+          "registry": "2-3",
+          "match": true
+        },
+        "page": {
+          "reference": "594-602",
+          "registry": "594-602",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T21:02:52.703410+00:00",
+      "record_sha256": "65d46affb2e7d5731f972b3883b737c9745dfb2fa23c4bbb9efe40c71050292c",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "myatt2012",
+      "doi": "10.1093/restud/rdr018",
+      "outcome": "advisory",
+      "compared_fields": {
+        "title": {
+          "reference": "Endogenous Information Acquisition in Coordination Games",
+          "registry": [
+            "Endogenous Information Acquisition in Coordination Games"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "myatt",
+          "registry": "myatt",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2012
+          ],
+          "registry": [
+            2011,
+            2011,
+            2012,
+            2011
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Review of Economic Studies",
+          "registry": [
+            "The Review of Economic Studies"
+          ],
+          "match": false
+        },
+        "volume": {
+          "reference": 79,
+          "registry": "79",
+          "match": true
+        },
+        "issue": {
+          "reference": 1,
+          "registry": "1",
+          "match": true
+        },
+        "page": {
+          "reference": "340-374",
+          "registry": "340-374",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T21:02:53.328877+00:00",
+      "record_sha256": "110ee0fc3479f8d7cf955f8deb60c510ded14a620ed3ea75fe1b1b5008d7b882",
+      "suggestions": [],
+      "message": "different fields: container-title"
+    },
+    {
+      "id": "thomas2014",
+      "doi": "10.1037/a0037037",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "The Psychology of Coordination and Common Knowledge",
+          "registry": [
+            "The psychology of coordination and common knowledge."
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "thomas",
+          "registry": "thomas",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2014
+          ],
+          "registry": [
+            2014,
+            2014,
+            2014
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Journal of Personality and Social Psychology",
+          "registry": [
+            "Journal of Personality and Social Psychology"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 107,
+          "registry": "107",
+          "match": true
+        },
+        "issue": {
+          "reference": 4,
+          "registry": "4",
+          "match": true
+        },
+        "page": {
+          "reference": "657-676",
+          "registry": "657-676",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T21:02:53.989721+00:00",
+      "record_sha256": "e0c84813931030e5df4d1097b5f86718f3f464e79db8a12af9155d9db1a9635f",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "defreitas2019",
+      "doi": "10.1073/pnas.1905518116",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Common Knowledge, Coordination, and Strategic Mentalizing in Human Social Life",
+          "registry": [
+            "Common knowledge, coordination, and strategic mentalizing in human social life"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "freitas",
+          "registry": "freitas",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2019
+          ],
+          "registry": [
+            2019,
+            2019,
+            2019,
+            2019
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "Proceedings of the National Academy of Sciences",
+          "registry": [
+            "Proceedings of the National Academy of Sciences"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 116,
+          "registry": "116",
+          "match": true
+        },
+        "issue": {
+          "reference": 28,
+          "registry": "28",
+          "match": true
+        },
+        "page": {
+          "reference": "13751-13758",
+          "registry": "13751-13758",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T21:02:54.814853+00:00",
+      "record_sha256": "b5c0024fb257a9f27b99bdb17fb13539b506f8c97d0ee11cf6dce357221c108b",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "shadmehr2011",
+      "doi": "10.1017/S0003055411000359",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Collective Action with Uncertain Payoffs: Coordination, Public Signals, and Punishment Dilemmas",
+          "registry": [
+            "Collective Action with Uncertain Payoffs: Coordination, Public Signals, and Punishment Dilemmas"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "shadmehr",
+          "registry": "shadmehr",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2011
+          ],
+          "registry": [
+            2011,
+            2011,
+            2011,
+            2011
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Political Science Review",
+          "registry": [
+            "American Political Science Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 105,
+          "registry": "105",
+          "match": true
+        },
+        "issue": {
+          "reference": 4,
+          "registry": "4",
+          "match": true
+        },
+        "page": {
+          "reference": "829-851",
+          "registry": "829-851",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T21:02:55.566395+00:00",
+      "record_sha256": "2c62068491c7610cee4a4da86fe1383f3eec50c509a9213d7cb01a0e8421d4fe",
+      "suggestions": [],
+      "message": "identity matches"
+    },
+    {
+      "id": "levy2015",
+      "doi": "10.1257/aer.20140134",
+      "outcome": "verified",
+      "compared_fields": {
+        "title": {
+          "reference": "Correlation Neglect, Voting Behavior, and Information Aggregation",
+          "registry": [
+            "Correlation Neglect, Voting Behavior, and Information Aggregation"
+          ],
+          "registry_subtitle": [],
+          "similarity": 1.0,
+          "match": true
+        },
+        "author": {
+          "reference": "levy",
+          "registry": "levy",
+          "match": true
+        },
+        "year": {
+          "reference": [
+            2015
+          ],
+          "registry": [
+            2015,
+            2015,
+            2015
+          ],
+          "match": true
+        },
+        "container-title": {
+          "reference": "American Economic Review",
+          "registry": [
+            "American Economic Review"
+          ],
+          "match": true
+        },
+        "volume": {
+          "reference": 105,
+          "registry": "105",
+          "match": true
+        },
+        "issue": {
+          "reference": 4,
+          "registry": "4",
+          "match": true
+        },
+        "page": {
+          "reference": "1634-1645",
+          "registry": "1634-1645",
+          "match": true
+        }
+      },
+      "registry": "Crossref",
+      "fetched_at": "2026-11-18T21:02:56.185308+00:00",
+      "record_sha256": "623ea25d5d5c1ada832db68f60a34e2ca67815a6f95f40816edec4f638f0cb90",
       "suggestions": [],
       "message": "identity matches"
     }

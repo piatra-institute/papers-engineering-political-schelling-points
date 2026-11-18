@@ -48,27 +48,31 @@ def hurdle_cutoff(env: Env, tau: float, h: float, z):
 
 
 class CutoffTable:
-    """Exact receiver cutoffs on a z-grid for the coordination cells."""
+    """Exact receiver cutoffs on a z-grid.
 
-    def __init__(self, design: Design, zgrid: np.ndarray):
+    public-coord: reach 1 with common knowledge (Lemma 1).
+    partial-coord: a share q receives; non-receivers are informed (aware.py).
+    private-coord-<p>: every member receives, but receipt is only commonly believed to degree p;
+        receivers act as in the reach-p equilibrium (model.cutoff with v = p).
+    *-hurdle: closed form; others' choices are irrelevant.
+    """
+
+    def __init__(self, design: Design, zgrid: np.ndarray, beliefs=()):
         env, tau, q = design.env, design.tau, design.q
         self.z = zgrid
-        self.public = np.array([cutoff(env, tau, 1.0, float(z)) for z in zgrid])
+        self.coord = {"public-coord": np.array([cutoff(env, tau, 1.0, float(z)) for z in zgrid])}
         self.kN = nonreceiver_cutoff(env, tau, q)
-        self.partial = np.array([receiver_cutoff(env, tau, q, float(z), self.kN) for z in zgrid])
+        self.coord["partial-coord"] = np.array([receiver_cutoff(env, tau, q, float(z), self.kN) for z in zgrid])
+        for p in beliefs:
+            self.coord[f"private-coord-{p:g}"] = np.array([cutoff(env, tau, p, float(z)) for z in zgrid])
         self.hurdle = hurdle_cutoff(env, tau, design.h, zgrid)
 
     def k(self, cell: str, z, omega: float = 1.0):
-        kh = hurdle_cutoff_vec(self, z)
-        if cell in ("public-hurdle", "partial-hurdle"):
+        kh = np.interp(z, self.z, self.hurdle)
+        if cell.endswith("-hurdle"):
             return kh
-        tab = self.public if cell == "public-coord" else self.partial
-        kc = np.interp(z, self.z, tab)
+        kc = np.interp(z, self.z, self.coord[cell])
         return kh + omega * (kc - kh)
-
-
-def hurdle_cutoff_vec(table: CutoffTable, z):
-    return np.interp(z, table.z, table.hurdle)
 
 
 CELLS = ("public-coord", "partial-coord", "public-hurdle", "partial-hurdle")
@@ -79,26 +83,20 @@ def simulate_group(design: Design, table: CutoffTable, cell: str, omega: float, 
     """Simulate one group; return OLS slopes (on z, on x) from receivers' choices."""
     env = design.env
     N, R = design.N, design.R
-    q = 1.0 if cell.startswith("public") else design.q
+    q = design.q if cell.startswith("partial") else 1.0
     nrec = max(1, int(round(q * N)))
-    theta = rng.normal(env.mu, 1 / math.sqrt(env.alpha), R)
     tau_true = design.tau if design.tau_true is None else design.tau_true
+    theta = rng.normal(env.mu, 1 / math.sqrt(env.alpha), R)
     z = theta + rng.normal(0, 1 / math.sqrt(tau_true), R)
     u_subj = rng.normal(0, sd_subject, N)
     u_grp = rng.normal(0, sd_group)
-    rows_x, rows_z, rows_a = [], [], []
-    for t in range(R):
-        members = rng.permutation(N)[:nrec]
-        x = theta[t] + rng.normal(0, 1 / math.sqrt(env.beta), nrec)
-        k = table.k(cell, z[t], omega) + u_subj[members] + u_grp
-        p = 1.0 / (1.0 + np.exp(-(k - x) / noise))
-        a = (rng.random(nrec) < p).astype(float)
-        rows_x.append(x)
-        rows_z.append(np.full(nrec, z[t]))
-        rows_a.append(a)
-    X = np.column_stack([np.ones(nrec * R), np.concatenate(rows_x), np.concatenate(rows_z)])
-    y = np.concatenate(rows_a)
-    coef, *_ = np.linalg.lstsq(X, y, rcond=None)
+    members = np.argsort(rng.random((R, N)), axis=1)[:, :nrec]
+    x = theta[:, None] + rng.normal(0, 1 / math.sqrt(env.beta), (R, nrec))
+    k = table.k(cell, z, omega)[:, None] + u_subj[members] + u_grp
+    p = 1.0 / (1.0 + np.exp(-(k - x) / noise))
+    a = (rng.random((R, nrec)) < p).astype(float)
+    X = np.column_stack([np.ones(R * nrec), x.ravel(), np.repeat(z, nrec)])
+    coef, *_ = np.linalg.lstsq(X, a.ravel(), rcond=None)
     return float(coef[2]), float(coef[1]), nrec * R
 
 
@@ -154,3 +152,35 @@ def two_cell_test(design: Design, tabs: dict, cells: tuple, omega: float, noise:
     pooled = (((est[0] - est[0].mean()) ** 2).sum() + ((est[1] - est[1].mean()) ** 2).sum()) / (2 * G - 2)
     se = math.sqrt(pooled * 2 / G)
     return abs(diff / se) > stats.t.ppf(1 - alpha_level / 2, 2 * G - 2), diff
+
+
+def interaction_cells(design: Design, table: CutoffTable, cells: tuple, omega: float, noise: float,
+                      sd_subject: float, sd_group: float, G: int, rng: np.random.Generator,
+                      alpha_level: float = 0.05) -> bool:
+    """Pooled-variance t-test of (c0 - c1) - (c2 - c3) on group-level slopes, G groups per cell."""
+    est = [np.array([simulate_group(design, table, c, omega, noise, sd_subject, sd_group, rng)[0]
+                     for _ in range(G)]) for c in cells]
+    diff = (est[0].mean() - est[1].mean()) - (est[2].mean() - est[3].mean())
+    pooled = sum(((e - e.mean()) ** 2).sum() for e in est) / (4 * G - 4)
+    return abs(diff / math.sqrt(pooled * 4 / G)) > stats.t.ppf(1 - alpha_level / 2, 4 * G - 4)
+
+
+def simulated_power(design: Design, table: CutoffTable, cells: tuple, omega: float, noise: float,
+                    sd_subject: float, sd_group: float, G: int, reps: int, seed: int) -> float:
+    rng = np.random.default_rng(seed)
+    return sum(interaction_cells(design, table, cells, omega, noise, sd_subject, sd_group, G, rng)
+               for _ in range(reps)) / reps
+
+
+def groups_for_power(design: Design, table: CutoffTable, cells: tuple, omega: float, noise: float,
+                     sd_subject: float, sd_group: float, start: int, target: float, reps: int,
+                     seed: int) -> dict:
+    """Smallest G (searched upward from an analytic start) whose simulated power reaches target."""
+    G = max(2, start)
+    tried = []
+    while True:
+        pw = simulated_power(design, table, cells, omega, noise, sd_subject, sd_group, G, reps, seed)
+        tried.append([G, pw])
+        if pw >= target or G > 2000:
+            return {"groups_per_cell": G, "simulated_power": pw, "tried": tried}
+        G += max(1, int(math.ceil(0.04 * G)))

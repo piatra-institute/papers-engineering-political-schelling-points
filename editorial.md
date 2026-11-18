@@ -1,6 +1,6 @@
 # Editorial record
 
-Status: author's full read complete; independent editorial review pending (to be recorded in editorial-review.json by a reviewer from another model family).
+Status: author's full read of the round-1 revision complete; independent editorial review pending.
 
 ## Contribution and reader
 
@@ -16,7 +16,7 @@ The residual over prior work, stated in the paper's "What this paper adds": prov
 - Proposition 4(ii): the iso-response curve showing that a credible privately seen message and a discredited public one are observationally equivalent.
 - The provenance arm's prediction of a sign reversal at a neglect level the same experiment measures.
 
-## Reverse outline
+## Reverse outline (updated in round 1: adds 'How large a campaign the analysis covers', Proposition 3 on receipt versus common belief, label analysis, belief-consistent persistence, the acknowledgment cell)
 
 1. A call seen by many and sent by one: the case and the two values; scope (analysis, measurement, defence; no production).
 2. What is known: global games and public information; regime change and manipulation; information design; common knowledge and thresholds; correlation neglect and the majority illusion; empirical evidence; the residual.
@@ -42,3 +42,18 @@ Rival 1: the amplification effect is persuasion or a majority illusion, and Morr
 - Disclosure shares are reported on the participation scale at theta0 throughout.
 - No public-data empirical check was attempted: no public dataset measures beliefs about common-knowledge reach.
 - Source claims remain verified: false pending independent review; editorial-review.json and visual-review.json are left to the independent reviewer.
+
+## Revision round 1 (2026-11-18): decisions
+
+Responding to a fresh-context Claude referee (nine majors, eleven minors; per-finding responses in revision/2026-11/ledger/engineering-political-schelling-points/fix-round1.json).
+
+- Title: the head stays; the subtitle is now "Disclosure Removes Coordination Only When Commonly Known" (7 words), which states the main disclosure result.
+- Focal points (F1): the introduction now says that under uniqueness a commonly known uninformative message has no effect, that the coordination channel is the Morris-Shin publicity effect, and that Schelling-style selection appears only outside the uniqueness bound (now quantified) and in the repeated game.
+- Campaign size (F2): the opening example uses five accounts; a new subsection states the bound (8 reports believed independent at baseline) and reports the multiplicity region for larger campaigns.
+- Neglect (F3): ignorance of the source structure and neglect of a known correlation are separate; disclosure results are reported as functions of post-disclosure neglect chi'.
+- Persistence (F4): new baseline with both steady states at positive status-quo strength; belief-consistent shocks reported (exit times, stationary shares, campaign paths); a precise environment shows where persistence survives; abstract and implications restated at that scale.
+- Receipt versus common belief (F5): actual receipt v_a separated from commonly believed reach v (Proposition 3); new laboratory cell holding receipt fixed and varying public acknowledgment, after Thomas et al. (2014), with predicted effects and simulated power.
+- Labels (F6): modelled as noticed with probability p; the isolated figure is stated as a lower bound.
+- Identification (F7): Proposition 5(ii) restated as local; weak global identification quantified by Kullback-Leibler divergence.
+- Literature (F8, F9, F18): Morris and Shin (2007), Myatt and Wallace (2012), Thomas et al. (2014), De Freitas et al. (2019), Shadmehr and Bernhardt (2011), Levy and Razin (2015) added and verified; the contribution restated as the regime-change, disclosure-framed version with closed forms.
+- Minors: both scales reported for disclosure shares; "more than in proportion"; M0 = 1/(1 - kappa v); wording of the coordination channel; sample sizes found by simulated power; finite-group check for the partial cell; signatures labelled as modelling consequences with a second illusion variant; provenance-arm Pi from the aware model and a no-feedback protocol; abstract's last sentence states the binding limit; the scope disclaimer in the introduction removed.

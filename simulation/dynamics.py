@@ -180,3 +180,51 @@ def residence_times(env: Env, gamma: float, theta_bar: float, sigma: float, peri
             "mean_residence_high": float(in_high.sum() / max(switches_out_high, 1)),
             "mean_residence_low": float((~in_high).sum() / max(switches_out_low, 1)),
             "exits_high": switches_out_high, "exits_low": switches_out_low, "periods": periods}
+
+
+# ------------------------------------------------------------------ belief-consistent shocks with a campaign
+def _cutoff_table(env: Env, mus: np.ndarray, message=None) -> np.ndarray:
+    out = np.empty_like(mus)
+    for i, m in enumerate(mus):
+        e = replace(env, mu=float(m))
+        if message is None:
+            out[i] = no_message(e)[1]
+        else:
+            z, tau, v = message
+            eq = solve(e, [Group(v, tau)], z)
+            if not eq.unique:
+                raise ValueError("multiple period equilibria")
+            out[i] = eq.k[0]
+    return out
+
+
+def stochastic_campaign(env: Env, gamma: float, theta_bar: float, sigma: float, message, length: int,
+                        horizons, paths: int, seed: int, grid: int = 1201) -> dict:
+    """Paths start in the low steady state. theta_t = mu_t + xi_t, xi_t ~ N(0, sigma^2).
+    A campaign (message = (z, tau, 1)) runs in periods 0..length-1 (length = 0: no campaign).
+    Returns the share of paths in the high basin at each horizon and the mean first-passage
+    time into the high basin (censored at the last horizon)."""
+    ss = steady_states(env, gamma, theta_bar)
+    low, mid = ss[0], ss[1]
+    lo_mu, hi_mu = theta_bar - gamma - 0.05, theta_bar + 0.05
+    mus = np.linspace(lo_mu, hi_mu, grid)
+    k_plain = _cutoff_table(env, mus)
+    k_msg = _cutoff_table(env, mus, message) if length > 0 else None
+    rng = np.random.default_rng(seed)
+    rb = math.sqrt(env.beta)
+    T = max(horizons)
+    mu = np.full(paths, low["mu"])
+    first = np.full(paths, np.inf)
+    share = {}
+    for t in range(T):
+        tab = k_msg if (t < length) else k_plain
+        k = np.interp(mu, mus, tab)
+        theta = mu + rng.normal(0.0, sigma, paths)
+        A = Phi(rb * (k - theta))
+        mu = theta_bar - gamma * A
+        high = mu < mid["mu"]
+        first = np.where(np.isinf(first) & high, t + 1, first)
+        if t + 1 in horizons:
+            share[str(t + 1)] = float(high.mean())
+    fp = np.where(np.isinf(first), T, first)
+    return {"share_high": share, "mean_first_passage": float(fp.mean()), "censored": float(np.isinf(first).mean())}

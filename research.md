@@ -47,3 +47,12 @@ Findings, tiered by source proximity. T1 primary, T2 authoritative secondary, T3
 
 - Whether real platform audiences hold beliefs about reach that correspond to a common-knowledge share; no public dataset measures this.
 - Whether the disclosure effects survive competing messages and strategic senders; not modelled.
+
+### Added in revision round 1
+
+- [T1/T2] Precision versus common understanding as a trade-off in communication to a group. Morris and Shin (2007), abstract. Theorem 1(c) is its regime-change form.
+- [T1/T2] Accuracy versus clarity (publicness) of signals in a coordination game. Myatt and Wallace (2012), abstract. Precedent for treating provenance and visibility as separate.
+- [T1/T2] Common knowledge (loudspeaker) raises risky coordination relative to shared (messenger) or private knowledge. Thomas et al. (2014), abstract; review in De Freitas et al. (2019). Basis of the acknowledgment cell.
+- [T1/T2] Public signals from other citizens can reduce revolt under payoff uncertainty. Shadmehr and Bernhardt (2011), abstract.
+- [T1/T2] Correlation neglect can improve political outcomes. Levy and Razin (2015), abstract.
+- [computed] M0 = 1/(1 - kappa v); receivers' responses depend on commonly believed receipt only; labels between isolated and common disclosure; persistence under belief-consistent shocks substantial only where shocks are small relative to erosion; weak global identification of (tau, v) from curvature.
